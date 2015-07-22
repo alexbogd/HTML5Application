@@ -1,0 +1,280 @@
+
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+	<head>
+		<title>My first Three.js app</title>
+		<style>
+			body { margin: 0; }
+			canvas { width: 100%; height: 100% }
+		</style>
+
+        
+		<script src="js/three.min.js"></script>
+                <script src="js/FlyControls.js"></script>
+		<script>
+                    
+                   
+                    
+                    function init(){
+                        
+			var scene = new THREE.Scene();
+                        
+                        var canv = document.getElementsByTagName("canvas")[0];
+                        var w = canv.clientWidth;
+                        var h = canv.clientHeight;
+			var renderer = new THREE.WebGLRenderer({canvas:canv});
+			renderer.setSize( w,h );
+                        renderer.setClearColor(new THREE.Color(0xeeeeee), 1 );
+                        var camera = new THREE.PerspectiveCamera( 15, w/h*2, 0.1, 1000 );
+			document.body.appendChild( renderer.domElement );
+
+			
+                    //Plane
+                    
+                        var geometry = new THREE.PlaneBufferGeometry(35.25,35.09   );
+			var material = new THREE.MeshPhongMaterial( { color: 0x858585, side: THREE.DoubleSide } );
+                        var material_m = new THREE.MeshPhongMaterial( { color: 0xF23ADF, side: THREE.DoubleSide } );
+                        var plane = new THREE.Mesh( geometry, material );
+                        plane.rotation.x = -Math.PI/2;
+                        plane.receiveShadow = true;
+                        
+                        
+                        geometry = new THREE.PlaneBufferGeometry(21.7, 7  );
+                        var plane_pc = new THREE.Mesh(geometry, material);
+                        plane_pc.position.x = -27.5;
+                        plane_pc.rotation.x = Math.PI/2;
+                        
+                        plane_pc.castShadow = true;
+                        scene.add(plane_pc);
+                    //Mauer rechts
+                        var mauer_geo = new THREE.BoxGeometry(1, 3 ,31.09  );
+                        var mauer_r = new THREE.Mesh(mauer_geo, material_m);
+                       
+                        mauer_r.position.x = 18.1;
+                        mauer_r.position.y = 1.5;
+                        mauer_r.position.z = 2.12  ;
+                        mauer_r.castShadow = true;
+                        scene.add(mauer_r);
+                        
+                        
+                    //Mauer oben rechts 1
+                        mauer_geo = new THREE.BoxGeometry(5 , 3, 1  );
+                        var mauer_obenr_1 = new THREE.Mesh(mauer_geo, material_m);
+                        //mauer_obenr_1.rotation.y = -Math.PI/2;
+                        mauer_obenr_1.position.x = 15.15;
+                        mauer_obenr_1.position.z = -12.955  ;
+                        mauer_obenr_1.position.y = 1.5;
+                        mauer_obenr_1.castShadow = true;
+                        scene.add(mauer_obenr_1);
+                    
+                    //Mauer oben rechts 2
+                    
+                        mauer_geo = new THREE.BoxGeometry(1 , 5    , 3  );
+                        var mauer_obenr_2 = new THREE.Mesh(mauer_geo, material_m);
+                        mauer_obenr_2.rotation.x = -Math.PI/2;
+                        mauer_obenr_2.position.x = 13.15;
+                        mauer_obenr_2.position.y = 1.5;
+                        mauer_obenr_2.position.z = -15.605   ;
+                        mauer_obenr_2.castShadow = true;
+                        scene.add(mauer_obenr_2);
+                        
+                    // Mauer oben
+                    
+                        mauer_geo = new THREE.BoxGeometry(31.25 , 4.4, 1   );
+                        var mauer_oben = new THREE.Mesh(mauer_geo, material_m);
+                        mauer_oben.position.z = -18.005  ;
+                        mauer_oben.position.y = 2.2;
+                        mauer_oben.position.x = -2.0;
+                        mauer_oben.castShadow = true;
+                        scene.add(mauer_oben);
+                    
+                    //Mauer oben links
+                    
+                        mauer_geo = new THREE.BoxGeometry(1, 4.4 ,16   );
+                        var mauer_obenl = new THREE.Mesh(mauer_geo, material_m);
+                        mauer_obenl.position.x = -18.125;
+                        mauer_obenl.position.y = 2.2;
+                        mauer_obenl.position.z = -10.55;
+                        mauer_obenl.castShadow = true;
+                        scene.add(mauer_obenl),
+                    
+                    //Mauer mitte links 1
+                    
+                        mauer_geo = new THREE.BoxGeometry(20.2 , 4.4, 1   );
+                        var mauer_mittel_1 = new THREE.Mesh(mauer_geo, material_m);
+                        mauer_mittel_1.position.x = -27.7;
+                        mauer_mittel_1.position.y = 2.2;
+                        mauer_mittel_1.position.z = -3  ;
+                        mauer_mittel_1.castShadow = true;
+                        scene.add(mauer_mittel_1);
+                    
+                    //Mauer mitte Verbindung
+                   
+                        mauer_geo = new THREE.BoxGeometry(1, 4.4 ,8   );
+                        var mauer_mittev = new THREE.Mesh(mauer_geo, material_m);
+                        mauer_mittev.position.x = -38.25;
+                        mauer_mittev.position.y = 2.2;
+                        mauer_mittev.position.z = 0.5;
+                        mauer_mittev.castShadow = true;
+                        
+                        scene.add(mauer_mittev);
+                        
+                        
+        
+                    //Mauer mitte links 2
+                    
+                        mauer_geo = new THREE.BoxGeometry(27.2 , 4.4, 1  );
+                        var mauer_mittel_2 = new THREE.Mesh(mauer_geo, material_m);
+                        mauer_mittel_2.position.x = -24.2;
+                        mauer_mittel_2.position.y = 2.2;
+                        mauer_mittel_2.position.z = 4;
+                        mauer_mittel_2.castShadow = true;
+                        scene.add(mauer_mittel_2);
+                        
+                    //Mauer unten links 1
+                    
+                        mauer_geo = new THREE.BoxGeometry(1, 4.4 ,12.4  );
+                        var mauer_untenl_1 = new THREE.Mesh(mauer_geo, material_m);
+                        mauer_untenl_1.position.x = -11.09;
+                        mauer_untenl_1.position.y = 2.2;
+                        mauer_untenl_1.position.z = 10.1;
+                        mauer_untenl_1.castShadow = true;
+                        scene.add(mauer_untenl_1);
+                    
+                    //Mauer unten links 2
+                    
+                        mauer_geo = new THREE.BoxGeometry(10.54 , 4.4, 1   );
+                        var mauer_untenl_2 = new THREE.Mesh(mauer_geo, material_m); 
+                        mauer_untenl_2.position.x = -6.32;
+                        mauer_untenl_2.position.y = 2.2;
+                        mauer_untenl_2.position.z = 16.45;
+                        mauer_untenl_2.castShadow = true;
+                        scene.add(mauer_untenl_2);
+                        
+                    //Mauer mitte unten
+                    
+                        mauer_geo = new THREE.BoxGeometry(1, 3 ,2.26  );
+                        var mauer_mitteu = new THREE.Mesh(mauer_geo, material_m);
+                        mauer_mitteu.position.x = -1.54875;
+                        mauer_mitteu.position.y = 1.5; 
+                        mauer_mitteu.position.z = 17.145;
+                        mauer_mitteu.castShadow = true;
+                        scene.add(mauer_mitteu);
+                        
+                    //Mauer unten
+                    
+                        mauer_geo = new THREE.BoxGeometry(20.55 , 3, 1  );
+                        var mauer_unten = new THREE.Mesh(mauer_geo, material_m);
+                        mauer_unten.position.x = 8.3125;
+                        mauer_unten.position.y = 1.5;
+                        mauer_unten.position.z = 18.045;
+                        mauer_unten.castShadow = true;
+                        scene.add(mauer_unten);
+                                
+                    // Einrichtung: Aufsteller
+        
+                        geometry = new THREE.CubeGeometry(5.8,1.1,1.1);
+                        var table_mat = new THREE.MeshLambertMaterial({color: 0x845647});
+                        var table = new THREE.Mesh(geometry, table_mat);
+                        table.position.y = 0.5;
+                        
+                        table.castShadow = true;
+                        scene.add(camera);
+			scene.add( plane );
+                        
+                       
+                        scene.add(table);
+                        
+                        
+                    //Test
+                        
+
+                    //Lights
+       
+                        var spotLight = new THREE.DirectionalLight( 0xFFFFFF);
+                        spotLight.position.set( -20, 30, 0 );
+                        spotLight.target.position.set(0,0,0);
+                        spotLight.castShadow = true;
+                        spotLight.shadowDarkness = 0.15;
+                        spotLight.shadowCameraVisible = true;
+                        spotLight.shadowCameraNear = 0;
+                        spotLight.shadowCameraFar = 50; 
+                        spotLight.shadowCameraLeft = -50;
+                        spotLight.shadowCameraRight = 50;
+                        spotLight.shadowCameraTop = 50;
+                        spotLight.shadowCameraBottom = -50;
+             
+                        scene.add( spotLight );
+                        
+                        
+                        var spotLight2 = new THREE.DirectionalLight( 0x8459FF);
+                        spotLight2.position.set( 20, 30, 20 );
+                        spotLight2.target.position.set(0,0,0);
+                        spotLight2.castShadow = true;
+                        spotLight2.shadowDarkness = 0.45;
+                        spotLight2.shadowCameraVisible = true;
+                        spotLight2.shadowCameraNear = 0;
+                        spotLight2.shadowCameraFar = 50; 
+                        spotLight2.shadowCameraLeft = -50;
+                        spotLight2.shadowCameraRight = 50;
+                        spotLight2.shadowCameraTop = 50;
+                        spotLight2.shadowCameraBottom = -50;
+             
+                        scene.add( spotLight2 );
+           
+           
+           
+                      //  renderer.shadowMapEnabled = true;
+                      //  renderer.shadowMapType = THREE.PCFSoftShadowMap;
+                    
+                            
+
+
+                    //FlyControl
+                    
+                        var control = new THREE.FlyControls(camera, canv)
+                        control.dragToLook = true;
+                        control.movementSpeedMultiplier = 2;
+                        control.rollSpeed = 0.1;
+                        control.forward = 3;
+                    
+                    
+                    //Kamera
+                   
+                        //camera.rotation.y = 1*Math.PI/180;
+                        camera.rotation.x = -0.5*Math.PI;
+                        camera.position.y = 70;
+                        //camera.position.z = 50;
+
+                        //camera.position.set(1,1.8,5);
+                    
+                    
+                    //Rendering 
+            
+                        var clock = new THREE.Clock();
+                  
+                        var render = function () {
+                        
+                        
+                        var dt = clock.getDelta();
+                        control.update(dt);
+                        
+                        
+                        renderer.render(scene, camera);
+                        requestAnimationFrame( render );
+                        
+                        };
+                        
+                        requestAnimationFrame(render);
+                    }
+                    window.onload = init;
+                    window.onresize = init;
+		</script>
+                
+	<body><canvas style=" solid;"></canvas></body>
+</html>
