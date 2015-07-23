@@ -183,12 +183,43 @@ and open the template in the editor.
                     // Einrichtung: Aufsteller
                     
                     // PC
-                        geometry = new THREE.CubeGeometry(5.15* V_ANT,1.08* V_ANT,1.1* V_ANT);
+                        geometry = new THREE.CubeGeometry(5.15* V_ANT,1.1* V_ANT,1.1* V_ANT);
                         var table_mat = new THREE.MeshLambertMaterial({color: 0x845647});
-                        var table = new THREE.Mesh(geometry, table_mat);
-                        table.position.x = -10.205* V_ANT;
-                        table.position.y = 0.54* V_ANT;
-                        table.position.z = -0.2* V_ANT;
+                        var pc_lap = new THREE.Mesh(geometry, table_mat);
+                        pc_lap.position.x = -11.705* V_ANT;
+                        pc_lap.position.y = 0.55* V_ANT;
+                        pc_lap.position.z = -0.8* V_ANT;
+                        
+                        scene.add(pc_lap);
+                        
+                        geometry = new THREE.CubeGeometry(3.45 * V_ANT, 1.1 * V_ANT, 0.8* V_ANT);
+                        var pc_druck = new THREE.Mesh(geometry, table_mat);
+                        pc_druck.position.x = -22.125 * V_ANT;
+                        pc_druck.position.y = 0.55 * V_ANT;
+                        
+                        scene.add(pc_druck);
+                        
+                        geometry = new THREE.CubeGeometry(3.45 * V_ANT, 1.1 * V_ANT, 0.8* V_ANT);
+                        var pc_druck_2 = new THREE.Mesh(geometry, table_mat);
+                        pc_druck_2.position.x = -27.275 * V_ANT;
+                        pc_druck_2.position.y = 0.55 * V_ANT;
+                        
+                        scene.add(pc_druck_2);
+                        
+                        geometry = new THREE.CubeGeometry(0.6 * V_ANT, 2.3 * V_ANT, 0.6* V_ANT);
+                        var pc_vit = new THREE.Mesh(geometry, table_mat);
+                        pc_vit.position.x = -31.275 * V_ANT;
+                        pc_vit.position.y = 1.65 * V_ANT;
+                        
+                        scene.add(pc_vit);
+                        
+                        geometry = new THREE.CubeGeometry(2.6 * V_ANT, 1.5 * V_ANT, 0.1* V_ANT);
+                        var pc_viv = new THREE.Mesh(geometry, table_mat);
+                        pc_viv.position.x = -32.575 * V_ANT;
+                        pc_viv.position.y = 0.75 * V_ANT;
+                        
+                        scene.add(pc_viv);
+                        
                         
                         
                     // TV
@@ -293,9 +324,7 @@ and open the template in the editor.
                         scene.add(tv_fernseher_14);
                         scene.add(tv_fernseher_15);
                         
-                        
-                        
-                        
+      
                     //Foto 
                     
                         geometry = new THREE.CubeGeometry(0.08 * V_ANT, 1.3 * V_ANT, 10* V_ANT);
@@ -306,10 +335,16 @@ and open the template in the editor.
                         
                         scene.add(foto_lang_hr);
                         
-                        table.castShadow = true;
-                        scene.add(camera);
-			scene.add( plane );
-                        scene.add(table);
+                        geometry = new THREE.CubeGeometry(0.08*V_ANT, 1.3 * V_ANT, 5.25 * V_ANT);
+                        var foto_kasse_hr = new THREE.Mesh(geometry, material_m);
+                        foto_kasse_hr.position.x = 4.8 * V_ANT;
+                        foto_kasse_hr.position.y = 0.65 * V_ANT;
+                        foto_kasse_hr.position.z = 5.95 * V_ANT;
+                       
+                        foto_kasse_hr.rotation.y = Math.PI/4;
+                        
+                        scene.add(foto_kasse_hr);
+                       
                         
                     //Weiße Ware
                     
@@ -344,9 +379,7 @@ and open the template in the editor.
                         scene.add(ww_waschm_3);
                         scene.add(ww_waschm_4);
                         scene.add(ww_waschm_5);
-                        
-                    //Test
-                        
+            
 
                     //Lights
        
@@ -407,6 +440,11 @@ and open the template in the editor.
                
                     //Rendering 
             
+                        
+                        scene.add(camera);
+			scene.add( plane );
+                       
+                        
                         var clock = new THREE.Clock();
                   
                         var render = function () {
