@@ -39,6 +39,7 @@ and open the template in the editor.
                     // Materiale und Farben
                         
                         var prod = new THREE.MeshLambertMaterial({color: 0x39444F});
+                        var teppich = new THREE.MeshLambertMaterial({color:0x3366CC});
                        
                     //Plane
                     
@@ -515,6 +516,29 @@ and open the template in the editor.
                         
                         scene.add(tv_sony_wand);
                         
+                        geometry = new THREE.CubeGeometry(0.04 * V_ANT, 0.88 * V_ANT, 1.77 * V_ANT);  
+                        var tv_sony_stand_tv = new THREE.Mesh(geometry, prod);
+                        tv_sony_stand_tv.position.x = -10.025 * V_ANT;
+                        tv_sony_stand_tv.position.y = 0.44 * V_ANT + 0.65 * V_ANT + 0.04 * V_ANT;
+                        tv_sony_stand_tv.position.z = -9.12 * V_ANT;
+                        
+                        scene.add(tv_sony_stand_tv)
+                        
+                        geometry = new THREE.CubeGeometry(0.32 * V_ANT, 0.03 * V_ANT, 0.04 * V_ANT);  
+                        var tv_sony_stand_tv_fuß = new THREE.Mesh(geometry, prod);
+                        tv_sony_stand_tv_fuß.position.x = -10.025 * V_ANT;
+                        tv_sony_stand_tv_fuß.position.y = 0.015 * V_ANT + 0.65 * V_ANT ;
+                        tv_sony_stand_tv_fuß.position.z = -8.335 * V_ANT;
+                    
+                        scene.add(tv_sony_stand_tv_fuß);
+                        
+                        var tv_sony_stand_tv_fuß2 = new THREE.Mesh(geometry, prod);
+                        tv_sony_stand_tv_fuß2.position.x = -10.025 * V_ANT;
+                        tv_sony_stand_tv_fuß2.position.y = 0.015 * V_ANT + 0.65 * V_ANT ;
+                        tv_sony_stand_tv_fuß2.position.z = -9.905 * V_ANT;
+                    
+                        scene.add(tv_sony_stand_tv_fuß2);
+                        
                     //Samsung
                     
                         geometry = new THREE.CubeGeometry(3.85 * V_ANT, 0.65 * V_ANT, 1.2* V_ANT);
@@ -645,6 +669,167 @@ and open the template in the editor.
                         
                     //HIFI
                     
+                      //Teppich
+                        geometry = new THREE.CubeGeometry(2* V_ANT, 0.02* V_ANT, 3* V_ANT);   
+                        var hifi_teppich = new THREE.Mesh(geometry, teppich);
+                        hifi_teppich.position.x = 10* V_ANT;
+                        hifi_teppich.position.y = 0.01* V_ANT;
+                        hifi_teppich.position.z = -13* V_ANT;
+                        
+                        scene.add(hifi_teppich);
+                        
+                    // Tisch rund
+                    
+                        geometry = new THREE.CylinderGeometry(0.25 * V_ANT, 0.25 * V_ANT, 0.05, 40);
+                        var tisch_rund = new THREE.Mesh(geometry, prod);
+                        tisch_rund.position.x = 10 * V_ANT;
+                        tisch_rund.position.y = 0.57 * V_ANT + 0.02 * V_ANT;
+                        tisch_rund.position.z = -13 *V_ANT;
+                        
+                        scene.add(tisch_rund);
+                        
+                        geometry = new THREE.CubeGeometry(0.05 * V_ANT, 0.57 * V_ANT, 0.05 * V_ANT);
+                        var tisch_bein = new THREE.Mesh(geometry, prod);
+                        tisch_bein.position.x = 10 * V_ANT;
+                        tisch_bein.position.y = 0.285 * V_ANT + 0.02 * V_ANT;
+                        tisch_bein.position.z = -13 * V_ANT;
+                        
+                        scene.add(tisch_bein);
+                                
+                        
+                      //Sitz
+                        geometry = new THREE.CubeGeometry(1.25* V_ANT, 0.4* V_ANT, 0.53* V_ANT);   
+                        var hifi_sitz = new THREE.Mesh(geometry, table_mat);
+                        hifi_sitz.position.x = 10* V_ANT;
+                        hifi_sitz.position.y = 0.2* V_ANT;
+                        hifi_sitz.position.z = -11.85* V_ANT;
+                        
+                        scene.add(hifi_sitz);
+                        
+                        geometry = new THREE.CubeGeometry(0.25* V_ANT, 0.9* V_ANT, 0.04* V_ANT);   
+                        var hifi_sitz_lehne = new THREE.Mesh(geometry, table_mat);
+                        hifi_sitz_lehne.position.x = 10.2* V_ANT;
+                        hifi_sitz_lehne.position.y = 0.45* V_ANT + 0.4 * V_ANT;
+                        hifi_sitz_lehne.position.z = -11.58* V_ANT;
+                        hifi_sitz_lehne.rotation.x = Math.PI/30;
+                        
+                        scene.add(hifi_sitz_lehne);
+                        
+                        var hifi_sitz_lehne2 = new THREE.Mesh(geometry, table_mat);
+                        hifi_sitz_lehne2.position.x = 9.8* V_ANT;
+                        hifi_sitz_lehne2.position.y = 0.45* V_ANT + 0.4 * V_ANT;
+                        hifi_sitz_lehne2.position.z = -11.58* V_ANT;
+                        hifi_sitz_lehne2.rotation.x = Math.PI/30;
+                        
+                        scene.add(hifi_sitz_lehne2);
+                        
+                    // Fernseher + Stand
+                    
+                        geometry = new THREE.CubeGeometry(1.5* V_ANT, 0.68* V_ANT, 0.5* V_ANT);   
+                        var hifi_kino_stand = new THREE.Mesh(geometry, table_mat);
+                        hifi_kino_stand.position.x = 10* V_ANT;
+                        hifi_kino_stand.position.y = 0.34* V_ANT;
+                        hifi_kino_stand.position.z = -14* V_ANT;
+                        
+                        scene.add(hifi_kino_stand);
+                        
+                        geometry = new THREE.CubeGeometry(1.77 * V_ANT, 1 * V_ANT, 0.05 * V_ANT);  
+                        var hifi_tv = new THREE.Mesh(geometry, prod);
+                        hifi_tv.position.x = 10 * V_ANT;
+                        hifi_tv.position.y = 0.5 * V_ANT + 0.68 * V_ANT;
+                        hifi_tv.position.z = -14 * V_ANT;
+                        
+                        scene.add( hifi_tv);
+                        
+                        geometry = new THREE.CubeGeometry(0.55 * V_ANT, 0.05 * V_ANT, 0.3 * V_ANT);  
+                        var  hifi_tv_fußstand = new THREE.Mesh(geometry, prod);
+                        hifi_tv_fußstand.position.x = 10 * V_ANT;
+                        hifi_tv_fußstand.position.y = 0.025 * V_ANT + 0.68 * V_ANT;
+                        hifi_tv_fußstand.position.z = -14 * V_ANT;
+                        
+                        scene.add(hifi_tv_fußstand);
+                        
+                        geometry = new THREE.CubeGeometry(0.11 * V_ANT, 0.13 * V_ANT, 0.06 * V_ANT);  
+                        var hifi_tv_fuß = new THREE.Mesh(geometry, prod);
+                        hifi_tv_fuß.position.x = 10 * V_ANT;
+                        hifi_tv_fuß.position.y = 0.065 * V_ANT + 0.68 * V_ANT + 0.025 * V_ANT;
+                        hifi_tv_fuß.position.z = -14.08 * V_ANT;
+                        hifi_tv_fuß.rotation.x = Math.PI/10;
+                        
+                        scene.add(hifi_tv_fuß);
+                        
+                     // Anlagen
+                      
+                        geometry = new THREE.CubeGeometry(0.25 * V_ANT, 0.02 * V_ANT, 0.25 * V_ANT);
+                        var hifi_satfuß_1 = new THREE.Mesh(geometry, prod);
+                        hifi_satfuß_1.position.x = 8.8 * V_ANT;
+                        hifi_satfuß_1.position.y = 0.01 * V_ANT + 0.02 * V_ANT;
+                        hifi_satfuß_1.position.z = -13.8 * V_ANT;
+                        
+                        scene.add(hifi_satfuß_1);
+                        
+                        geometry = new THREE.CubeGeometry(0.09 * V_ANT, 1.28 * V_ANT, 0.07 * V_ANT);
+                        var hifi_sat_1 = new THREE.Mesh(geometry, prod);
+                        hifi_sat_1.position.x = 8.8 * V_ANT;
+                        hifi_sat_1.position.y = 0.64 * V_ANT + 0.02 * V_ANT + 0.02;
+                        hifi_sat_1.position.z = -13.8 * V_ANT;
+                        
+                        scene.add(hifi_sat_1);
+                        
+                        geometry = new THREE.CubeGeometry(0.25 * V_ANT, 0.02 * V_ANT, 0.25 * V_ANT);
+                        var hifi_satfuß_2 = new THREE.Mesh(geometry, prod);
+                        hifi_satfuß_2.position.x = 11.2 * V_ANT;
+                        hifi_satfuß_2.position.y = 0.01 * V_ANT + 0.02 * V_ANT;
+                        hifi_satfuß_2.position.z = -13.8 * V_ANT;
+                        
+                        scene.add(hifi_satfuß_2);
+                        
+                        geometry = new THREE.CubeGeometry(0.09 * V_ANT, 1.28 * V_ANT, 0.07 * V_ANT);
+                        var hifi_sat_2 = new THREE.Mesh(geometry, prod);
+                        hifi_sat_2.position.x = 11.2 * V_ANT;
+                        hifi_sat_2.position.y = 0.64 * V_ANT + 0.02 * V_ANT + 0.02;
+                        hifi_sat_2.position.z = -13.8 * V_ANT;
+                        
+                        scene.add(hifi_sat_2);
+                        
+                        geometry = new THREE.CubeGeometry(0.25 * V_ANT, 0.02 * V_ANT, 0.25 * V_ANT);
+                        var hifi_satfuß_3 = new THREE.Mesh(geometry, prod);
+                        hifi_satfuß_3.position.x = 8.8 * V_ANT;
+                        hifi_satfuß_3.position.y = 0.01 * V_ANT + 0.02 * V_ANT;
+                        hifi_satfuß_3.position.z = -11.3 * V_ANT;
+                        hifi_satfuß_3.rotation.y = Math.PI/4;
+                        
+                        scene.add(hifi_satfuß_3);
+                        
+                        geometry = new THREE.CubeGeometry(0.09 * V_ANT, 1.28 * V_ANT, 0.07 * V_ANT);
+                        var hifi_sat_3 = new THREE.Mesh(geometry, prod);
+                        hifi_sat_3.position.x = 8.8 * V_ANT;
+                        hifi_sat_3.position.y = 0.64 * V_ANT + 0.02 * V_ANT + 0.02;
+                        hifi_sat_3.position.z = -11.3 * V_ANT;
+                        hifi_sat_3.rotation.y = -Math.PI/4;
+                        
+                        scene.add(hifi_sat_3);
+                        
+                        geometry = new THREE.CubeGeometry(0.25 * V_ANT, 0.02 * V_ANT, 0.25 * V_ANT);
+                        var hifi_satfuß_4 = new THREE.Mesh(geometry, prod);
+                        hifi_satfuß_4.position.x = 11.2 * V_ANT;
+                        hifi_satfuß_4.position.y = 0.01 * V_ANT + 0.02 * V_ANT;
+                        hifi_satfuß_4.position.z = -11.3 * V_ANT;
+                        hifi_satfuß_4.rotation.y = -Math.PI/4;
+                        
+                        scene.add(hifi_satfuß_4);
+                        
+                        geometry = new THREE.CubeGeometry(0.09 * V_ANT, 1.28 * V_ANT, 0.07 * V_ANT);
+                        var hifi_sat_4 = new THREE.Mesh(geometry, prod);
+                        hifi_sat_4.position.x = 11.2 * V_ANT;
+                        hifi_sat_4.position.y = 0.64 * V_ANT + 0.02 * V_ANT + 0.02;
+                        hifi_sat_4.position.z = -11.3 * V_ANT;
+                        hifi_sat_4.rotation.y = Math.PI/4;
+                        
+                        scene.add(hifi_sat_4);
+                        
+                     // Kino Ende
+                        
                         geometry = new THREE.CubeGeometry(0.8* V_ANT,1.1* V_ANT,3.6* V_ANT);   
                         var hifi_regal_1 = new THREE.Mesh(geometry, table_mat);
                         hifi_regal_1.position.x = 7* V_ANT;
