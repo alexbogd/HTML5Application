@@ -583,12 +583,12 @@ and open the template in the editor.
                    //Trapezstand
                    
                         var points = [
-                                new THREE.Vector3( 0.285* V_ANT, 0, 0),
+                                new THREE.Vector3( 0.285* V_ANT, 0, -0.285 * V_ANT),
                                 new THREE.Vector3( 0, 0.3 *V_ANT, 0),
-                                new THREE.Vector3( 0, 0, 0),
-                                new THREE.Vector3( 0.285 * V_ANT, 0 , 2.85 * V_ANT),
+                                new THREE.Vector3( 0, 0, -0.285 * V_ANT),
+                                new THREE.Vector3( 0.285 * V_ANT, 0 , 3.135 * V_ANT),
                                 new THREE.Vector3( 0, 0.3 * V_ANT,2.85 * V_ANT),
-                                new THREE.Vector3( 0 ,0 , 2.85 * V_ANT)
+                                new THREE.Vector3( 0 ,0 , 3.135 * V_ANT)
                         ];
                      
                         var tv_trapez_l = new THREE.SceneUtils.createMultiMaterialObject(new THREE.ConvexGeometry(points), materials);
@@ -615,10 +615,24 @@ and open the template in the editor.
                         scene.add(tv_trapez_r);
                         
                         
-                   
+                    var points = [
+                                new THREE.Vector3( 0.33* V_ANT, 0, 0),
+                                new THREE.Vector3( 0, 0 , 0),
+                                new THREE.Vector3( 0.33 * V_ANT, 0.3 * V_ANT, 0.285 * V_ANT),
+                                new THREE.Vector3( 0, 0.3 *V_ANT , 0.285 * V_ANT),
+                                new THREE.Vector3( 0.33 * V_ANT, 0.3 * V_ANT, 0),
+                                new THREE.Vector3( 0, 0.3 *V_ANT , 0),
+                        ];
                  
                         
+                        var zelt = new THREE.SceneUtils.createMultiMaterialObject(new THREE.ConvexGeometry(points),materials );
+                        zelt.position.set(-8.125 * V_ANT, 0 * V_ANT, -7.95 * V_ANT);
+                        scene.add(zelt);
                         
+                        zelt = new THREE.SceneUtils.createMultiMaterialObject(new THREE.ConvexGeometry(points),materials );
+                        zelt.position.set(-7.795 * V_ANT, 0 * V_ANT, -10.8 * V_ANT);
+                        zelt.rotation.y = Math.PI;
+                        scene.add(zelt);
                 
                         
                         
