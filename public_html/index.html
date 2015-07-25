@@ -1098,10 +1098,7 @@ and open the template in the editor.
                         tk_handy_aus.position.set(-5.0555 * V_ANT, 0.83 * V_ANT, 5.185 * V_ANT);
                         tk_handy_aus.rotation.y = Math.PI + Math.PI/6;
                         scene.add(tk_handy_aus);
-                        
-                        
-                    //TEST 
-                    
+           
                         var points = [
                             new THREE.Vector3(0,0,0),
                             new THREE.Vector3(0 , 0, -0.45 * V_ANT),
@@ -1132,6 +1129,48 @@ and open the template in the editor.
                         tk_ecken.rotation.y = Math.PI - Math.PI/4.5;
                         
                         scene.add(tk_ecken);
+                        
+                    //Games
+                    
+                        var points = [
+                            new THREE.Vector3(0,0,0),
+                            new THREE.Vector3(0.6 * V_ANT,0,0),
+                            new THREE.Vector3(0.6 * V_ANT, 0.8 * V_ANT, 0),
+                            new THREE.Vector3(0.6 * V_ANT, 0.8* V_ANT, 5 * V_ANT),
+                            new THREE.Vector3(0,0,5 * V_ANT),
+                            new THREE.Vector3(0.6* V_ANT, 0, 5 * V_ANT),
+                        ];
+                        
+                        var games_regal_1 = new THREE.SceneUtils.createMultiMaterialObject(new THREE.ConvexGeometry(points), materials);
+                        games_regal_1.position.set(-8.7 * V_ANT, 0.83 * V_ANT, 9 * V_ANT);
+                        scene.add(games_regal_1);
+                        
+                        var points = [
+                            new THREE.Vector3(0,0,0),
+                            new THREE.Vector3(0.6 * V_ANT,0,0),
+                            new THREE.Vector3(0.6 * V_ANT, 0.8 * V_ANT, 0),
+                            new THREE.Vector3(0.6 * V_ANT, 0.8* V_ANT, 5 * V_ANT),
+                            new THREE.Vector3(0,0,5 * V_ANT),
+                            new THREE.Vector3(0.6* V_ANT, 0, 5 * V_ANT),
+                        ];
+                        
+                        var games_regal_2 = new THREE.SceneUtils.createMultiMaterialObject(new THREE.ConvexGeometry(points), materials);
+                        games_regal_2.position.set(-7.5 * V_ANT, 0.83 * V_ANT, 14 * V_ANT);
+                        games_regal_2.rotation.y = Math.PI;
+                        scene.add(games_regal_2);
+                        
+                         var points = [
+                            new THREE.Vector3(0,0,0),
+                            new THREE.Vector3(0.6 * V_ANT,0,0),
+                            new THREE.Vector3(0.6 * V_ANT, 0.8 * V_ANT, 0),
+                            new THREE.Vector3(0.6 * V_ANT, 0.8* V_ANT, 5 * V_ANT),
+                            new THREE.Vector3(0,0,5 * V_ANT),
+                            new THREE.Vector3(0.6* V_ANT, 0, 5 * V_ANT),
+                        ];
+                        
+                        var games_regal_5 = new THREE.SceneUtils.createMultiMaterialObject(new THREE.ConvexGeometry(points), materials);
+                        games_regal_5.position.set(-4 * V_ANT, 0.83 * V_ANT, 9 * V_ANT);
+                        scene.add(games_regal_5);
         
                     //Lights
        
