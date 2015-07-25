@@ -1106,13 +1106,13 @@ and open the template in the editor.
                     
                         var control = new THREE.FirstPersonControls(camera);
                      
-                        control.movementSpeed = 25;
+                        control.movementSpeed = 4.5;
                         control.lookSpeed = 0.1;
                         control.lookVertical = true;
                         camera.aspect = w/h;
-                       // camera.position.y = 1.8 * V_ANT;
-                        camera.rotation.y = Math.PI;
-                        camera.position.y = 200;
+                        camera.position.y = 1.8 * V_ANT;
+                        //camera.rotation.y = Math.PI;
+                        //camera.position.y = 200;
                         camera.updateProjectionMatrix();
                         control.handleResize();
                        
@@ -1131,8 +1131,8 @@ and open the template in the editor.
                         control.update(clock.getDelta());
                         renderer.render(scene, camera);
                         requestAnimationFrame( render );
-                         ///if (camera.position.y != 1.8 * V_ANT)
-                          //  camera.position.y = 1.8 * V_ANT;
+                         if (camera.position.y != 1.8 * V_ANT)
+                            camera.position.y = 1.8 * V_ANT;
                         };
                         
                         requestAnimationFrame(render);
