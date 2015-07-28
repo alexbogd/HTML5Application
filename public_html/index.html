@@ -998,57 +998,38 @@ and open the template in the editor.
                     
                         geometry = new THREE.CubeGeometry(0.65 * V_ANT, 0.85 * V_ANT, 0.6 * V_ANT);
                         
-                        for (var i = 0; i<15; i++) {
+                        for (var i = 0; i<13; i++) {
                         var ww_waschm = new THREE.Mesh(geometry, prod);
-                        ww_waschm.position.set(12.2 * V_ANT, 0.425 * V_ANT, -(i* 0.6 *V_ANT + i* 0.1 * V_ANT) +1.5 * V_ANT);
+                        ww_waschm.position.set(12.2 * V_ANT, 0.425 * V_ANT, -(i* 0.6 *V_ANT + i* 0.05 * V_ANT) +1.5 * V_ANT);
                         scene.add(ww_waschm);
                         }
-                        //var ww_waschm_2 = new THREE.Mesh(geometry, prod);
-                        ww_waschm_2.position.set(12.2 * V_ANT, 0.425 * V_ANT, -(1* 0.6 *V_ANT + 1* 0.1 * V_ANT) +1.5 * V_ANT);
-                  
-                        var ww_waschm_3 = new THREE.Mesh(geometry, prod);
-                        ww_waschm_3.position.set(12.2 * V_ANT, 0.425 * V_ANT,-(2* 0.6 *V_ANT + 2* 0.1 * V_ANT) +1.5* V_ANT);
-                    
-                        var ww_waschm_4 = new THREE.Mesh(geometry, prod);
-                        ww_waschm_4.position.set(12.2 * V_ANT, 0.425  * V_ANT,-(3* 0.6 *V_ANT + 3* 0.1 * V_ANT) +1.5 * V_ANT);
-              
-                        var ww_waschm_5 = new THREE.Mesh(geometry, prod);
-                        ww_waschm_5.position.set(12.2 * V_ANT, 0.425 * V_ANT, -(4* 0.6 * V_ANT + 4* 0.1 * V_ANT) + 1.5 * V_ANT);
-  
-                        scene.add(ww_waschm_1);
-                        scene.add(ww_waschm_2);
-                        scene.add(ww_waschm_3);
-                        scene.add(ww_waschm_4);
-                        scene.add(ww_waschm_5);
+                        
+                        for (var i = 0; i<13; i++) {
+                            var ww_trockner = new THREE.Mesh(geometry, prod);
+                            ww_trockner.position.set(13 * V_ANT, 0.425 * V_ANT, -(i* 0.6 *V_ANT + i* 0.05 * V_ANT) +1.5 * V_ANT);
+                            scene.add(ww_trockner);
+                        }
+                        
+                        geometry = new THREE.CubeGeometry(0.5 * V_ANT, 0.95 * V_ANT, 0.5 * V_ANT);
+                        
+                        for (var i = 0; i<13; i++) {
+                            var ww_kuehl = new THREE.Mesh(geometry, prod);
+                            ww_kuehl.position.set(15 * V_ANT, 0.475 * V_ANT, -(i* 0.5 *V_ANT + i* 0.15 * V_ANT) +1.5 * V_ANT);
+                            scene.add(ww_kuehl);
+                        }
             
                         geometry = new THREE.CubeGeometry(5* V_ANT,1.3* V_ANT,0.8* V_ANT);   
-                        var ww_regal_1 = new THREE.Mesh(geometry, table_mat);
-                        ww_regal_1.position.x = 6.5* V_ANT;
-                        ww_regal_1.position.y = 0.65* V_ANT;
-                        ww_regal_1.position.z = -4* V_ANT;
+                        for (var i = 0; i<7; i=i+2){
+                            var ww_regal = new THREE.Mesh(geometry, table_mat);
+                            ww_regal.position.set(6.5* V_ANT, 0.65 * V_ANT, -4 * V_ANT + i * V_ANT);
+                            scene.add(ww_regal);
+                        }    
                         
-                        scene.add(ww_regal_1);
-                        
-                        var ww_regal_2 = new THREE.Mesh(geometry, table_mat);
-                        ww_regal_2.position.x = 6.5* V_ANT;
-                        ww_regal_2.position.y = 0.65* V_ANT;
-                        ww_regal_2.position.z = -2* V_ANT;
-                        
-                        scene.add(ww_regal_2);
-                        
-                        var ww_regal_3 = new THREE.Mesh(geometry, table_mat);
-                        ww_regal_3.position.x = 6.5* V_ANT;
-                        ww_regal_3.position.y = 0.65* V_ANT;
-                        ww_regal_3.position.z = 0* V_ANT;
-                        
-                        scene.add(ww_regal_3);
-                        
-                        var ww_regal_4 = new THREE.Mesh(geometry, table_mat);
-                        ww_regal_4.position.x = 6.5* V_ANT;
-                        ww_regal_4.position.y = 0.65* V_ANT;
-                        ww_regal_4.position.z = 2* V_ANT;
-                        
-                        scene.add(ww_regal_4);
+                        geometry = new THREE.CubeGeometry(4.8 * V_ANT, 0.2 * V_ANT, 1.6 * V_ANT);
+                        var ww_staub = new THREE.Mesh(geometry, table_mat);
+                        ww_staub.position.set(7* V_ANT, 0.1 * V_ANT, 4.5 * V_ANT);
+                        scene.add(ww_staub);
+                                
                         
                         geometry = new THREE.CubeGeometry(6.25* V_ANT,1.3* V_ANT,0.08* V_ANT);
                         var ww_regal_buegel = new THREE.Mesh(geometry, table_mat);
