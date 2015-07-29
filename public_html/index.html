@@ -769,6 +769,7 @@ and open the template in the editor.
                         
                         scene.add(tisch_rund);
                         
+                        //torusknot einbauen
                         geometry = new THREE.CubeGeometry(0.05 * V_ANT, 0.57 * V_ANT, 0.05 * V_ANT);
                         var tisch_bein = new THREE.Mesh(geometry, prod);
                         tisch_bein.position.x = 9.5 * V_ANT;
@@ -791,7 +792,7 @@ and open the template in the editor.
                         var hifi_sitz_lehne = new THREE.Mesh(geometry, table_mat);
                         hifi_sitz_lehne.position.x = 9.7 * V_ANT;
                         hifi_sitz_lehne.position.y = 0.45* V_ANT + 0.4 * V_ANT;
-                        hifi_sitz_lehne.position.z = -12.085* V_ANT;
+                        hifi_sitz_lehne.position.z = -12.355* V_ANT;
                         hifi_sitz_lehne.rotation.x = Math.PI/30;
                         
                         scene.add(hifi_sitz_lehne);
@@ -799,7 +800,7 @@ and open the template in the editor.
                         var hifi_sitz_lehne2 = new THREE.Mesh(geometry, table_mat);
                         hifi_sitz_lehne2.position.x = 9.3 * V_ANT;
                         hifi_sitz_lehne2.position.y = 0.45* V_ANT + 0.4 * V_ANT;
-                        hifi_sitz_lehne2.position.z = -12.085* V_ANT;
+                        hifi_sitz_lehne2.position.z = -12.355* V_ANT;
                         hifi_sitz_lehne2.rotation.x = Math.PI/30;
                         
                         scene.add(hifi_sitz_lehne2);
@@ -1173,36 +1174,7 @@ and open the template in the editor.
                         tk_handy_aus.rotation.y = Math.PI + Math.PI/6;
                         scene.add(tk_handy_aus);
            
-                        var points = [
-                            new THREE.Vector3(0,0,0),
-                            new THREE.Vector3(0 , 0, -0.45 * V_ANT),
-                            new THREE.Vector3(0.245 * V_ANT, 0, -0.765 * V_ANT),
-                            new THREE.Vector3(0.51 * V_ANT, 0, -0.96 * V_ANT),
-                            new THREE.Vector3(0.86 * V_ANT, 0, -1.06 * V_ANT),
-                           
-                           
-                        ];
                         
-                        var tk_theke = new THREE.SceneUtils.createMultiMaterialObject(new THREE.ConvexGeometry(points), materials);
-                        tk_theke.position.set(-5.455* V_ANT,1.1 * V_ANT, 4.4 * V_ANT);
-                        tk_theke.rotation.y = Math.PI;
-                        
-                        scene.add(tk_theke); 
-                        
-                        var points = [
-                            new THREE.Vector3(0,0,0),
-                            new THREE.Vector3(0 , 0, -0.612 * V_ANT),
-                            new THREE.Vector3(0.5 , 0, -0.612 * V_ANT),
-                            new THREE.Vector3(0.3 * V_ANT, 0, -0.35 * V_ANT),
-                            
-                           
-                        ];
-                        
-                        var tk_ecken = new THREE.SceneUtils.createMultiMaterialObject(new THREE.ConvexGeometry(points), materials);
-                        tk_ecken.position.set(-5.7 * V_ANT, 1.1 * V_ANT, 4.2 * V_ANT);
-                        tk_ecken.rotation.y = Math.PI - Math.PI/4.5;
-                        
-                        scene.add(tk_ecken);
                         
                     //Test Extrue Geometry Shape Geometry   
                                
