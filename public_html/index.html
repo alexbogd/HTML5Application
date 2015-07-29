@@ -17,6 +17,7 @@ and open the template in the editor.
 		<script src="js/three.min.js"></script>
                 <script src="js/FirstPersonControls.js"></script>
                 <script src="js/ConvexGeometry.js"></script>
+                <script src="js/RingGeometry.js"></script>
 		<script>
                     
                     //Vergößerungsanteil Treppeneffekt
@@ -198,7 +199,7 @@ and open the template in the editor.
                     
                     // PC
                         geometry = new THREE.CubeGeometry(5.15* V_ANT,1.1* V_ANT,1.1* V_ANT);
-                        var table_mat = new THREE.MeshLambertMaterial({color: 0x845647});
+                        var table_mat = new THREE.MeshLambertMaterial({color: 0x845647, side:THREE.DoubleSide});
                         var pc_lap = new THREE.Mesh(geometry, table_mat);
                         pc_lap.position.x = -11.705* V_ANT;
                         pc_lap.position.y = 0.55* V_ANT;
@@ -1203,9 +1204,11 @@ and open the template in the editor.
                         
                         scene.add(tk_ecken);
                         
-                    //Test    
-                        
-                        
+                    //Test Extrue Geometry Shape Geometry   
+                               
+                    //
+                    //
+                    
                         
                     //Games
                     
