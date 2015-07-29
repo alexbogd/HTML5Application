@@ -648,6 +648,22 @@ and open the template in the editor.
                     
                     //Stände Ende
                         
+                    // 80 Zoll TV
+                        
+                         geometry = new THREE.CubeGeometry(0.45 * V_ANT, 0.5 * V_ANT, 2.6 * V_ANT);
+                         var tv_gross_stand = new THREE.Mesh(geometry, table_mat);
+                         tv_gross_stand.position.set(-17.4 * V_ANT, 0.25 * V_ANT, -4 * V_ANT);
+                         scene.add(tv_gross_stand);
+                        
+                         geometry = new THREE.CubeGeometry(0.07 * V_ANT, 1.09 * V_ANT, 1.9 * V_ANT);
+                         var tv_gross = new THREE.Mesh(geometry, prod);
+                         tv_gross.position.set(-17.4 * V_ANT, 0.545 * V_ANT + 0.5 * V_ANT + 0.05 * V_ANT, -3.85 * V_ANT);
+                         scene.add(tv_gross);
+                         
+                         
+                    //80 ZOLL ENDE
+                    
+        
                     //Ferneher wand
                         geometry = new THREE.CubeGeometry(0.05 * V_ANT, 0.65 * V_ANT, 0.9 * V_ANT);
                         for (var i = 0; i < 15; i++) {
