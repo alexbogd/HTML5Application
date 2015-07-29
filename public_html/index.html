@@ -650,17 +650,39 @@ and open the template in the editor.
                         
                     // 80 Zoll TV
                         
-                         geometry = new THREE.CubeGeometry(0.45 * V_ANT, 0.5 * V_ANT, 2.6 * V_ANT);
-                         var tv_gross_stand = new THREE.Mesh(geometry, table_mat);
-                         tv_gross_stand.position.set(-17.4 * V_ANT, 0.25 * V_ANT, -4 * V_ANT);
-                         scene.add(tv_gross_stand);
+                        geometry = new THREE.CubeGeometry(0.45 * V_ANT, 0.5 * V_ANT, 2.6 * V_ANT);
+                        var tv_gross_stand = new THREE.Mesh(geometry, table_mat);
+                        tv_gross_stand.position.set(-17.4 * V_ANT, 0.25 * V_ANT, -4 * V_ANT);
+                        scene.add(tv_gross_stand);
                         
-                         geometry = new THREE.CubeGeometry(0.07 * V_ANT, 1.09 * V_ANT, 1.9 * V_ANT);
-                         var tv_gross = new THREE.Mesh(geometry, prod);
-                         tv_gross.position.set(-17.4 * V_ANT, 0.545 * V_ANT + 0.5 * V_ANT + 0.05 * V_ANT, -3.85 * V_ANT);
-                         scene.add(tv_gross);
+                        geometry = new THREE.CubeGeometry(0.07 * V_ANT, 1.09 * V_ANT, 1.9 * V_ANT);
+                        var tv_gross = new THREE.Mesh(geometry, prod);
+                        tv_gross.position.set(-17.4 * V_ANT, 0.545 * V_ANT + 0.5 * V_ANT + 0.05 * V_ANT, -3.85 * V_ANT);
+                        scene.add(tv_gross);
                          
+                        var points_1 = [
+                             new THREE.Vector3(0,0,0),
+                             new THREE.Vector3(0, 0.03  * V_ANT, 0),
+                             new THREE.Vector3(-0.02 * V_ANT, 0, 0.15 * V_ANT),
+                             new THREE.Vector3(-0.02 * V_ANT, 0.03 * V_ANT, 0.15 * V_ANT),
+                             new THREE.Vector3(0.86 * V_ANT, 0, 0.15 * V_ANT ),
+                             new THREE.Vector3(0.86 * V_ANT, 0.03 * V_ANT, 0.15 * V_ANT),
+                             new THREE.Vector3(0.84 * V_ANT, 0.0 * V_ANT, 0),
+                             new THREE.Vector3(0.84 * V_ANT, 0.03 * V_ANT, 0)
+                        ];
                          
+                        var tv_gross_standfuss = new THREE.SceneUtils.createMultiMaterialObject(new THREE.ConvexGeometry(points_1), materials);
+                        tv_gross_standfuss.position.set(-17.26 * V_ANT, 0.5 * V_ANT, -4.29 * V_ANT);
+                        tv_gross_standfuss.rotation.y = -Math.PI/2
+                        scene.add(tv_gross_standfuss);
+                         
+                        geometry = new THREE.CubeGeometry(0.06 * V_ANT, 0.13 * V_ANT, 0.11 * V_ANT);  
+                        var tv_gross_fuß = new THREE.Mesh(geometry, prod);
+                        tv_gross_fuß.position.set(-17.46 * V_ANT, 0.065 * V_ANT + 0.5 * V_ANT + 0.03 * V_ANT, -3.85 * V_ANT);
+                        tv_gross_fuß.rotation.z = -Math.PI/10;
+                        
+                        scene.add(tv_gross_fuß);
+                        
                     //80 ZOLL ENDE
                     
         
@@ -988,17 +1010,38 @@ and open the template in the editor.
                         
                     //Weiße Ware
                     
+                        geometry = new THREE.CubeGeometry(0.42 * V_ANT, 0.26 * V_ANT, 0.34*V_ANT);
+                        for (var i = 0; i<2; i++){
+                            for ( var j = 0; j<7; j++) {
+                                var ww_mikro = new THREE.Mesh(geometry, prod);
+                                ww_mikro.position.set(11.7 * V_ANT + j * 0.42 * V_ANT + j * 0.07 * V_ANT, 1.13 * V_ANT + 0.13 * V_ANT , 6.05 * V_ANT + i * 0.9 * V_ANT);
+                                scene.add(ww_mikro);
+                            }
+                        }
+                        geometry = new THREE.CubeGeometry(0.58 * V_ANT, 0.04 * V_ANT, 0.5 * V_ANT);
+                        for (var i = 0; i<6; i++){
+                            var ww_koch = new THREE.Mesh(geometry, prod);
+                            ww_koch.position.set(11.6 * V_ANT + i * 0.58 *V_ANT + i* 0.06 * V_ANT,0.95 * V_ANT + 0.01 * V_ANT, 4 * V_ANT);
+                            scene.add(ww_koch);
+                        }
                         geometry = new THREE.CubeGeometry(0.65 * V_ANT, 0.85 * V_ANT, 0.6 * V_ANT);
-                        
+                        var geometry_boden = new THREE.CubeGeometry(0.63 * V_ANT, 0.1 * V_ANT, 0.63 * V_ANT)
+                        var stand_boden = new THREE.Mesh(geometry_boden, table_mat);
                         for (var i = 0; i<13; i++) {
                             var ww_waschm = new THREE.Mesh(geometry, prod);
-                            ww_waschm.position.set(12.2 * V_ANT, 0.425 * V_ANT, -(i* 0.6 *V_ANT + i* 0.05 * V_ANT) +1.5 * V_ANT);
+                            stand_boden = new THREE.Mesh(geometry_boden, table_mat);
+                            ww_waschm.position.set(12.2 * V_ANT, 0.425 * V_ANT + 0.1 * V_ANT, -(i* 0.6 *V_ANT + i* 0.05 * V_ANT) +1.5 * V_ANT);
+                            stand_boden.position.set(12.2 * V_ANT, 0.05 * V_ANT, 1.5 * V_ANT - i * 0.63 *V_ANT - i* 0.02 * V_ANT);
+                            scene.add(stand_boden);
                             scene.add(ww_waschm);
                         }
                         
                         for (var i = 0; i<13; i++) {
                             var ww_trockner = new THREE.Mesh(geometry, prod);
-                            ww_trockner.position.set(13 * V_ANT, 0.425 * V_ANT, -(i* 0.6 *V_ANT + i* 0.05 * V_ANT) +1.5 * V_ANT);
+                            stand_boden = new THREE.Mesh(geometry_boden, table_mat);
+                            ww_trockner.position.set(13 * V_ANT, 0.425 * V_ANT + 0.1 * V_ANT, -(i* 0.6 *V_ANT + i* 0.05 * V_ANT) +1.5 * V_ANT);
+                            stand_boden.position.set(13 * V_ANT, 0.05 * V_ANT, 1.5 * V_ANT - i * 0.63 *V_ANT - i* 0.02 * V_ANT);
+                            scene.add(stand_boden);
                             scene.add(ww_trockner);
                         }
                         
@@ -1006,10 +1049,57 @@ and open the template in the editor.
                         
                         for (var i = 0; i<13; i++) {
                             var ww_kuehl = new THREE.Mesh(geometry, prod);
-                            ww_kuehl.position.set(15 * V_ANT, 0.475 * V_ANT, -(i* 0.5 *V_ANT + i* 0.15 * V_ANT) +1.5 * V_ANT);
+                            ww_kuehl.position.set(15 * V_ANT, 0.475 * V_ANT + 0.1 * V_ANT, -(i* 0.5 *V_ANT + i* 0.15 * V_ANT) +1.5 * V_ANT);
+                            stand_boden = new THREE.Mesh(geometry_boden, table_mat);
+                            stand_boden.position.set(15 * V_ANT, 0.05 * V_ANT, 1.5 * V_ANT - i * 0.63 *V_ANT - i* 0.02 * V_ANT);
+                            scene.add(stand_boden);
                             scene.add(ww_kuehl);
                         }
-            
+                        
+                        geometry = new THREE.CubeGeometry(0.58 * V_ANT, 0.83 * V_ANT, 0.6 * V_ANT);
+                        for (var i = 0; i<7; i++) {
+                            var ww_spuel = new THREE.Mesh(geometry, prod);
+                            ww_spuel.position.set(15.8 * V_ANT, 0.415 * V_ANT + 0.1 * V_ANT, -(i* 0.5 *V_ANT + i* 0.15 * V_ANT) +1.5 * V_ANT);
+                            stand_boden = new THREE.Mesh(geometry_boden, table_mat);
+                            stand_boden.position.set(15.8 * V_ANT, 0.05 * V_ANT, 1.5 * V_ANT - i * 0.63 *V_ANT - i* 0.02 * V_ANT);
+                            scene.add(stand_boden);
+                            scene.add(ww_spuel);
+                        }
+                        
+                        geometry = new THREE.CubeGeometry(0.7 * V_ANT, 1.7* V_ANT, 0.9 * V_ANT);
+                        for( var i = 0; i<5; i++){
+                        var ww_kuehl_gefrier_1 = new THREE.Mesh(geometry, prod);
+                        ww_kuehl_gefrier_1.position.set(17.2 * V_ANT, 0.85* V_ANT, 4  * V_ANT - i * V_ANT);
+                        scene.add(ww_kuehl_gefrier_1);
+                        }   
+                        
+                        geometry = new THREE.CubeGeometry(0.7 * V_ANT, 2* V_ANT, 0.9 * V_ANT);
+                        for( var i = 0; i<5; i++){
+                        var ww_kuehl_gefrier_2 = new THREE.Mesh(geometry, prod);
+                        ww_kuehl_gefrier_2.position.set(17.2 * V_ANT, 1* V_ANT, -1  * V_ANT - i * V_ANT);
+                        scene.add(ww_kuehl_gefrier_2);
+                        }  
+                        
+                        geometry = new THREE.CubeGeometry(0.78 * V_ANT, 1.76* V_ANT, 0.7 * V_ANT);
+                        for( var i = 0; i<5; i++){
+                        var ww_kuehl_gefrier_3 = new THREE.Mesh(geometry, prod);
+                        ww_kuehl_gefrier_3.position.set(17.2 * V_ANT, 0.88* V_ANT, -6  * V_ANT - i * V_ANT * 0.8);
+                        scene.add(ww_kuehl_gefrier_3);
+                        } 
+                        
+                        for( var i = 0; i<2; i++){
+                        var ww_kuehl_gefrier_3 = new THREE.Mesh(geometry, prod);
+                        ww_kuehl_gefrier_3.position.set(15.8 * V_ANT, 0.88* V_ANT, -5.50  * V_ANT - i * V_ANT * 0.8);
+                        scene.add(ww_kuehl_gefrier_3);
+                        } 
+                        
+                        geometry = new THREE.CubeGeometry(0.66 * V_ANT, 0.9 * V_ANT, 1.13 * V_ANT);
+                        for( var i = 0; i<2; i++){
+                        var ww_truhe = new THREE.Mesh(geometry, prod);
+                        ww_truhe.position.set(15.8 * V_ANT, 0.45 * V_ANT, -(3.3 * V_ANT + i * 1.13 * V_ANT + i * 0.07 * V_ANT));
+                        scene.add(ww_truhe);
+                        } 
+                        
                         geometry = new THREE.CubeGeometry(5* V_ANT,1.3* V_ANT,0.8* V_ANT);   
                         for (var i = 0; i<7; i=i+2){
                             var ww_regal = new THREE.Mesh(geometry, table_mat);
@@ -1051,7 +1141,7 @@ and open the template in the editor.
                         
                         scene.add(ww_regal_mikro);
                         
-                        geometry = new THREE.CubeGeometry(3.6 * V_ANT, 0.95 * V_ANT, 1.37 * V_ANT);
+                        geometry = new THREE.CubeGeometry(3.9 * V_ANT, 0.95 * V_ANT, 1.37 * V_ANT);
                         ww_regal_ofen = new THREE.Mesh(geometry, table_mat);
                         ww_regal_ofen.position.set(13.2 * V_ANT, 0.475 * V_ANT, 3.7 * V_ANT);
                         
@@ -1112,6 +1202,10 @@ and open the template in the editor.
                         tk_ecken.rotation.y = Math.PI - Math.PI/4.5;
                         
                         scene.add(tk_ecken);
+                        
+                    //Test    
+                        
+                        
                         
                     //Games
                     
