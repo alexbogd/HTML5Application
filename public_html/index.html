@@ -43,7 +43,7 @@ and open the template in the editor.
 			
                     // Materiale und Farben
                         
-                        var prod = new THREE.MeshLambertMaterial({color: 0x39444F});
+                        var prod = new THREE.MeshLambertMaterial({color: 0x39444F, side: THREE.DoubleSide});
                         var teppich = new THREE.MeshLambertMaterial({color:0x3366CC});
                         var materials = [
 					new THREE.MeshLambertMaterial( { color: 0x845647 } )
@@ -489,17 +489,19 @@ and open the template in the editor.
                         
                         scene.add(tv_samsung_wand);
                         
-                        var pts = [
-                            new THREE.Vector3(1.4 * V_ANT,0,0* V_ANT),//top left
-                            new THREE.Vector3(1.45* V_ANT,0,0* V_ANT),//top right
-                            new THREE.Vector3(1.45* V_ANT,0,-0.83* V_ANT),//bottom right
-                            new THREE.Vector3(1.4* V_ANT,0,-0.83* V_ANT),//bottom left
-                            new THREE.Vector3(1.4* V_ANT,0,0 * V_ANT)//back to top left - close square path
+                        var pts_curv = [
+                            new THREE.Vector3(1.3 * V_ANT,0,0* V_ANT),//top left
+                            new THREE.Vector3(1.35* V_ANT,0,0* V_ANT),//top right
+                            new THREE.Vector3(1.35* V_ANT,0,-0.83* V_ANT),//bottom right
+                            new THREE.Vector3(1.3* V_ANT,0,-0.83* V_ANT),//bottom left
+                            new THREE.Vector3(1.3* V_ANT,0,0 * V_ANT)//back to top left - close square path
                         ];
-                        var tv_samsung_tv = new THREE.Mesh( new THREE.LatheGeometry( pts, 6, 0 ,Math.PI/3 ), table_mat);
-                        tv_samsung_tv.position.set(0, 5 * V_ANT, 0);
+                        var tv_samsung_tv = new THREE.Mesh( new THREE.LatheGeometry( pts_curv, 20, -Math.PI/1.2 ,-Math.PI/3 ), prod);
+                        tv_samsung_tv.position.set(-9.325 * V_ANT, 0.65 * V_ANT + 0.05 * V_ANT , -6.37 * V_ANT);
                         tv_samsung_tv.rotation.x = Math.PI/2;
                         scene.add(tv_samsung_tv)
+                        
+                        
                         
                    // fernseher Ende     
                    //Trapezstand
@@ -672,6 +674,27 @@ and open the template in the editor.
                         }
                     
                     //TV Paket Stapel Ende
+                    
+                    //Curved aussteller
+                    
+                        tv_samsung_tv = new THREE.Mesh( new THREE.LatheGeometry( pts_curv, 20, -Math.PI/1.1 ,Math.PI/3 ), prod);
+                        tv_samsung_tv.position.set(-3.8 * V_ANT, 1.02 * V_ANT + 0.05 * V_ANT , -12 * V_ANT);
+                        tv_samsung_tv.rotation.x = Math.PI/2;
+                        scene.add(tv_samsung_tv);
+                        
+                        var pts_curv = [
+                            new THREE.Vector3(1.6 * V_ANT,0,0* V_ANT),//top left
+                            new THREE.Vector3(2.15* V_ANT,0,0* V_ANT),//top right
+                            new THREE.Vector3(2.15* V_ANT,0,-0.69* V_ANT),//bottom right
+                            new THREE.Vector3(1.6* V_ANT,0,-0.69* V_ANT),//bottom left
+                            new THREE.Vector3(1.6* V_ANT,0,0 * V_ANT)//back to top left - close square path
+                        ];
+                        
+                        var tv_samsung_tv_stand = new THREE.Mesh( new THREE.LatheGeometry( pts_curv, 20, -Math.PI/1.1 ,Math.PI/3 ), table_mat);
+                        tv_samsung_tv_stand.position.set(-3.38 * V_ANT, 0.345 * V_ANT  , -11.58 * V_ANT);
+                        tv_samsung_tv_stand.rotation.x = Math.PI/2;
+                        scene.add(tv_samsung_tv_stand)
+                    
                     
                     //HIFI
                     
@@ -993,7 +1016,19 @@ and open the template in the editor.
                         tk_handy_aus.position.set(-5.0555 * V_ANT, 0.83 * V_ANT, 4.185 * V_ANT);
                         tk_handy_aus.rotation.y = Math.PI + Math.PI/6;
                         scene.add(tk_handy_aus);
-           
+                    
+                    //handys
+                        
+                        geometry = new THREE.CubeGeometry(0.004 * V_ANT, 0.135 * V_ANT, 0.065 * V_ANT);
+                        for (var i = 0; i<2 ; i++){
+                            for(var j = 0 ; j<18 ; j++){
+                                var handy = new THREE.Mesh(geometry, prod);
+                                handy.position.set(-5.26 * V_ANT - j * 0.05 * V_ANT - j * 0.05 * V_ANT - i * 0.2 * V_ANT, 1 * V_ANT + i * 0.2 * V_ANT, 4.1 * V_ANT - j * 0.1 * V_ANT + i * 0.1 * V_ANT);
+                                handy.rotation.z = Math.PI/6;
+                                handy.rotation.y = Math.PI/6;
+                                scene.add(handy);
+                            }
+                      }
                                 
                     var pts = [
                         new THREE.Vector3(1.4 * V_ANT,0,0* V_ANT),//top left
@@ -1288,13 +1323,15 @@ and open the template in the editor.
                         }
                         
                         geometry = new THREE.CubeGeometry(0.015 * V_ANT, 0.015 * V_ANT, 0.25 * V_ANT);
-                        for(var i = 0; i < 3; i++){
-                            var ausgang_mittelst = new THREE.Mesh(geometry, table_mat);
-                            ausgang_mittelst.position.set(8.5 * V_ANT + 0.425 * i * V_ANT ,1.1 * V_ANT, 10.15 * V_ANT + 1.1 * i * V_ANT);
-                            ausgang_mittelst.rotation.z = Math.PI/4
-                            ausgang_mittelst.rotation.y = Math.PI/8 + Math.PI/2;
+                        for (var j = 0; j<3;j++){
+                            for(var i = 0; i < 3; i++){
+                                var ausgang_mittelst = new THREE.Mesh(geometry, table_mat);
+                                ausgang_mittelst.position.set(8.5 * V_ANT + 0.425 * i * V_ANT ,1.1 * V_ANT - 0.4 * j * V_ANT, 10.15 * V_ANT + 1.1 * i * V_ANT);
+                                ausgang_mittelst.rotation.z = Math.PI/4
+                                ausgang_mittelst.rotation.y = Math.PI/8 + Math.PI/2;
                           
-                            scene.add(ausgang_mittelst);
+                                scene.add(ausgang_mittelst);
+                            }
                         }
                         
                         geometry = new  THREE.CubeGeometry(0.02  *V_ANT, 1.4 * V_ANT, 0.02 * V_ANT);
