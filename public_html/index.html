@@ -489,6 +489,17 @@ and open the template in the editor.
                         
                         scene.add(tv_samsung_wand);
                         
+                        var pts = [
+                            new THREE.Vector3(1.4 * V_ANT,0,0* V_ANT),//top left
+                            new THREE.Vector3(1.45* V_ANT,0,0* V_ANT),//top right
+                            new THREE.Vector3(1.45* V_ANT,0,-0.83* V_ANT),//bottom right
+                            new THREE.Vector3(1.4* V_ANT,0,-0.83* V_ANT),//bottom left
+                            new THREE.Vector3(1.4* V_ANT,0,0 * V_ANT)//back to top left - close square path
+                        ];
+                        var tv_samsung_tv = new THREE.Mesh( new THREE.LatheGeometry( pts, 6, 0 ,Math.PI/3 ), table_mat);
+                        tv_samsung_tv.position.set(0, 5 * V_ANT, 0);
+                        tv_samsung_tv.rotation.x = Math.PI/2;
+                        scene.add(tv_samsung_tv)
                         
                    // fernseher Ende     
                    //Trapezstand
