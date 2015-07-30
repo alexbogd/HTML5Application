@@ -18,6 +18,9 @@ and open the template in the editor.
                 <script src="js/FirstPersonControls.js"></script>
                 <script src="js/ConvexGeometry.js"></script>
                 <script src="js/RingGeometry.js"></script>
+                <script src="js/ExtrudeGeometry.js" type="text/javascript"></script>
+                <script src="js/Shape.js" type="text/javascript"></script>
+                <script src="js/ShapeGeometry.js" type="text/javascript"></script>
 		<script>
                     
                     //Vergößerungsanteil Treppeneffekt
@@ -1176,11 +1179,51 @@ and open the template in the editor.
            
                         
                         
-                    //Test Extrue Geometry Shape Geometry   
+                    //Test Extrude Geometry Shape Geometry   
                                
-                    //
-                    //
-                    
+                    //Test Extrude Geometry Shape Geometry   
+                               
+                      /*  var shape1 = new THREE.Shape();
+                        shape1.moveTo(10,10);
+                        shape1.lineTo(10,40);
+                        shape1.bezierCurveTo(15,25,25,25,30,40);
+                        shape1.splineThru(
+                                [
+                                    new THREE.Vector2(32,30),
+                                    new THREE.Vector2(28,20),
+                                    new THREE.Vector2(30,10),
+                                ]);
+                        shape1.quadraticCurveTo(20,15,10,10);
+                        var options = { amount: 10, bevelThickness: 10, bevelSize: 5, bevelSegments: 8, bevelEnabled: true, curveSegments: 12, steps: 1
+                        };
+                        
+                        var geom = new THREE.ExtrudeGeometry(shape1, options);
+                        geom.applyMatrix(new THREE.Matrix4().makeTranslation(-20,0,0));
+                        
+                        var meshMaterial = new THREE.MeshNormalMaterial({transparent:true, opacity: 0.7});
+                        var wireFrameMat = new THREE.MeshBasicMaterial();
+                        wireFrameMat.wireframe = true;
+                        
+                        var mesh = new THREE.SceneUtils.createMultiMaterialObject(geom, meshMaterial);
+                        mesh.position.set(-10 * V_ANT,20 * V_ANT, -10 * V_ANT);
+                        scene.add(mesh);
+                        */
+                                
+                    var pts = [
+            new THREE.Vector3(150,0,50),//top left
+            new THREE.Vector3(200,0,50),//top right
+            new THREE.Vector3(200,0,-50),//bottom right
+            new THREE.Vector3(150,0,-50),//bottom left
+            new THREE.Vector3(150,0,50)//back to top left - close square path
+           ];
+var mesh = new THREE.Mesh( new THREE.LatheGeometry( pts, 12 ), new THREE.MeshLambertMaterial( { color: 0x2D303D, wireframe: true, shading: THREE.FlatShading } ));
+mesh.position.y = 20;
+mesh.overdraw = true;
+mesh.doubleSided = true;
+
+scene.add( mesh );
+
+
                         
                     //Games
                     
