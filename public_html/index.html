@@ -46,8 +46,7 @@ and open the template in the editor.
                         var prod = new THREE.MeshLambertMaterial({color: 0x39444F});
                         var teppich = new THREE.MeshLambertMaterial({color:0x3366CC});
                         var materials = [
-					new THREE.MeshPhongMaterial( { color: 0x889970 } ),
-					new THREE.MeshBasicMaterial( { color: 0xffffff, wireframe: true, transparent: true, opacity: 0.1 } )
+					new THREE.MeshLambertMaterial( { color: 0x845647 } )
 				];
                         var pack_s = new THREE.MeshLambertMaterial({color: 0x1036F2});
                         var pack_so = new THREE.MeshLambertMaterial({color: 0xEBEAF4});
@@ -58,7 +57,7 @@ and open the template in the editor.
                     
                         var geometry = new THREE.PlaneBufferGeometry(35.25 * V_ANT,35.09 * V_ANT );
 			var material = new THREE.MeshPhongMaterial( { color: 0x858585, side: THREE.DoubleSide } );
-                        var material_m = new THREE.MeshPhongMaterial( { color: 0xF23ADF, side: THREE.DoubleSide } );
+                        var material_m = new THREE.MeshPhongMaterial( { color: 0xF5F5F5, side: THREE.DoubleSide } );
                         var plane = new THREE.Mesh( geometry, material );
                         plane.rotation.x = -Math.PI/2;
                         plane.receiveShadow = true;
@@ -103,7 +102,7 @@ and open the template in the editor.
                     
                         mauer_geo = new THREE.BoxGeometry(31.25 * V_ANT, 4.4* V_ANT, 1  * V_ANT );
                         var mauer_oben_farb = new THREE.MeshPhongMaterial({color: 0x312467})
-                        var mauer_oben = new THREE.Mesh(mauer_geo, mauer_oben_farb);
+                        var mauer_oben = new THREE.Mesh(mauer_geo, material_m);
                         mauer_oben.position.set(-2.0* V_ANT, 2.2* V_ANT, -18.005 * V_ANT);
                         mauer_oben.castShadow = true;
                         
@@ -767,7 +766,7 @@ and open the template in the editor.
                         scene.add(foto_lang_hr);
                         
                         geometry = new THREE.CubeGeometry(0.08*V_ANT, 1.3 * V_ANT, 5.25 * V_ANT);
-                        var foto_kasse_hr = new THREE.Mesh(geometry, material_m);
+                        var foto_kasse_hr = new THREE.Mesh(geometry, table_mat);
                         foto_kasse_hr.position.set(3.65 * V_ANT, 0.65 * V_ANT, 6.55 * V_ANT);
                         foto_kasse_hr.rotation.y = Math.PI/4;
                         
@@ -989,45 +988,53 @@ and open the template in the editor.
                     tk_vit.rotation.y = Math.PI/3;
                     scene.add(tk_vit);
                     
+                  // Element Drehung
+                  
                     geometry = new THREE.CubeGeometry(0.6 * V_ANT, 1.65 * V_ANT, 0.6 * V_ANT);
                     var tk_zub = new THREE.Mesh(geometry, table_mat);
-                    tk_zub.position.set(-1.8  * V_ANT , 0.825 * V_ANT, 3.35 * V_ANT);
+                    tk_zub.position.set(-1.8  * V_ANT , 0.825 * V_ANT + 0.2, 3.35 * V_ANT);
                     tk_zub.rotation.y = -Math.PI/6;
                     scene.add(tk_zub);
                     
-                 // Element Drehung
+                    geometry = new THREE.CylinderGeometry(0.35 * V_ANT, 0.35 * V_ANT, 0.1 * V_ANT, 32);
+                    tk_dreh_down = new THREE.Mesh(geometry, table_mat);
+                    tk_dreh_down.position.set(-1.8 * V_ANT, 0.05 * V_ANT, 3.35* V_ANT);
+                    scene.add(tk_dreh_down);
                     
                     geometry = new THREE.CylinderGeometry(0.35 * V_ANT, 0.35 * V_ANT, 0.1 * V_ANT, 32);
                     var tk_dreh_top = new THREE.Mesh(geometry, table_mat);
                     tk_dreh_top.position.set(-2.6 * V_ANT, 1.6 * V_ANT, 2.85 * V_ANT);
+                    tk_dreh_top.castShadow = true;
                     scene.add(tk_dreh_top);
                     
                     geometry = new THREE.CubeGeometry(0.25 * V_ANT, 1.5 * V_ANT, 0.25 * V_ANT);
                     var tk_dreh = new THREE.Mesh(geometry, table_mat);
                     tk_dreh.position.set(-2.6  * V_ANT , 0.75 * V_ANT + 0.1 * V_ANT, 2.85 * V_ANT);
-                    
+                    tk_dreh.castShadow = true;
                     scene.add(tk_dreh);
                     
                     geometry = new THREE.CylinderGeometry(0.25 * V_ANT, 0.25 * V_ANT, 0.1 * V_ANT, 32);
                     var tk_dreh_down = new THREE.Mesh(geometry, table_mat);
                     tk_dreh_down.position.set(-2.6 * V_ANT, 0.05 * V_ANT, 2.85* V_ANT);
+                    tk_dreh_down.castShadow = true;
+                    scene.add(tk_dreh_down);
+                    
+                    tk_dreh_down = new THREE.Mesh(geometry, table_mat);
+                    tk_dreh_down.position.set(-1 * V_ANT, 0.05 * V_ANT, 3.8* V_ANT);
+                    tk_dreh_down.castShadow = true;
                     scene.add(tk_dreh_down);
                     
                     geometry = new THREE.CubeGeometry(0.5 * V_ANT, 1.5 * V_ANT, 0.1 * V_ANT);
                     var tk_dreh_2 = new THREE.Mesh(geometry, table_mat);
                     tk_dreh_2.position.set(-1  * V_ANT , 0.75 * V_ANT + 0.05 * V_ANT, 3.8 * V_ANT);
-                    
+                    tk_dreh_2.castShadow = true;
                     scene.add(tk_dreh_2);
+                 //Element Drehung Ende
                     
-                    //test ellipse
-                    
-                    
-                    
-                    //Element Drehung Ende
                     geometry =  new THREE.CubeGeometry(0.8 * V_ANT, 2.3 * V_ANT, 0.8*V_ANT );
                     var tk_zub_viv = new THREE.Mesh(geometry, table_mat);
                     tk_zub_viv.position.set(-1  * V_ANT , 0.825 * V_ANT, 1.7 * V_ANT);
-                    
+                    tk_zub_viv.castShadow = true;
                     scene.add(tk_zub_viv);
                     
                     //Games
@@ -1303,10 +1310,10 @@ and open the template in the editor.
                         control.lookVertical = true;
                         camera.aspect = w/h;
                         //camera.position.y = 1.8 * V_ANT;
-                        camera.rotation.y = Math.PI;
+                        //camera.rotation.y = Math.PI;
                         camera.position.y = 200;
-                        camera.position.x = 11 * V_ANT;
-                        camera.position.z = 9.5 * V_ANT;
+                        //camera.position.x = 11 * V_ANT;
+                        //camera.position.z = 9.5 * V_ANT;
                         camera.updateProjectionMatrix();
                         control.handleResize();
                        
@@ -1330,9 +1337,9 @@ and open the template in the editor.
                           
                           
                           //tk Drehung
-                          tk_dreh.rotation.y += 0.002;
-                          tk_dreh_2.rotation.y -= 0.002;
-                          
+                          tk_dreh.rotation.y += 0.001;
+                          tk_dreh_2.rotation.y -= 0.001;
+                          tk_zub.rotation.y += 0.001;
                           //schranke
                           
                             if(camera.position.x>=30 && camera.position.x <=36 && camera.position.z >= 30 && camera.position.z <=36){
