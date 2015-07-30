@@ -1177,54 +1177,51 @@ and open the template in the editor.
                         tk_handy_aus.rotation.y = Math.PI + Math.PI/6;
                         scene.add(tk_handy_aus);
            
-                        
-                        
-                    //Test Extrude Geometry Shape Geometry   
-                               
-                    //Test Extrude Geometry Shape Geometry   
-                               
-                      /*  var shape1 = new THREE.Shape();
-                        shape1.moveTo(10,10);
-                        shape1.lineTo(10,40);
-                        shape1.bezierCurveTo(15,25,25,25,30,40);
-                        shape1.splineThru(
-                                [
-                                    new THREE.Vector2(32,30),
-                                    new THREE.Vector2(28,20),
-                                    new THREE.Vector2(30,10),
-                                ]);
-                        shape1.quadraticCurveTo(20,15,10,10);
-                        var options = { amount: 10, bevelThickness: 10, bevelSize: 5, bevelSegments: 8, bevelEnabled: true, curveSegments: 12, steps: 1
-                        };
-                        
-                        var geom = new THREE.ExtrudeGeometry(shape1, options);
-                        geom.applyMatrix(new THREE.Matrix4().makeTranslation(-20,0,0));
-                        
-                        var meshMaterial = new THREE.MeshNormalMaterial({transparent:true, opacity: 0.7});
-                        var wireFrameMat = new THREE.MeshBasicMaterial();
-                        wireFrameMat.wireframe = true;
-                        
-                        var mesh = new THREE.SceneUtils.createMultiMaterialObject(geom, meshMaterial);
-                        mesh.position.set(-10 * V_ANT,20 * V_ANT, -10 * V_ANT);
-                        scene.add(mesh);
-                        */
                                 
                     var pts = [
-            new THREE.Vector3(150,0,50),//top left
-            new THREE.Vector3(200,0,50),//top right
-            new THREE.Vector3(200,0,-50),//bottom right
-            new THREE.Vector3(150,0,-50),//bottom left
-            new THREE.Vector3(150,0,50)//back to top left - close square path
-           ];
-var mesh = new THREE.Mesh( new THREE.LatheGeometry( pts, 12 ), new THREE.MeshLambertMaterial( { color: 0x2D303D, wireframe: true, shading: THREE.FlatShading } ));
-mesh.position.y = 20;
-mesh.overdraw = true;
-mesh.doubleSided = true;
+                        new THREE.Vector3(1.4 * V_ANT,0,0* V_ANT),//top left
+                        new THREE.Vector3(2* V_ANT,0,0* V_ANT),//top right
+                        new THREE.Vector3(2* V_ANT,0,-1.1* V_ANT),//bottom right
+                        new THREE.Vector3(1.4* V_ANT,0,-1.1* V_ANT),//bottom left
+                        new THREE.Vector3(1.4* V_ANT,0,0 * V_ANT)//back to top left - close square path
+                    ];
+                    var tk_theke_rund = new THREE.Mesh( new THREE.LatheGeometry( pts, 6, 0 ,Math.PI/3 ), table_mat);
+                    tk_theke_rund.position.set(-7 * V_ANT,1.1 * V_ANT + 0.05 * V_ANT,4*  V_ANT);
+                    tk_theke_rund.rotation.x = -Math.PI/2;
+                    tk_theke_rund.rotation.z = -Math.PI/2.4;
+                    tk_theke_rund.overdraw = false;
+                    
+                    scene.add(tk_theke_rund);
+                    
+                    tk_theke_rund = new THREE.Mesh( new THREE.LatheGeometry( pts, 6, 0 ,Math.PI/3 ), table_mat);
+                    tk_theke_rund.position.set(-6.85 * V_ANT,1.1 * V_ANT + 0.05 * V_ANT,3.75*  V_ANT);
+                    tk_theke_rund.rotation.x = -Math.PI/2;
+                    tk_theke_rund.rotation.z = -Math.PI * 1.05 ;
+                    tk_theke_rund.overdraw = false;
+                  
+                    scene.add( tk_theke_rund );
+                    
+                    tk_theke_rund = new THREE.Mesh( new THREE.LatheGeometry( pts, 6, 0 ,Math.PI/3 ), table_mat);
+                    tk_theke_rund.position.set(-6.7 * V_ANT,1.1 * V_ANT + 0.05 * V_ANT,3.5*  V_ANT);
+                    tk_theke_rund.rotation.x = -Math.PI/2;
+                    tk_theke_rund.rotation.z = Math.PI/2 * 1.1;
+                    tk_theke_rund.overdraw = false;
+                  
+                    scene.add(tk_theke_rund );
 
-scene.add( mesh );
-
-
-                        
+                    geometry = new THREE.CubeGeometry(0.45 * V_ANT, 2 * V_ANT, 0.45* V_ANT);
+                    var tk_vit = new THREE.Mesh(geometry, table_mat);
+                    tk_vit.position.set(-8.4 * V_ANT, 1.15 * V_ANT, 3.2 * V_ANT);
+                    tk_vit.rotation.y = -Math.PI/10;
+                    scene.add(tk_vit);
+                    
+                    tk_vit = new THREE.Mesh(geometry, table_mat);
+                    tk_vit.position.set(-7.675* V_ANT, 1.15 * V_ANT, 5.3* V_ANT);
+                    tk_vit.rotation.y = Math.PI/3;
+                    scene.add(tk_vit);
+                    
+                    
+                    
                     //Games
                     
                         var points = [
