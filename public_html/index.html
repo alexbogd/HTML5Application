@@ -1205,7 +1205,53 @@ and open the template in the editor.
                         eingang_rechts = new THREE.Mesh(geometry, table_mat);
                         eingang_rechts.position.set(9 * V_ANT, 0.5 * V_ANT, 8.425 * V_ANT);   
                         scene.add(eingang_rechts);
+                    
+                    // Eingang Schranke
+                    
+                        geometry = new THREE.CylinderGeometry(0.1 * V_ANT, 0.1 * V_ANT, 1 * V_ANT);
+                        var schranke_stand = new THREE.Mesh(geometry, table_mat);
+                        schranke_stand.position.set(10.2 * V_ANT, 0.5 * V_ANT, 8.425 * V_ANT );
                         
+                        scene.add(schranke_stand);
+                        
+                        geometry = new THREE.CubeGeometry(0.85 * V_ANT, 0.2 * V_ANT, 0.05 * V_ANT);
+                        var schranke = new THREE.Mesh(geometry, table_mat);
+                        schranke.position.set(10.725 * V_ANT, 0.1 * V_ANT + 0.7 * V_ANT, 8.425 * V_ANT);
+                        
+                        scene.add(schranke);
+                    // Schranke Ende
+                    
+                    //Ausgang 
+                    
+                        geometry = new THREE.TorusGeometry(0.4 , 0.05 , 3, 3, Math.PI);
+                        for ( var i = 0; i<3; i++){
+                            var ausgang = new THREE.Mesh(geometry, table_mat);
+                            ausgang.position.set(8.5 * V_ANT + 0.425 * i * V_ANT ,1.4 * V_ANT, 10.15 * V_ANT + 1.1 * i * V_ANT);
+                            ausgang.rotation.y = Math.PI/8;
+                            scene.add(ausgang);
+                        }
+                        
+                        geometry = new THREE.CubeGeometry(0.015 * V_ANT, 0.015 * V_ANT, 0.25 * V_ANT);
+                        for(var i = 0; i < 3; i++){
+                            var ausgang_mittelst = new THREE.Mesh(geometry, table_mat);
+                            ausgang_mittelst.position.set(8.5 * V_ANT + 0.425 * i * V_ANT ,1.1 * V_ANT, 10.15 * V_ANT + 1.1 * i * V_ANT);
+                            ausgang_mittelst.rotation.z = Math.PI/4
+                            ausgang_mittelst.rotation.y = Math.PI/8 + Math.PI/2;
+                          
+                            scene.add(ausgang_mittelst);
+                        }
+                        
+                        geometry = new  THREE.CubeGeometry(0.02  *V_ANT, 1.4 * V_ANT, 0.02 * V_ANT);
+                        for ( var i = 0; i<2; i++){
+                            for(var j = 0; j<3; j++){
+                                var ausgang_seiten = new THREE.Mesh(geometry, table_mat);
+                                ausgang_seiten.position.set(8.635 * V_ANT - i  * 0.25 * V_ANT + 0.425 * j * V_ANT ,0.7 * V_ANT, 10.095 * V_ANT + i * 0.11 * V_ANT + 1.1 * j * V_ANT);
+                                ausgang_seiten.rotation.y = Math.PI/8 + Math.PI/2;
+                                scene.add(ausgang_seiten);
+                            }
+                        }
+                    // Ausgang Ende
+                       
                     //Lights
        
                         var spotLight = new THREE.DirectionalLight( 0xFFFFFF);
@@ -1259,6 +1305,8 @@ and open the template in the editor.
                         //camera.position.y = 1.8 * V_ANT;
                         camera.rotation.y = Math.PI;
                         camera.position.y = 200;
+                        camera.position.x = 11 * V_ANT;
+                        camera.position.z = 9.5 * V_ANT;
                         camera.updateProjectionMatrix();
                         control.handleResize();
                        
@@ -1271,7 +1319,7 @@ and open the template in the editor.
                        
                         
                         var clock = new THREE.Clock();
-                  
+                        var step = 0;
                         var render = function () {
                      
                         control.update(clock.getDelta());
@@ -1284,11 +1332,27 @@ and open the template in the editor.
                           //tk Drehung
                           tk_dreh.rotation.y += 0.002;
                           tk_dreh_2.rotation.y -= 0.002;
-                        };
-                        
+                          
+                          //schranke
+                          
+                            if(camera.position.x>=30 && camera.position.x <=36 && camera.position.z >= 30 && camera.position.z <=36){
+                                if(step == 0){
+                                 schranke.position.x = 10.2 * V_ANT;
+                                 schranke.position.z = 8 * V_ANT;
+                                 schranke.rotation.y = Math.PI/2; 
+                                     
+                                
+                            }  
+                            step = 1;    
+                                 
+                              
+                         }
+                      
+                    }
                         requestAnimationFrame(render);
                         render();
-                    }
+                }
+                
                     window.onload = init;
                     window.onresize = init;
 		</script>
