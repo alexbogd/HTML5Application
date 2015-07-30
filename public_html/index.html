@@ -68,29 +68,25 @@ and open the template in the editor.
                         var plane_pc = new THREE.Mesh(geometry, material);
                         plane_pc.position.x = -27.5* V_ANT;
                         plane_pc.rotation.x = Math.PI/2;
-                        
                         plane_pc.castShadow = true;
+                        
                         scene.add(plane_pc);
                         
                     //Mauer rechts
                         var mauer_geo = new THREE.BoxGeometry(1* V_ANT, 3 * V_ANT,31.09 * V_ANT );
                         var mauer_r = new THREE.Mesh(mauer_geo, material_m);
-                       
-                        mauer_r.position.x = 18.1* V_ANT;
-                        mauer_r.position.y = 1.5* V_ANT;
-                        mauer_r.position.z = 2.12 * V_ANT ;
+                        mauer_r.position.set(18.1* V_ANT, 1.5* V_ANT, 2.12 * V_ANT);
                         mauer_r.castShadow = true;
+                        
                         scene.add(mauer_r);
                         
                         
                     //Mauer oben rechts 1
                         mauer_geo = new THREE.BoxGeometry(5 * V_ANT, 3* V_ANT, 1 * V_ANT );
                         var mauer_obenr_1 = new THREE.Mesh(mauer_geo, material_m);
-                        //mauer_obenr_1.rotation.y = -Math.PI/2;
-                        mauer_obenr_1.position.x = 15.15* V_ANT;
-                        mauer_obenr_1.position.z = -12.955 * V_ANT ;
-                        mauer_obenr_1.position.y = 1.5* V_ANT;
+                        mauer_obenr_1.position.set(15.15* V_ANT,1.5 *V_ANT, -12.955 * V_ANT);
                         mauer_obenr_1.castShadow = true;
+                        
                         scene.add(mauer_obenr_1);
                     
                     //Mauer oben rechts 2
@@ -98,10 +94,9 @@ and open the template in the editor.
                         mauer_geo = new THREE.BoxGeometry(1* V_ANT , 5 * V_ANT   , 3 * V_ANT );
                         var mauer_obenr_2 = new THREE.Mesh(mauer_geo, material_m);
                         mauer_obenr_2.rotation.x = -Math.PI/2;
-                        mauer_obenr_2.position.x = 13.15* V_ANT;
-                        mauer_obenr_2.position.y = 1.5* V_ANT;
-                        mauer_obenr_2.position.z = -15.605 * V_ANT  ;
+                        mauer_obenr_2.position.set(13.15* V_ANT, 1.5* V_ANT, -15.605 * V_ANT);
                         mauer_obenr_2.castShadow = true;
+                        
                         scene.add(mauer_obenr_2);
                         
                     // Mauer oben
@@ -109,39 +104,34 @@ and open the template in the editor.
                         mauer_geo = new THREE.BoxGeometry(31.25 * V_ANT, 4.4* V_ANT, 1  * V_ANT );
                         var mauer_oben_farb = new THREE.MeshPhongMaterial({color: 0x312467})
                         var mauer_oben = new THREE.Mesh(mauer_geo, mauer_oben_farb);
-                        mauer_oben.position.z = -18.005 * V_ANT ;
-                        mauer_oben.position.y = 2.2* V_ANT;
-                        mauer_oben.position.x = -2.0* V_ANT;
+                        mauer_oben.position.set(-2.0* V_ANT, 2.2* V_ANT, -18.005 * V_ANT);
                         mauer_oben.castShadow = true;
+                        
                         scene.add(mauer_oben);
                     
                     //Mauer oben links
                     
                         mauer_geo = new THREE.BoxGeometry(1* V_ANT, 4.4* V_ANT ,16 * V_ANT  );
                         var mauer_obenl = new THREE.Mesh(mauer_geo, material_m);
-                        mauer_obenl.position.x = -18.125* V_ANT;
-                        mauer_obenl.position.y = 2.2* V_ANT;
-                        mauer_obenl.position.z = -10.55* V_ANT;
+                        mauer_obenl.position.set(-18.125* V_ANT, 2.2* V_ANT, -10.55* V_ANT);
                         mauer_obenl.castShadow = true;
-                        scene.add(mauer_obenl),
+                        
+                        scene.add(mauer_obenl);
                     
                     //Mauer mitte links 1
                     
                         mauer_geo = new THREE.BoxGeometry(20.2 * V_ANT, 4.4* V_ANT, 1 * V_ANT  );
                         var mauer_mittel_1 = new THREE.Mesh(mauer_geo, material_m);
-                        mauer_mittel_1.position.x = -27.9* V_ANT;
-                        mauer_mittel_1.position.y = 2.2* V_ANT;
-                        mauer_mittel_1.position.z = -3.5 * V_ANT ;
+                        mauer_mittel_1.position.set(-27.9* V_ANT,  2.2* V_ANT, -3.5 * V_ANT);
                         mauer_mittel_1.castShadow = true;
+                        
                         scene.add(mauer_mittel_1);
                     
                     //Mauer mitte Verbindung
                    
                         mauer_geo = new THREE.BoxGeometry(1* V_ANT, 4.4 * V_ANT, 7.5 * V_ANT);
                         var mauer_mittev = new THREE.Mesh(mauer_geo, material_m);
-                        mauer_mittev.position.x = -38.25* V_ANT;
-                        mauer_mittev.position.y = 2.2* V_ANT;
-                        mauer_mittev.position.z = -0.25* V_ANT;
+                        mauer_mittev.position.set(-38.25* V_ANT, 2.2* V_ANT, -0.25* V_ANT);
                         mauer_mittev.castShadow = true;
                         
                         scene.add(mauer_mittev);
@@ -152,50 +142,45 @@ and open the template in the editor.
                     
                         mauer_geo = new THREE.BoxGeometry(27.2 * V_ANT, 4.4* V_ANT, 1 * V_ANT );
                         var mauer_mittel_2 = new THREE.Mesh(mauer_geo, material_m);
-                        mauer_mittel_2.position.x = -24.2* V_ANT;
-                        mauer_mittel_2.position.y = 2.2* V_ANT;
-                        mauer_mittel_2.position.z = 3* V_ANT;
+                        mauer_mittel_2.position.set(-24.2* V_ANT, 2.2* V_ANT, 3* V_ANT);
                         mauer_mittel_2.castShadow = true;
+                        
                         scene.add(mauer_mittel_2);
                         
                     //Mauer unten links 1
                     
                         mauer_geo = new THREE.BoxGeometry(1* V_ANT, 4.4* V_ANT ,13.4 * V_ANT );
                         var mauer_untenl_1 = new THREE.Mesh(mauer_geo, material_m);
-                        mauer_untenl_1.position.x = -11.11* V_ANT;
-                        mauer_untenl_1.position.y = 2.2* V_ANT;
-                        mauer_untenl_1.position.z = 10.1* V_ANT;
+                        mauer_untenl_1.position.set(-11.11* V_ANT, 2.2* V_ANT, 10.1* V_ANT);
                         mauer_untenl_1.castShadow = true;
+                        
                         scene.add(mauer_untenl_1);
                     
                     //Mauer unten links 2
                     
                         mauer_geo = new THREE.BoxGeometry(10.54 * V_ANT, 4.4* V_ANT, 1 * V_ANT  );
                         var mauer_untenl_2 = new THREE.Mesh(mauer_geo, material_m); 
-                        mauer_untenl_2.position.x = -6.32* V_ANT;
-                        mauer_untenl_2.position.y = 2.2* V_ANT;
-                        mauer_untenl_2.position.z = 15.45* V_ANT;
+                        mauer_untenl_2.position.set(-6.32* V_ANT, 2.2* V_ANT,15.45* V_ANT);
                         mauer_untenl_2.castShadow = true;
+                        
                         scene.add(mauer_untenl_2);
                         
                     //Mauer mitte unten
                     
                         mauer_geo = new THREE.BoxGeometry(1* V_ANT, 3 * V_ANT,2.26 * V_ANT );
                         var mauer_mitteu = new THREE.Mesh(mauer_geo, material_m);
-                        mauer_mitteu.position.x = -1.55* V_ANT;
-                        mauer_mitteu.position.y = 1.5* V_ANT; 
-                        mauer_mitteu.position.z = 16.645* V_ANT;
+                        mauer_mitteu.position.set(-1.55* V_ANT, 1.5* V_ANT, 16.645* V_ANT);
                         mauer_mitteu.castShadow = true;
+                        
                         scene.add(mauer_mitteu);
                         
                     //Mauer unten
                     
                         mauer_geo = new THREE.BoxGeometry(20.55* V_ANT , 3* V_ANT, 1 * V_ANT );
                         var mauer_unten = new THREE.Mesh(mauer_geo, material_m);
-                        mauer_unten.position.x = 8.3125* V_ANT;
-                        mauer_unten.position.y = 1.5* V_ANT;
-                        mauer_unten.position.z = 18.045* V_ANT;
+                        mauer_unten.position.set(8.3125* V_ANT, 1.5* V_ANT, 18.045* V_ANT);
                         mauer_unten.castShadow = true;
+                        
                         scene.add(mauer_unten);
                                 
                     // Einrichtung: Aufsteller
@@ -204,9 +189,7 @@ and open the template in the editor.
                         geometry = new THREE.CubeGeometry(5.15* V_ANT,1.1* V_ANT,1.1* V_ANT);
                         var table_mat = new THREE.MeshLambertMaterial({color: 0x845647, side:THREE.DoubleSide});
                         var pc_lap = new THREE.Mesh(geometry, table_mat);
-                        pc_lap.position.x = -11.705* V_ANT;
-                        pc_lap.position.y = 0.55* V_ANT;
-                        pc_lap.position.z = -0.8* V_ANT;
+                        pc_lap.position.set(-11.705* V_ANT, 0.55* V_ANT, -0.8* V_ANT);
                         
                         scene.add(pc_lap);
                         
@@ -218,182 +201,119 @@ and open the template in the editor.
                         
                         geometry = new THREE.CubeGeometry(3.45 * V_ANT, 1.1 * V_ANT, 0.8* V_ANT);
                         var pc_druck = new THREE.Mesh(geometry, table_mat);
-                        pc_druck.position.x = -22.125 * V_ANT;
-                        pc_druck.position.y = 0.55 * V_ANT;
-                        pc_druck.position.z = -0.25 * V_ANT;
+                        pc_druck.position.set(-22.125 * V_ANT, 0.55 * V_ANT, -0.25 * V_ANT);
                         
                         scene.add(pc_druck);
                         
                         geometry = new THREE.CubeGeometry(3.45 * V_ANT, 1.1 * V_ANT, 0.8* V_ANT);
-                        var pc_druck_2 = new THREE.Mesh(geometry, table_mat);
-                        pc_druck_2.position.x = -27.275 * V_ANT;
-                        pc_druck_2.position.y = 0.55 * V_ANT;
-                        pc_druck_2.position.z = -0.25 * V_ANT;
-                        scene.add(pc_druck_2);
+                        pc_druck = new THREE.Mesh(geometry, table_mat);
+                        pc_druck.position.set(-27.275 * V_ANT, 0.55 * V_ANT, -0.25 * V_ANT);
+                        
+                        scene.add(pc_druck);
                         
                         geometry = new THREE.CubeGeometry(0.6 * V_ANT, 2.3 * V_ANT, 0.6* V_ANT);
                         var pc_vit = new THREE.Mesh(geometry, table_mat);
-                        pc_vit.position.x = -31.275 * V_ANT;
-                        pc_vit.position.y = 1.15 * V_ANT;
-                        pc_vit.position.z = -0.25 * V_ANT;
+                        pc_vit.position.set(-31.275 * V_ANT, 1.15 * V_ANT, -0.25 * V_ANT);
+                        
                         scene.add(pc_vit);
                         
                         geometry = new THREE.CubeGeometry(2.6 * V_ANT, 1.5 * V_ANT, 0.1* V_ANT);
                         var pc_viv = new THREE.Mesh(geometry, table_mat);
-                        pc_viv.position.x = -32.875 * V_ANT;
-                        pc_viv.position.y = 0.75 * V_ANT;
-                        pc_viv.position.z = -0.25 * V_ANT;
+                        pc_viv.position.set(-32.875 * V_ANT, 0.75 * V_ANT, -0.25 * V_ANT);
+                        
                         scene.add(pc_viv);
                         
                      //Regale Zubehör + Rechner
                      
                         geometry = new THREE.CubeGeometry(16 * V_ANT, 0.04 * V_ANT, 0.65 * V_ANT);
-                        var pc_regal_1 = new THREE.Mesh(geometry, table_mat);
-                        pc_regal_1.position.x = -29.625 * V_ANT;
-                        pc_regal_1.position.y = 0.02 * V_ANT + 0.25 * V_ANT;
-                        pc_regal_1.position.z = -2.6 * V_ANT;
+                        var pc_regal = new THREE.Mesh(geometry, table_mat);
+                        pc_regal.position.set(-29.625 * V_ANT, 0.02 * V_ANT + 0.25 * V_ANT, -2.6 * V_ANT);
                         
-                        scene.add(pc_regal_1);
+                        scene.add(pc_regal);
                         
-                        geometry_short_1 = new THREE.CubeGeometry(8 * V_ANT, 0.04 * V_ANT, 0.65 * V_ANT);
-                        var pc_regal_2 = new THREE.Mesh(geometry_short_1, table_mat);
-                        pc_regal_2.position.x = -33.625 * V_ANT;
-                        pc_regal_2.position.y = 0.02 * V_ANT + 0.8 * V_ANT;
-                        pc_regal_2.position.z = -2.6 * V_ANT;
+                        var geometry_short_1 = new THREE.CubeGeometry(8 * V_ANT, 0.04 * V_ANT, 0.65 * V_ANT);
+                        pc_regal = new THREE.Mesh(geometry_short_1, table_mat);
+                        pc_regal.position.set(-33.625 * V_ANT,0.02 * V_ANT + 0.8 * V_ANT,-2.6 * V_ANT);
                         
-                        scene.add(pc_regal_2);
+                        scene.add(pc_regal);
                         
-                        var pc_regal_3 = new THREE.Mesh(geometry, table_mat);
-                        pc_regal_3.position.x = -29.625 * V_ANT;
-                        pc_regal_3.position.y = 0.02 * V_ANT + 1.15 * V_ANT;
-                        pc_regal_3.position.z = -2.6 * V_ANT;
+                        pc_regal = new THREE.Mesh(geometry, table_mat);
+                        pc_regal.position.set(-29.625 * V_ANT,0.02 * V_ANT + 1.15 * V_ANT, -2.6 * V_ANT);
                         
-                        scene.add(pc_regal_3);
+                        scene.add(pc_regal);
                         
-                        geometry_short_2 = new THREE.CubeGeometry(12 * V_ANT, 0.04 * V_ANT, 0.65 * V_ANT);
-                        var pc_regal_4 = new THREE.Mesh(geometry_short_2, table_mat);
-                        pc_regal_4.position.x = -31.625 * V_ANT;
-                        pc_regal_4.position.y = 0.02 * V_ANT + 1.55 * V_ANT;
-                        pc_regal_4.position.z = -2.6 * V_ANT;
+                        var geometry_short_2 = new THREE.CubeGeometry(12 * V_ANT, 0.04 * V_ANT, 0.65 * V_ANT);
+                        pc_regal = new THREE.Mesh(geometry_short_2, table_mat);
+                        pc_regal.position.set(-31.625 * V_ANT, 0.02 * V_ANT + 1.55 * V_ANT, -2.6 * V_ANT);
                         
-                        scene.add(pc_regal_4);
+                        scene.add(pc_regal);
                         
-                        var pc_regal_5 = new THREE.Mesh(geometry, table_mat);
-                        pc_regal_5.position.x = -29.625 * V_ANT;
-                        pc_regal_5.position.y = 0.02 * V_ANT + 1.95 * V_ANT;
-                        pc_regal_5.position.z = -2.6 * V_ANT;
+                        pc_regal = new THREE.Mesh(geometry, table_mat);
+                        pc_regal.position.set(-29.625 * V_ANT, 0.02 * V_ANT + 1.95 * V_ANT,2.6 * V_ANT);
                         
-                        scene.add(pc_regal_5);
+                        scene.add(pc_regal);
                       //ENDE  
                       
                       // Tinte Netzwerk Monitore
                         geometry = new THREE.CubeGeometry(5 * V_ANT, 1.85 * V_ANT , 0.65 * V_ANT);
                         var pc_tinte = new THREE.Mesh(geometry, table_mat);
-                        pc_tinte.position.x = -32.25 * V_ANT;
-                        pc_tinte.position.y = 0.9 * V_ANT;
-                        pc_tinte.position.z = 2.1 * V_ANT;
+                        pc_tinte.position.set(-32.25 * V_ANT, 0.9 * V_ANT, 2.1 * V_ANT);
                         
                         scene.add(pc_tinte);
                         
                         geometry = new THREE.CubeGeometry(1.25 * V_ANT, 1.85 * V_ANT , 0.65 * V_ANT);
                         var pc_soft = new THREE.Mesh(geometry, table_mat);
-                        pc_soft.position.x = -29.1 * V_ANT;
-                        pc_soft.position.y = 0.9 * V_ANT;
-                        pc_soft.position.z = 2.1 * V_ANT;
+                        pc_soft.position.set(-29.1 * V_ANT, 0.9 * V_ANT, 2.1 * V_ANT);
                         
                         scene.add(pc_soft);
                         
                         geometry_short_2 = new THREE.CubeGeometry(2 * V_ANT, 0.04 * V_ANT, 0.65 * V_ANT);
                         var pc_net_1 = new THREE.Mesh(geometry_short_2, table_mat);
-                        pc_net_1.position.x = -27.575 * V_ANT;
-                        pc_net_1.position.y = 0.02 * V_ANT + 0.5 * V_ANT;
-                        pc_net_1.position.z = 2.1 * V_ANT;
+                        pc_net_1.position.set(-27.575 * V_ANT, 0.02 * V_ANT + 0.5 * V_ANT, 2.1 * V_ANT);
                         
                         scene.add(pc_net_1);
                         
                         geometry_short_2 = new THREE.CubeGeometry(3 * V_ANT, 0.04 * V_ANT, 0.65 * V_ANT);
                         var pc_net_2 = new THREE.Mesh(geometry_short_2, table_mat);
-                        pc_net_2.position.x = -27 * V_ANT;
-                        pc_net_2.position.y = 0.02 * V_ANT + 0.8 * V_ANT;
-                        pc_net_2.position.z = 2.1 * V_ANT;
+                        pc_net_2.position.set(-27 * V_ANT, 0.02 * V_ANT + 0.8 * V_ANT, 2.1 * V_ANT);
                         
                         scene.add(pc_net_2);
                         
                         geometry_short_2 = new THREE.CubeGeometry(8.75 * V_ANT, 0.04 * V_ANT, 0.65 * V_ANT);
                         var pc_regal_net_mon_3 = new THREE.Mesh(geometry_short_2, table_mat);
-                        pc_regal_net_mon_3.position.x = -24.1 * V_ANT;
-                        pc_regal_net_mon_3.position.y = 0.04 * V_ANT + 1.1 * V_ANT;
-                        pc_regal_net_mon_3.position.z = 2.1 * V_ANT;
+                        pc_regal_net_mon_3.position.set(-24.1 * V_ANT, 0.04 * V_ANT + 1.1 * V_ANT, 2.1 * V_ANT);
                         
                         scene.add(pc_regal_net_mon_3);
               
                         geometry_short_2 = new THREE.CubeGeometry(3 * V_ANT, 0.04 * V_ANT, 0.65 * V_ANT);
                         var pc_net_4 = new THREE.Mesh(geometry_short_2, table_mat);
-                        pc_net_4.position.x = -27 * V_ANT;
-                        pc_net_4.position.y = 0.02 * V_ANT + 1.4 * V_ANT;
-                        pc_net_4.position.z = 2.1 * V_ANT;
+                        pc_net_4.position.set(-27 * V_ANT, 0.02 * V_ANT + 1.4 * V_ANT,2.1 * V_ANT);
                         
                         scene.add(pc_net_4);
                         
                         geometry_short_2 = new THREE.CubeGeometry(8.75 * V_ANT, 0.04 * V_ANT, 0.65 * V_ANT);
                         var pc_regal_net_mon_5 = new THREE.Mesh(geometry_short_2, table_mat);
-                        pc_regal_net_mon_5.position.x = -24.1 * V_ANT;
-                        pc_regal_net_mon_5.position.y = 0.02 * V_ANT + 1.7 * V_ANT;
-                        pc_regal_net_mon_5.position.z = 2.1 * V_ANT;
+                        pc_regal_net_mon_5.position.set(-24.1 * V_ANT, 0.02 * V_ANT + 1.7 * V_ANT, 2.1 * V_ANT);
                         
                         scene.add(pc_regal_net_mon_5);
                     
                     //Rechner
                         
                         geometry = new THREE.CubeGeometry(0.18 * V_ANT, 0.4 * V_ANT, 0.4* V_ANT);
+                        for(var i=0; i<5;i++){
+                            var pc_rechner_1 = new THREE.Mesh(geometry, prod);
+                            pc_rechner_1.position.set(-25.25 * V_ANT + i* 0.6 * V_ANT, .2 * V_ANT + 1.19 * V_ANT,-2.5 * V_ANT);
+                            pc_rechner_1.rotation.y = Math.PI/4;
                         
-                        var pc_rechner_1 = new THREE.Mesh(geometry, prod);
-                        pc_rechner_1.position.x = -25.25 * V_ANT;
-                        pc_rechner_1.position.y = 0.2 * V_ANT + 1.19 * V_ANT;
-                        pc_rechner_1.position.z = -2.5 * V_ANT;
-                        pc_rechner_1.rotation.y = Math.PI/4;
+                            scene.add(pc_rechner_1);
+                        }
                         
-                        scene.add(pc_rechner_1);
-                        
-                        var pc_rechner_2 = new THREE.Mesh(geometry, prod);
-                        pc_rechner_2.position.x = -25.25 * V_ANT + 0.6 * V_ANT ;
-                        pc_rechner_2.position.y = 0.2 * V_ANT + 1.19 * V_ANT;
-                        pc_rechner_2.position.z = -2.5 * V_ANT;
-                        pc_rechner_2.rotation.y = Math.PI/4;
-                        
-                        scene.add(pc_rechner_2);
-                        
-                        var pc_rechner_3 = new THREE.Mesh(geometry, prod);
-                        pc_rechner_3.position.x = -25.25 * V_ANT+ 2 * 0.6 * V_ANT;
-                        pc_rechner_3.position.y = 0.2 * V_ANT + 1.19 * V_ANT;
-                        pc_rechner_3.position.z = -2.5 * V_ANT;
-                        pc_rechner_3.rotation.y = Math.PI/4;
-                        
-                        scene.add(pc_rechner_3);
-                        
-                        var pc_rechner_4 = new THREE.Mesh(geometry, prod);
-                        pc_rechner_4.position.x = -25.25 * V_ANT + 3* 0.6 * V_ANT;
-                        pc_rechner_4.position.y = 0.2 * V_ANT + 1.19 * V_ANT;
-                        pc_rechner_4.position.z = -2.5 * V_ANT;
-                        pc_rechner_4.rotation.y = Math.PI/4;
-                        
-                        scene.add(pc_rechner_4);
-                        
-                        var pc_rechner_5 = new THREE.Mesh(geometry, prod);
-                        pc_rechner_5.position.x = -25.25 * V_ANT + 4* 0.6 * V_ANT;
-                        pc_rechner_5.position.y = 0.2 * V_ANT + 1.19 * V_ANT;
-                        pc_rechner_5.position.z = -2.5 * V_ANT;
-                        pc_rechner_5.rotation.y = Math.PI/4;
-                        
-                        scene.add(pc_rechner_5);
                                
                         
                     // TV
                         geometry = new THREE.CubeGeometry(13 * V_ANT, 1.3 * V_ANT, 0.08* V_ANT);
                         var tv_lang_hr = new THREE.Mesh(geometry, table_mat); //Handregal Lang -> Runway
-                        tv_lang_hr.position.x = 0.7 * V_ANT;
-                        tv_lang_hr.position.y = 0.65 * V_ANT;
-                        tv_lang_hr.position.z = -5.8 * V_ANT;
+                        tv_lang_hr.position.set(0.7 * V_ANT, 0.65 * V_ANT, -5.8 * V_ANT);
                         
                         scene.add(tv_lang_hr);
                     
@@ -401,42 +321,32 @@ and open the template in the editor.
                     
                         geometry = new THREE.CubeGeometry(4.8 * V_ANT, 0.12 * V_ANT, 1.3* V_ANT);
                         var tv_phil_boden = new THREE.Mesh(geometry, table_mat); 
-                        tv_phil_boden.position.x = -13.425 * V_ANT;
-                        tv_phil_boden.position.y = 0.06 * V_ANT;
-                        tv_phil_boden.position.z = -14.545 * V_ANT;
+                        tv_phil_boden.position.set(-13.425 * V_ANT, 0.06 * V_ANT, -14.545 * V_ANT);
                         
                         scene.add(tv_phil_boden);
                         
                         geometry = new THREE.CubeGeometry(4.8 * V_ANT, 1.62 * V_ANT, 0.3* V_ANT);
                         var tv_phil_saeule = new THREE.Mesh(geometry, table_mat); 
-                        tv_phil_saeule.position.x = -13.425 * V_ANT;
-                        tv_phil_saeule.position.y = 0.81 * V_ANT;
-                        tv_phil_saeule.position.z = -14.545 * V_ANT;
+                        tv_phil_saeule.position.set(-13.425 * V_ANT, 0.81 * V_ANT, -14.545 * V_ANT);
                         
                         scene.add(tv_phil_saeule);
                         
                         geometry = new THREE.CubeGeometry(0.6 * V_ANT, 0.5 * V_ANT, 1.6* V_ANT);
                         var tv_phil_stand = new THREE.Mesh(geometry, table_mat); 
-                        tv_phil_stand.position.x = -10.725 * V_ANT;
-                        tv_phil_stand.position.y = 0.25 * V_ANT;
-                        tv_phil_stand.position.z = -14.545 * V_ANT;
+                        tv_phil_stand.position.set(-10.725 * V_ANT, 0.25 * V_ANT,-14.545 * V_ANT);
                         
                         scene.add(tv_phil_stand);
                         
                         geometry = new THREE.CubeGeometry(0.1 * V_ANT, 1.4 * V_ANT, 1.6* V_ANT);
                         var tv_phil_wand = new THREE.Mesh(geometry, table_mat); 
-                        tv_phil_wand.position.x = -10.975 * V_ANT;
-                        tv_phil_wand.position.y = 0.7 * V_ANT;
-                        tv_phil_wand.position.z = -14.545 * V_ANT;
+                        tv_phil_wand.position.set(-10.975 * V_ANT, 0.7 * V_ANT, -14.545 * V_ANT);
                         
                         scene.add(tv_phil_wand);
                         
                         geometry = new THREE.CubeGeometry(0.04 * V_ANT, 0.84 * V_ANT, 1.46 * V_ANT);
                         
                         var tv_phil_stand_tv = new THREE.Mesh(geometry, prod);
-                        tv_phil_stand_tv.position.x = -10.85 * V_ANT;
-                        tv_phil_stand_tv.position.y = 0.42 * V_ANT + 0.5 * V_ANT + 0.03 * V_ANT;
-                        tv_phil_stand_tv.position.z = -14.545 * V_ANT;
+                        tv_phil_stand_tv.position.set(-10.85 * V_ANT, 0.42 * V_ANT + 0.5 * V_ANT + 0.03 * V_ANT,-14.545 * V_ANT);
                         
                         scene.add(tv_phil_stand_tv);
                         
@@ -444,57 +354,43 @@ and open the template in the editor.
                     
                         geometry = new THREE.CubeGeometry(4.5 * V_ANT, 0.6 * V_ANT, 1.15* V_ANT);
                         var tv_pana_boden = new THREE.Mesh(geometry, table_mat); 
-                        tv_pana_boden.position.x = -13.275 * V_ANT;
-                        tv_pana_boden.position.y = 0.3 * V_ANT;
-                        tv_pana_boden.position.z = -11.67 * V_ANT;
+                        tv_pana_boden.position.set(-13.275 * V_ANT, 0.3 * V_ANT, -11.67 * V_ANT);
                         
                         scene.add(tv_pana_boden);
                         
                         geometry = new THREE.CubeGeometry(4.5 * V_ANT, 1.65 * V_ANT, 0.15* V_ANT);
                         var tv_pana_saeule = new THREE.Mesh(geometry, table_mat); 
-                        tv_pana_saeule.position.x = -13.275 * V_ANT;
-                        tv_pana_saeule.position.y = 0.825 * V_ANT;
-                        tv_pana_saeule.position.z = -11.67 * V_ANT;
+                        tv_pana_saeule.position.set(-13.275 * V_ANT, 0.825 * V_ANT, -11.67 * V_ANT);
                         
                         scene.add(tv_pana_saeule);
                         
                         geometry = new THREE.CubeGeometry(0.6 * V_ANT, 0.5 * V_ANT, 1.5* V_ANT);
                         var tv_pana_stand = new THREE.Mesh(geometry, table_mat); 
-                        tv_pana_stand.position.x = -10.725 * V_ANT;
-                        tv_pana_stand.position.y = 0.25 * V_ANT;
-                        tv_pana_stand.position.z = -11.67 * V_ANT;
+                        tv_pana_stand.position.set(-10.725 * V_ANT, 0.25 * V_ANT, -11.67 * V_ANT);
                         
                         scene.add(tv_pana_stand);
                         
                         geometry = new THREE.CubeGeometry(0.05 * V_ANT, 1.65 * V_ANT, 1.5* V_ANT);
                         var tv_pana_wand = new THREE.Mesh(geometry, table_mat); 
-                        tv_pana_wand.position.x = -11.025 * V_ANT;
-                        tv_pana_wand.position.y = 0.825 * V_ANT;
-                        tv_pana_wand.position.z = -11.67 * V_ANT;
+                        tv_pana_wand.position.set(-11.025 * V_ANT, 0.825 * V_ANT, -11.67 * V_ANT);
                         
                         scene.add(tv_pana_wand);
                         
                         geometry = new THREE.CubeGeometry(0.04 * V_ANT, 0.83 * V_ANT, 1.40 * V_ANT);  
                         var tv_pana_stand_tv = new THREE.Mesh(geometry, prod);
-                        tv_pana_stand_tv.position.x = -10.725 * V_ANT;
-                        tv_pana_stand_tv.position.y = 0.415 * V_ANT + 0.5 * V_ANT + 0.13 * V_ANT;
-                        tv_pana_stand_tv.position.z = -11.67 * V_ANT;
+                        tv_pana_stand_tv.position.set(-10.725 * V_ANT, 0.415 * V_ANT + 0.5 * V_ANT + 0.13 * V_ANT, -11.67 * V_ANT);
                         
                         scene.add(tv_pana_stand_tv);
                         
                         geometry = new THREE.CubeGeometry(0.3 * V_ANT, 0.05 * V_ANT, 0.55 * V_ANT);  
                         var tv_pana_stand_tv_fußstand = new THREE.Mesh(geometry, prod);
-                        tv_pana_stand_tv_fußstand.position.x = -10.725 * V_ANT;
-                        tv_pana_stand_tv_fußstand.position.y = 0.025 * V_ANT + 0.5 * V_ANT;
-                        tv_pana_stand_tv_fußstand.position.z = -11.67 * V_ANT;
+                        tv_pana_stand_tv_fußstand.position.set(-10.725 * V_ANT, 0.025 * V_ANT + 0.5 * V_ANT, -11.67 * V_ANT);
                         
                         scene.add(tv_pana_stand_tv_fußstand);
                         
                         geometry = new THREE.CubeGeometry(0.06 * V_ANT, 0.13 * V_ANT, 0.11 * V_ANT);  
                         var tv_pana_stand_tv_fuß = new THREE.Mesh(geometry, prod);
-                        tv_pana_stand_tv_fuß.position.x = -10.755 * V_ANT;
-                        tv_pana_stand_tv_fuß.position.y = 0.065 * V_ANT + 0.5 * V_ANT + 0.025 * V_ANT;
-                        tv_pana_stand_tv_fuß.position.z = -11.67 * V_ANT;
+                        tv_pana_stand_tv_fuß.position.set(-10.755 * V_ANT, 0.065 * V_ANT + 0.5 * V_ANT + 0.025 * V_ANT, -11.67 * V_ANT);
                         tv_pana_stand_tv_fuß.rotation.z = -Math.PI/10;
                         
                         scene.add(tv_pana_stand_tv_fuß);
@@ -505,56 +401,42 @@ and open the template in the editor.
                     
                         geometry = new THREE.CubeGeometry(3.84 * V_ANT, 0.65 * V_ANT, 1.1* V_ANT);
                         var tv_sony_boden = new THREE.Mesh(geometry, table_mat); 
-                        tv_sony_boden.position.x = -12.875 * V_ANT;
-                        tv_sony_boden.position.y = 0.325 * V_ANT;
-                        tv_sony_boden.position.z = -9.12 * V_ANT;
+                        tv_sony_boden.position.set(-12.875 * V_ANT, 0.325 * V_ANT, -9.12 * V_ANT);
                         
                         scene.add(tv_sony_boden);
                         
                         geometry = new THREE.CubeGeometry(3.84 * V_ANT, 1.5 * V_ANT, 0.1* V_ANT);
                         var tv_sony_saeule = new THREE.Mesh(geometry, table_mat); 
-                        tv_sony_saeule.position.x = -12.875 * V_ANT;
-                        tv_sony_saeule.position.y = 0.75 * V_ANT;
-                        tv_sony_saeule.position.z = -9.12 * V_ANT;
+                        tv_sony_saeule.position.set(-12.875 * V_ANT, 0.75 * V_ANT, -9.12 * V_ANT);
                         
                         scene.add(tv_sony_saeule);
                         
                         geometry = new THREE.CubeGeometry(0.55 * V_ANT, 0.65 * V_ANT, 1.8* V_ANT);
                         var tv_sony_stand = new THREE.Mesh(geometry, table_mat); 
-                        tv_sony_stand.position.x = -10.725 * V_ANT;
-                        tv_sony_stand.position.y = 0.325 * V_ANT;
-                        tv_sony_stand.position.z = -9.12 * V_ANT;
+                        tv_sony_stand.position.set(-10.725 * V_ANT, 0.325 * V_ANT,-9.12 * V_ANT);
                         
                         scene.add(tv_sony_stand);
                         
                         geometry = new THREE.CubeGeometry(0.05 * V_ANT, 1.6 * V_ANT, 1.8* V_ANT);
                         var tv_sony_wand = new THREE.Mesh(geometry, table_mat); 
-                        tv_sony_wand.position.x = -10.975 * V_ANT;
-                        tv_sony_wand.position.y = 0.8 * V_ANT;
-                        tv_sony_wand.position.z = -9.12 * V_ANT;
+                        tv_sony_wand.position.set(-10.975 * V_ANT,0.8 * V_ANT, -9.12 * V_ANT);
                         
                         scene.add(tv_sony_wand);
                         
                         geometry = new THREE.CubeGeometry(0.04 * V_ANT, 0.88 * V_ANT, 1.77 * V_ANT);  
                         var tv_sony_stand_tv = new THREE.Mesh(geometry, prod);
-                        tv_sony_stand_tv.position.x = -10.725 * V_ANT;
-                        tv_sony_stand_tv.position.y = 0.44 * V_ANT + 0.65 * V_ANT + 0.04 * V_ANT;
-                        tv_sony_stand_tv.position.z = -9.12 * V_ANT;
+                        tv_sony_stand_tv.position.set(-10.725 * V_ANT, 0.44 * V_ANT + 0.65 * V_ANT + 0.04 * V_ANT, -9.12 * V_ANT);
                         
                         scene.add(tv_sony_stand_tv)
                         
                         geometry = new THREE.CubeGeometry(0.32 * V_ANT, 0.03 * V_ANT, 0.04 * V_ANT);  
                         var tv_sony_stand_tv_fuß = new THREE.Mesh(geometry, prod);
-                        tv_sony_stand_tv_fuß.position.x = -10.725 * V_ANT;
-                        tv_sony_stand_tv_fuß.position.y = 0.015 * V_ANT + 0.65 * V_ANT ;
-                        tv_sony_stand_tv_fuß.position.z = -8.335 * V_ANT;
+                        tv_sony_stand_tv_fuß.position.set(-10.725 * V_ANT, 0.015 * V_ANT + 0.65 * V_ANT, -8.335 * V_ANT);
                     
                         scene.add(tv_sony_stand_tv_fuß);
                         
                         var tv_sony_stand_tv_fuß2 = new THREE.Mesh(geometry, prod);
-                        tv_sony_stand_tv_fuß2.position.x = -10.725 * V_ANT;
-                        tv_sony_stand_tv_fuß2.position.y = 0.015 * V_ANT + 0.65 * V_ANT ;
-                        tv_sony_stand_tv_fuß2.position.z = -9.905 * V_ANT;
+                        tv_sony_stand_tv_fuß2.position.set(-10.725 * V_ANT, 0.015 * V_ANT + 0.65 * V_ANT, -9.905 * V_ANT);
                     
                         scene.add(tv_sony_stand_tv_fuß2);
                         
@@ -562,33 +444,25 @@ and open the template in the editor.
                     
                         geometry = new THREE.CubeGeometry(3.85 * V_ANT, 0.65 * V_ANT, 1.2* V_ANT);
                         var tv_samsung_boden = new THREE.Mesh(geometry, table_mat); 
-                        tv_samsung_boden.position.x = -12.875 * V_ANT;
-                        tv_samsung_boden.position.y = 0.325 * V_ANT;
-                        tv_samsung_boden.position.z = -6.37 * V_ANT;
+                        tv_samsung_boden.position.set(-12.875 * V_ANT, 0.325 * V_ANT,-6.37 * V_ANT);
                         
                         scene.add(tv_samsung_boden);
                         
                         geometry = new THREE.CubeGeometry(3.85 * V_ANT, 1.5 * V_ANT, 0.1* V_ANT);
                         var tv_samsung_saeule = new THREE.Mesh(geometry, table_mat); 
-                        tv_samsung_saeule.position.x = -12.875 * V_ANT;
-                        tv_samsung_saeule.position.y = 0.75 * V_ANT;
-                        tv_samsung_saeule.position.z = -6.37 * V_ANT;
+                        tv_samsung_saeule.position.set(-12.875 * V_ANT, 0.75 * V_ANT, -6.37 * V_ANT);
                         
                         scene.add(tv_samsung_saeule);
                         
                         geometry = new THREE.CubeGeometry(0.55 * V_ANT, 0.65 * V_ANT, 1.2* V_ANT);
                         var tv_samsung_stand = new THREE.Mesh(geometry, table_mat); 
-                        tv_samsung_stand.position.x = -10.725 * V_ANT;
-                        tv_samsung_stand.position.y = 0.325 * V_ANT;
-                        tv_samsung_stand.position.z = -6.37 * V_ANT;
+                        tv_samsung_stand.position.set(-10.725 * V_ANT, 0.325 * V_ANT, -6.37 * V_ANT);
                         
                         scene.add(tv_samsung_stand);
                         
                         geometry = new THREE.CubeGeometry(0.1 * V_ANT, 1.5 * V_ANT, 1.2* V_ANT);
                         var tv_samsung_wand = new THREE.Mesh(geometry, table_mat); 
-                        tv_samsung_wand.position.x = -10.975 * V_ANT;
-                        tv_samsung_wand.position.y = 0.75 * V_ANT;
-                        tv_samsung_wand.position.z = -6.37 * V_ANT;
+                        tv_samsung_wand.position.set(-10.975 * V_ANT, 0.75 * V_ANT, -6.37 * V_ANT);
                         
                         scene.add(tv_samsung_wand);
                         
@@ -756,9 +630,7 @@ and open the template in the editor.
                       //Teppich
                         geometry = new THREE.CubeGeometry(2* V_ANT, 0.05* V_ANT, 3* V_ANT);   
                         var hifi_teppich = new THREE.Mesh(geometry, teppich);
-                        hifi_teppich.position.x = 9.5* V_ANT;
-                        hifi_teppich.position.y = 0.02* V_ANT;
-                        hifi_teppich.position.z = -13.505* V_ANT;
+                        hifi_teppich.position.set(9.5* V_ANT, 0.02* V_ANT, -13.505* V_ANT);
                         
                         scene.add(hifi_teppich);
                         
@@ -766,9 +638,7 @@ and open the template in the editor.
                     
                         geometry = new THREE.CylinderGeometry(0.25 * V_ANT, 0.25 * V_ANT, 0.05, 40);
                         var tisch_rund = new THREE.Mesh(geometry, prod);
-                        tisch_rund.position.x = 9.5 * V_ANT;
-                        tisch_rund.position.y = 0.57 * V_ANT + 0.02 * V_ANT;
-                        tisch_rund.position.z = -13.505 *V_ANT;
+                        tisch_rund.position.set(9.5 * V_ANT, 0.57 * V_ANT + 0.02 * V_ANT, -13.505 *V_ANT);
                         
                         scene.add(tisch_rund);
                         
@@ -793,52 +663,40 @@ and open the template in the editor.
                         
                         geometry = new THREE.CubeGeometry(0.25* V_ANT, 0.9* V_ANT, 0.04* V_ANT);   
                         var hifi_sitz_lehne = new THREE.Mesh(geometry, table_mat);
-                        hifi_sitz_lehne.position.x = 9.7 * V_ANT;
-                        hifi_sitz_lehne.position.y = 0.45* V_ANT + 0.4 * V_ANT;
-                        hifi_sitz_lehne.position.z = -12.355* V_ANT;
+                        hifi_sitz_lehne.position.set(9.7 * V_ANT, 0.45* V_ANT + 0.4 * V_ANT, -12.355* V_ANT);
                         hifi_sitz_lehne.rotation.x = Math.PI/30;
                         
                         scene.add(hifi_sitz_lehne);
                         
-                        var hifi_sitz_lehne2 = new THREE.Mesh(geometry, table_mat);
-                        hifi_sitz_lehne2.position.x = 9.3 * V_ANT;
-                        hifi_sitz_lehne2.position.y = 0.45* V_ANT + 0.4 * V_ANT;
-                        hifi_sitz_lehne2.position.z = -12.355* V_ANT;
-                        hifi_sitz_lehne2.rotation.x = Math.PI/30;
+                        hifi_sitz_lehne = new THREE.Mesh(geometry, table_mat);
+                        hifi_sitz_lehne.position.set(9.3 * V_ANT, 0.45* V_ANT + 0.4 * V_ANT, -12.355* V_ANT);
+                        hifi_sitz_lehne.rotation.x = Math.PI/30;
                         
-                        scene.add(hifi_sitz_lehne2);
+                        scene.add(hifi_sitz_lehne);
                         
                     // Fernseher + Stand
                     
                         geometry = new THREE.CubeGeometry(1.5* V_ANT, 0.68* V_ANT, 0.5* V_ANT);   
                         var hifi_kino_stand = new THREE.Mesh(geometry, table_mat);
-                        hifi_kino_stand.position.x = 9.5 * V_ANT;
-                        hifi_kino_stand.position.y = 0.34* V_ANT;
-                        hifi_kino_stand.position.z = -14.505* V_ANT;
+                        hifi_kino_stand.position.set(9.5 * V_ANT, 0.34* V_ANT, -14.505* V_ANT);
                         
                         scene.add(hifi_kino_stand);
                         
                         geometry = new THREE.CubeGeometry(1.77 * V_ANT, 1 * V_ANT, 0.05 * V_ANT);  
                         var hifi_tv = new THREE.Mesh(geometry, prod);
-                        hifi_tv.position.x = 9.5 * V_ANT;
-                        hifi_tv.position.y = 0.5 * V_ANT + 0.68 * V_ANT;
-                        hifi_tv.position.z = -14.505 * V_ANT;
+                        hifi_tv.position.set(9.5 * V_ANT, 0.5 * V_ANT + 0.68 * V_ANT, -14.505 * V_ANT);
                         
                         scene.add( hifi_tv);
                         
                         geometry = new THREE.CubeGeometry(0.55 * V_ANT, 0.05 * V_ANT, 0.3 * V_ANT);  
                         var  hifi_tv_fußstand = new THREE.Mesh(geometry, prod);
-                        hifi_tv_fußstand.position.x = 9.5 * V_ANT;
-                        hifi_tv_fußstand.position.y = 0.025 * V_ANT + 0.68 * V_ANT;
-                        hifi_tv_fußstand.position.z = -14.505 * V_ANT;
+                        hifi_tv_fußstand.position.set(9.5 * V_ANT, 0.025 * V_ANT + 0.68 * V_ANT,-14.505 * V_ANT);
                         
                         scene.add(hifi_tv_fußstand);
                         
                         geometry = new THREE.CubeGeometry(0.11 * V_ANT, 0.13 * V_ANT, 0.06 * V_ANT);  
                         var hifi_tv_fuß = new THREE.Mesh(geometry, prod);
-                        hifi_tv_fuß.position.x = 9.5 * V_ANT;
-                        hifi_tv_fuß.position.y = 0.065 * V_ANT + 0.68 * V_ANT + 0.025 * V_ANT;
-                        hifi_tv_fuß.position.z = -14.585 * V_ANT;
+                        hifi_tv_fuß.position.set(9.5 * V_ANT, 0.065 * V_ANT + 0.68 * V_ANT + 0.025 * V_ANT, -14.585 * V_ANT);
                         hifi_tv_fuß.rotation.x = Math.PI/10;
                         
                         scene.add(hifi_tv_fuß);
@@ -846,133 +704,57 @@ and open the template in the editor.
                      // Anlagen
                       
                         geometry = new THREE.CubeGeometry(0.25 * V_ANT, 0.02 * V_ANT, 0.25 * V_ANT);
-                        var hifi_satfuß_1 = new THREE.Mesh(geometry, prod);
-                        hifi_satfuß_1.position.x = 8.3 * V_ANT;
-                        hifi_satfuß_1.position.y = 0.01 * V_ANT + 0.02 * V_ANT;
-                        hifi_satfuß_1.position.z = -14.305 * V_ANT;
-                        
-                        scene.add(hifi_satfuß_1);
-                        
-                        geometry = new THREE.CubeGeometry(0.09 * V_ANT, 1.28 * V_ANT, 0.07 * V_ANT);
-                        var hifi_sat_1 = new THREE.Mesh(geometry, prod);
-                        hifi_sat_1.position.x = 8.3 * V_ANT;
-                        hifi_sat_1.position.y = 0.64 * V_ANT + 0.02 * V_ANT + 0.02;
-                        hifi_sat_1.position.z = -14.305 * V_ANT;
-                        
-                        scene.add(hifi_sat_1);
-                        
-                        geometry = new THREE.CubeGeometry(0.25 * V_ANT, 0.02 * V_ANT, 0.25 * V_ANT);
-                        var hifi_satfuß_2 = new THREE.Mesh(geometry, prod);
-                        hifi_satfuß_2.position.x = 10.7 * V_ANT;
-                        hifi_satfuß_2.position.y = 0.01 * V_ANT + 0.02 * V_ANT;
-                        hifi_satfuß_2.position.z = -14.305 * V_ANT;
-                        
-                        scene.add(hifi_satfuß_2);
+                        for(var i=0; i<2;i++){
+                            for(var j=0; j<2;j++){
+                                var hifi_satfuß = new THREE.Mesh(geometry, prod);
+                                hifi_satfuß.position.set(8.3 * V_ANT + j*2.4 * V_ANT, 0.01 * V_ANT + 0.02 * V_ANT, -14.305 * V_ANT+ i* 2.5 * V_ANT);
+                                scene.add(hifi_satfuß);
+                            }
+                        }
+                           
                         
                         geometry = new THREE.CubeGeometry(0.09 * V_ANT, 1.28 * V_ANT, 0.07 * V_ANT);
-                        var hifi_sat_2 = new THREE.Mesh(geometry, prod);
-                        hifi_sat_2.position.x = 10.7 * V_ANT;
-                        hifi_sat_2.position.y = 0.64 * V_ANT + 0.02 * V_ANT + 0.02;
-                        hifi_sat_2.position.z = -14.305 * V_ANT;
-                        
-                        scene.add(hifi_sat_2);
-                        
-                        geometry = new THREE.CubeGeometry(0.25 * V_ANT, 0.02 * V_ANT, 0.25 * V_ANT);
-                        var hifi_satfuß_3 = new THREE.Mesh(geometry, prod);
-                        hifi_satfuß_3.position.x = 8.3 * V_ANT;
-                        hifi_satfuß_3.position.y = 0.01 * V_ANT + 0.02 * V_ANT;
-                        hifi_satfuß_3.position.z = -11.805 * V_ANT;
-                        hifi_satfuß_3.rotation.y = Math.PI/4;
-                        
-                        scene.add(hifi_satfuß_3);
-                        
-                        geometry = new THREE.CubeGeometry(0.09 * V_ANT, 1.28 * V_ANT, 0.07 * V_ANT);
-                        var hifi_sat_3 = new THREE.Mesh(geometry, prod);
-                        hifi_sat_3.position.x = 8.3 * V_ANT;
-                        hifi_sat_3.position.y = 0.64 * V_ANT + 0.02 * V_ANT + 0.02;
-                        hifi_sat_3.position.z = -11.805 * V_ANT;
-                        hifi_sat_3.rotation.y = -Math.PI/4;
-                        
-                        scene.add(hifi_sat_3);
-                        
-                        geometry = new THREE.CubeGeometry(0.25 * V_ANT, 0.02 * V_ANT, 0.25 * V_ANT);
-                        var hifi_satfuß_4 = new THREE.Mesh(geometry, prod);
-                        hifi_satfuß_4.position.x = 10.7 * V_ANT;
-                        hifi_satfuß_4.position.y = 0.01 * V_ANT + 0.02 * V_ANT;
-                        hifi_satfuß_4.position.z = -11.805 * V_ANT;
-                        hifi_satfuß_4.rotation.y = -Math.PI/4;
-                        
-                        scene.add(hifi_satfuß_4);
-                        
-                        geometry = new THREE.CubeGeometry(0.09 * V_ANT, 1.28 * V_ANT, 0.07 * V_ANT);
-                        var hifi_sat_4 = new THREE.Mesh(geometry, prod);
-                        hifi_sat_4.position.x = 10.7 * V_ANT;
-                        hifi_sat_4.position.y = 0.64 * V_ANT + 0.02 * V_ANT + 0.02;
-                        hifi_sat_4.position.z = -11.805 * V_ANT;
-                        hifi_sat_4.rotation.y = Math.PI/4;
-                        
-                        scene.add(hifi_sat_4);
+                        for(var i=0; i<2;i++){
+                            for(var j=0; j<2;j++){
+                               
+                                var hifi_sat = new THREE.Mesh(geometry, prod);
+                                hifi_sat.position.set(8.3 * V_ANT + j*2.4 * V_ANT, 0.64 * V_ANT + 0.02 * V_ANT + 0.02 * V_ANT, -14.305 * V_ANT+ i* 2.5 * V_ANT );
+                                scene.add(hifi_sat);
+                            }
+                        }
                         
                      // Kino Ende
                         
                         geometry = new THREE.CubeGeometry(0.8* V_ANT,1.1* V_ANT,3.6* V_ANT);   
-                        var hifi_regal_1 = new THREE.Mesh(geometry, table_mat);
-                        hifi_regal_1.position.x = 5.875* V_ANT;
-                        hifi_regal_1.position.y = 0.55* V_ANT;
-                        hifi_regal_1.position.z = -9.5* V_ANT;
                         
-                        scene.add(hifi_regal_1);
-                        
-                        var hifi_regal_2 = new THREE.Mesh(geometry, table_mat);
-                        hifi_regal_2.position.x = 4.175* V_ANT;
-                        hifi_regal_2.position.y = 0.55* V_ANT;
-                        hifi_regal_2.position.z = -9.5* V_ANT;
-                        
-                        scene.add(hifi_regal_2);
-                        
-                        var hifi_regal_3 = new THREE.Mesh(geometry, table_mat);
-                        hifi_regal_3.position.x = 2.475* V_ANT;
-                        hifi_regal_3.position.y = 0.55* V_ANT;
-                        hifi_regal_3.position.z = -9.5* V_ANT;
-                        
-                        scene.add(hifi_regal_3);
-                        
-                        var hifi_regal_4 = new THREE.Mesh(geometry, table_mat);
-                        hifi_regal_4.position.x = 0.725* V_ANT;
-                        hifi_regal_4.position.y = 0.55* V_ANT;
-                        hifi_regal_4.position.z = -9.5* V_ANT;
-                        
-                        scene.add(hifi_regal_4);
+                        for(var i = 0; i<4; i++){
+                            var hifi_regal = new THREE.Mesh(geometry, table_mat);
+                            hifi_regal.position.set(5.875* V_ANT - 1.7 * i * V_ANT, 0.55* V_ANT, -9.5* V_ANT);
+                            scene.add(hifi_regal);
+                        }
+                       
                         
                         
                         geometry = new THREE.CubeGeometry(0.08 * V_ANT, 1.3 * V_ANT, 3* V_ANT);
                         var hifi_mp3_1 = new THREE.Mesh(geometry, table_mat); //Handregal Lang -> Runway
-                        hifi_mp3_1.position.x = -2.275 * V_ANT;
-                        hifi_mp3_1.position.y = 0.65* V_ANT;
-                        hifi_mp3_1.position.z = -9.5 * V_ANT;
+                        hifi_mp3_1.position.set(-2.275 * V_ANT, 0.65* V_ANT, -9.5 * V_ANT);
                         
                         scene.add(hifi_mp3_1);
                         
                         var hifi_mp3_2 = new THREE.Mesh(geometry, table_mat); //Handregal Lang -> Runway
-                        hifi_mp3_2.position.x = -4.575 * V_ANT;
-                        hifi_mp3_2.position.y = 0.65* V_ANT;
-                        hifi_mp3_2.position.z = -9.5 * V_ANT;
+                        hifi_mp3_2.position.set(-4.575 * V_ANT, 0.65* V_ANT, -9.5 * V_ANT);
                         
                         scene.add(hifi_mp3_2);
                         
                         
                          geometry = new THREE.CubeGeometry(8.4* V_ANT,1.1* V_ANT,0.8* V_ANT);   
                         var hifi_lang_1 = new THREE.Mesh(geometry, table_mat);
-                        hifi_lang_1.position.x = 2.2* V_ANT;
-                        hifi_lang_1.position.y = 0.55* V_ANT;
-                        hifi_lang_1.position.z = -15.3* V_ANT;
+                        hifi_lang_1.position.set(2.2* V_ANT, 0.55* V_ANT, -15.3* V_ANT);
                         
                         scene.add(hifi_lang_1);
                         
                         var hifi_lang_2 = new THREE.Mesh(geometry, table_mat);
-                        hifi_lang_2.position.x = 2.2* V_ANT;
-                        hifi_lang_2.position.y = 0.55* V_ANT;
-                        hifi_lang_2.position.z = -13.2* V_ANT;
+                        hifi_lang_2.position.set(2.2* V_ANT, 0.55* V_ANT, -13.2* V_ANT);
                         
                         scene.add(hifi_lang_2);
                         
@@ -980,35 +762,26 @@ and open the template in the editor.
                     
                         geometry = new THREE.CubeGeometry(0.08 * V_ANT, 1.3 * V_ANT, 10* V_ANT);
                         var foto_lang_hr = new THREE.Mesh(geometry, table_mat);
-                        foto_lang_hr.position.x = 1.5 * V_ANT;
-                        foto_lang_hr.position.y = 0.65 * V_ANT;
-                        foto_lang_hr.position.z =  -0.8 * V_ANT;
+                        foto_lang_hr.position.set(1.5 * V_ANT,0.65 * V_ANT, -0.8 * V_ANT);
                         
                         scene.add(foto_lang_hr);
                         
                         geometry = new THREE.CubeGeometry(0.08*V_ANT, 1.3 * V_ANT, 5.25 * V_ANT);
                         var foto_kasse_hr = new THREE.Mesh(geometry, material_m);
-                        foto_kasse_hr.position.x = 3.65 * V_ANT;
-                        foto_kasse_hr.position.y = 0.65 * V_ANT;
-                        foto_kasse_hr.position.z = 6.55 * V_ANT;
-                       
+                        foto_kasse_hr.position.set(3.65 * V_ANT, 0.65 * V_ANT, 6.55 * V_ANT);
                         foto_kasse_hr.rotation.y = Math.PI/4;
                         
                         scene.add(foto_kasse_hr);
                         
                         geometry = new THREE.CubeGeometry(5* V_ANT,1.3* V_ANT,0.08* V_ANT);
                         var foto_regal_1 = new THREE.Mesh(geometry, table_mat);
-                        foto_regal_1.position.x = -2.8 * V_ANT;
-                        foto_regal_1.position.y = 0.65* V_ANT;
-                        foto_regal_1.position.z = -3.05* V_ANT;
+                        foto_regal_1.position.set(-2.8 * V_ANT, 0.65* V_ANT, -3.05* V_ANT);
                         
                         scene.add(foto_regal_1);
                         
                         geometry = new THREE.CubeGeometry(4* V_ANT,1.3* V_ANT,0.08* V_ANT);
                         var foto_regal_2 = new THREE.Mesh(geometry, table_mat);
-                        foto_regal_2.position.x = -2.4* V_ANT;
-                        foto_regal_2.position.y = 0.65* V_ANT;
-                        foto_regal_2.position.z = -0.7* V_ANT;
+                        foto_regal_2.position.set(-2.4* V_ANT, 0.65* V_ANT,-0.7* V_ANT);
                         
                         scene.add(foto_regal_2);
                        
@@ -1120,17 +893,13 @@ and open the template in the editor.
                         
                         geometry = new THREE.CubeGeometry(6.25* V_ANT,1.3* V_ANT,0.08* V_ANT);
                         var ww_regal_buegel = new THREE.Mesh(geometry, table_mat);
-                        ww_regal_buegel.position.x = 13* V_ANT;
-                        ww_regal_buegel.position.y = 0.65* V_ANT;
-                        ww_regal_buegel.position.z = -8.25* V_ANT;
+                        ww_regal_buegel.position.set(13* V_ANT, 0.65* V_ANT, -8.25* V_ANT);
                         
                         scene.add(ww_regal_buegel);
                         
                         geometry = new THREE.CubeGeometry(3* V_ANT,1.05* V_ANT,1.1* V_ANT);
                         var ww_regal_kaffee = new THREE.Mesh(geometry, table_mat);
-                        ww_regal_kaffee.position.x = 14* V_ANT;
-                        ww_regal_kaffee.position.y = 0.525* V_ANT;
-                        ww_regal_kaffee.position.z = -10.25* V_ANT;
+                        ww_regal_kaffee.position.set(14* V_ANT, 0.525* V_ANT,-10.25* V_ANT);
                         
                         scene.add(ww_regal_kaffee);
                         
@@ -1220,7 +989,46 @@ and open the template in the editor.
                     tk_vit.rotation.y = Math.PI/3;
                     scene.add(tk_vit);
                     
+                    geometry = new THREE.CubeGeometry(0.6 * V_ANT, 1.65 * V_ANT, 0.6 * V_ANT);
+                    var tk_zub = new THREE.Mesh(geometry, table_mat);
+                    tk_zub.position.set(-1.8  * V_ANT , 0.825 * V_ANT, 3.35 * V_ANT);
+                    tk_zub.rotation.y = -Math.PI/6;
+                    scene.add(tk_zub);
                     
+                 // Element Drehung
+                    
+                    geometry = new THREE.CylinderGeometry(0.35 * V_ANT, 0.35 * V_ANT, 0.1 * V_ANT, 32);
+                    var tk_dreh_top = new THREE.Mesh(geometry, table_mat);
+                    tk_dreh_top.position.set(-2.6 * V_ANT, 1.6 * V_ANT, 2.85 * V_ANT);
+                    scene.add(tk_dreh_top);
+                    
+                    geometry = new THREE.CubeGeometry(0.25 * V_ANT, 1.5 * V_ANT, 0.25 * V_ANT);
+                    var tk_dreh = new THREE.Mesh(geometry, table_mat);
+                    tk_dreh.position.set(-2.6  * V_ANT , 0.75 * V_ANT + 0.1 * V_ANT, 2.85 * V_ANT);
+                    
+                    scene.add(tk_dreh);
+                    
+                    geometry = new THREE.CylinderGeometry(0.25 * V_ANT, 0.25 * V_ANT, 0.1 * V_ANT, 32);
+                    var tk_dreh_down = new THREE.Mesh(geometry, table_mat);
+                    tk_dreh_down.position.set(-2.6 * V_ANT, 0.05 * V_ANT, 2.85* V_ANT);
+                    scene.add(tk_dreh_down);
+                    
+                    geometry = new THREE.CubeGeometry(0.5 * V_ANT, 1.5 * V_ANT, 0.1 * V_ANT);
+                    var tk_dreh_2 = new THREE.Mesh(geometry, table_mat);
+                    tk_dreh_2.position.set(-1  * V_ANT , 0.75 * V_ANT + 0.05 * V_ANT, 3.8 * V_ANT);
+                    
+                    scene.add(tk_dreh_2);
+                    
+                    //test ellipse
+                    
+                    
+                    
+                    //Element Drehung Ende
+                    geometry =  new THREE.CubeGeometry(0.8 * V_ANT, 2.3 * V_ANT, 0.8*V_ANT );
+                    var tk_zub_viv = new THREE.Mesh(geometry, table_mat);
+                    tk_zub_viv.position.set(-1  * V_ANT , 0.825 * V_ANT, 1.7 * V_ANT);
+                    
+                    scene.add(tk_zub_viv);
                     
                     //Games
                     
@@ -1471,6 +1279,11 @@ and open the template in the editor.
                         requestAnimationFrame( render );
                         // if (camera.position.y != 1.8 * V_ANT)
                           //  camera.position.y = 1.8 * V_ANT;
+                          
+                          
+                          //tk Drehung
+                          tk_dreh.rotation.y += 0.002;
+                          tk_dreh_2.rotation.y -= 0.002;
                         };
                         
                         requestAnimationFrame(render);
