@@ -27,6 +27,11 @@ and open the template in the editor.
                 <script src="js/LineBasicMaterial.js" type="text/javascript"></script>
                 <script src="js/QuadraticBezierCurve3.js" type="text/javascript"></script>
                 <script src="js/ClosedSplineCurve3.js" type="text/javascript"></script>
+                <script src="js/LineCurve3.js" type="text/javascript"></script>
+                <script src="js/CurvePath.js" type="text/javascript"></script>
+                <script src="js/Curve.js" type="text/javascript"></script>
+                <script src="js/CubicBezierCurve.js" type="text/javascript"></script>
+                <script src="js/ArcCurve.js" type="text/javascript"></script>
                 <script>
                     
                     //Vergößerungsanteil Treppeneffekt
@@ -337,49 +342,8 @@ and open the template in the editor.
                     
                     //Imac Cylinder // QuadraticCurve
                     
-                        //var iMac = new Shape();
-                        //iMac.moveTo(-3  *V_ANT, 5  * V_ANT);
-                        //iMac.lineTo(1 * V_ANT, 4 * V_ANT);
                         
-                        //scene.add(iMac);
-                        
-                        
-                    //iMac Ende    
-                    
-                        //var geometry = new THREE.Geometry();
-                        //geometry.vertices = curve.getPoints( 50 );
-                        //var material = new THREE.LineBasicMaterial( { color : 0xff0000 } ); 
-                       // var curveObject = new THREE.Line( geometry, material );
-                       // curveObject.position.set(0,5 * V_ANT, 0);
-                       // scene.add(curveObject);
-                        
-                        // geometry
-                        var geometry = new THREE.Shape();
-                        geometry.moveTo(0,0);
-                        geometry.lineTo(0,5 * V_ANT);
-                        geometry.lineTo(1.6  *V_ANT,5 * V_ANT);
-                        geometry.lineTo(1.6 * V_ANT,0);
-                        geometry.lineTo(0,0);
-                        geometry.quadraticCurveTo(5 * V_ANT, 3.5 * V_ANT, 0 , 5*V_ANT);
-                        var back = new THREE.ClosedSplineCurve3([
-                            //new THREE.Vector3(0 , 0, 0),
-                            new THREE.Vector3(0 , 2.5 * V_ANT, 0.8 * V_ANT),
-                            new THREE.Vector3(0, 5 * V_ANT, 1.6 * V_ANT)
-                        ]);
-                        var extrudeSettings = { amount: 0.5 , bevelEnabled: false, bevelSegments: 8, steps: 2, bevelSize: 1, bevelThickness: 1, extrudePath: back };
-                        var geom = new THREE.ExtrudeGeometry(geometry, extrudeSettings);
-                        var mesh = new THREE.Mesh(geom, table_mat);
-                        mesh.position.set(0,10 * V_ANT,0);
-                        
-                        scene.add(mesh);
-                        
-                        //geometry.quadraticCurveTo(10,-10,5,-5);
-                        // material
-                        //var material = new THREE.LineBasicMaterial( { color: 0xffffff, linewidth: 1 } );
-
-                        // line
-                        //// line.position.set(0, 5 * V_ANT, 0);
-                        //scene.add( line );
+                       
                         
                         
                     //Laptop Ende
