@@ -339,17 +339,60 @@ and open the template in the editor.
                                 scene.add(lap);
                             }
                         }
+                           
                     
-                    //Imac Cylinder // QuadraticCurve
                     
+                    
+                    //Imac vertices Push -> die Wölbung kann ich über die gepushten 
+                    // curve points machen -> garantiert steht im array über .length die Länge über die 
+                    // iteriert werden kann
+                    
+                        var SUBDIVISIONS = 20;
                         
+                        var geometry = new THREE.Geometry();
+                        var curve = new THREE.QuadraticBezierCurve3();
+                        curve.v0 = new THREE.Vector3(0, 0, 0);
+                        curve.v1 = new THREE.Vector3(0.32 * V_ANT, 0.215* V_ANT, 0.05 * V_ANT);
+                        curve.v2 = new THREE.Vector3(0.675 * V_ANT, 0.48 * V_ANT, 0);
+                        
+                        for (var j = 0; j < SUBDIVISIONS; j++) 
+                        { 
+                            geometry.vertices.push( curve.getPoint(j / SUBDIVISIONS) ); 
+                        } 
+                        for(var i = 0; i < 18; i = i+3){
+                            geometry.faces[i] = [
+                                new THREE.Face3(i,i+1,i+2)
+                            ];
+                        }
+                        for(var i = 0; i< geometry.faces.length; i++){
+                            geometry.face[i].materialIndex = 0;
+                        }
+                       /*geometry.vertices = [
+                           new THREE.Vector3(0,0.43 * V_ANT,0),
+                           new THREE.Vector3(0,0,0),
+                           new THREE.Vector3(0.64 * V_ANT,0, 0),
+                           new THREE.Vector3(0.64 *V_ANT,0.43 * V_ANT,0)];
+                        geometry.faces = [
+                            new THREE.Face3(0,1,2),
+                            new THREE.Face3(0,2,3)
+                        ];*/
+                        geometry.computeFaceNormals();
+                        geometry.computeVertexNormals();
+                        //geometry.faces[0].materialIndex = 0;
+                        //geometry.faces[1].materialIndex = 1;
+                        var material_imac = new THREE.MeshFaceMaterial([
+                            new THREE.MeshLambertMaterial({ color: 0xF478ab, side:THREE.DoubleSide})
+                        ]);
+                        
+                        
+                        var line = new THREE.Mesh(geometry, table_mat);
+                        line.position.set(0, 10 * V_ANT, 0);
+                        scene.add(line);
+                        
+                        
+                    //iMac Ende
                        
-                        
-                        
-                    //Laptop Ende
-                    
-                        
-                        
+                    //Laptoptisch  Ende
                     //Monitore
                                                       
                         geometry = new THREE.CubeGeometry(0.02 * V_ANT, 0.32 * V_ANT, 0.7 * V_ANT);
