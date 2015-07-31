@@ -345,7 +345,7 @@ and open the template in the editor.
                     
                     //Imac vertices Push -> die Wölbung kann ich über die gepushten 
                     // curve points machen -> garantiert steht im array über .length die Länge über die 
-                    // iteriert werden kann
+                    // iteriert werden kann ->    siehe BSP: google link
                     
                         var SUBDIVISIONS = 20;
                         
@@ -359,15 +359,8 @@ and open the template in the editor.
                         { 
                             geometry.vertices.push( curve.getPoint(j / SUBDIVISIONS) ); 
                         } 
-                        for(var i = 0; i < 18; i = i+3){
-                            geometry.faces[i] = [
-                                new THREE.Face3(i,i+1,i+2)
-                            ];
-                        }
-                        for(var i = 0; i< geometry.faces.length; i++){
-                            geometry.face[i].materialIndex = 0;
-                        }
-                       /*geometry.vertices = [
+                        
+                       geometry.vertices = [
                            new THREE.Vector3(0,0.43 * V_ANT,0),
                            new THREE.Vector3(0,0,0),
                            new THREE.Vector3(0.64 * V_ANT,0, 0),
@@ -375,11 +368,11 @@ and open the template in the editor.
                         geometry.faces = [
                             new THREE.Face3(0,1,2),
                             new THREE.Face3(0,2,3)
-                        ];*/
+                        ];
                         geometry.computeFaceNormals();
                         geometry.computeVertexNormals();
-                        //geometry.faces[0].materialIndex = 0;
-                        //geometry.faces[1].materialIndex = 1;
+                        geometry.faces[0].materialIndex = 0;
+                        geometry.faces[1].materialIndex = 1;
                         var material_imac = new THREE.MeshFaceMaterial([
                             new THREE.MeshLambertMaterial({ color: 0xF478ab, side:THREE.DoubleSide})
                         ]);
