@@ -15,7 +15,7 @@ and open the template in the editor.
 
         
 		<script src="js/three.min.js"></script>
-                <script src="fonts/helvetiker_bold.typeface.js" type="text/javascript"></script>
+                <script src="js/helvetiker_bold.typeface.js" type="text/javascript"></script>
                 <script src="js/droid_sans_bold.typeface.js" type="text/javascript"></script>
                 <script src="js/droid_serif_bold.typeface.js" type="text/javascript"></script>
                 <script src="js/gentilis_bold.typeface.js" type="text/javascript"></script>
@@ -23,32 +23,21 @@ and open the template in the editor.
                 <script src="js/optimer_bold.typeface.js" type="text/javascript"></script>
                 <script src="js/FirstPersonControls.js"></script>
                 <script src="js/ConvexGeometry.js"></script>
-                <script src="js/RingGeometry.js"></script>
-                <script src="js/ExtrudeGeometry.js" type="text/javascript"></script>
-                <script src="js/Shape.js" type="text/javascript"></script>
-                <script src="js/ShapeGeometry.js" type="text/javascript"></script>
-                <script src="js/SphereGeometry.js" type="text/javascript"></script>
-                <script src="js/QuadraticBezierCurve.js" type="text/javascript"></script>
-                <script src="js/Line.js" type="text/javascript"></script>
-                <script src="js/LineBasicMaterial.js" type="text/javascript"></script>
                 <script src="js/QuadraticBezierCurve3.js" type="text/javascript"></script>
-                <script src="js/ClosedSplineCurve3.js" type="text/javascript"></script>
-                <script src="js/LineCurve3.js" type="text/javascript"></script>
-                <script src="js/CurvePath.js" type="text/javascript"></script>
-                <script src="js/Curve.js" type="text/javascript"></script>
-                <script src="js/CubicBezierCurve.js" type="text/javascript"></script>
-                <script src="js/ArcCurve.js" type="text/javascript"></script>
-                <script src="js/SkinnedMesh.js" type="text/javascript"></script>
                 <script src="js/TextGeometry.js" type="text/javascript"></script>
+               
                 <script>
                     
-                    //Vergößerungsanteil 
+                //Vergößerungsanteil 
                    var V_ANT = 3;
                     
+                //Start Szene, Kamera
+                
+                
                     function init(){
                         
 			var scene = new THREE.Scene();
-                        
+                        var table_mat = new THREE.MeshLambertMaterial({color: 0x845647, side:THREE.DoubleSide});
                         var canv = document.getElementsByTagName("canvas")[0];
                         var w = window.innerWidth;
                         var h = window.innerHeight;
@@ -59,8 +48,11 @@ and open the template in the editor.
                         var camera = new THREE.PerspectiveCamera( 15, w/h*2, 0.1, 1000 );
 			document.body.appendChild( renderer.domElement );
 
+
+                //ENDE Szene Kamera            
 			
-                    // Materiale und Farben
+                
+                // Start Materiale und Farben
                         
                         var prod = new THREE.MeshLambertMaterial({color: 0x39444F, side: THREE.DoubleSide});
                         var teppich = new THREE.MeshLambertMaterial({color:0x3366CC});
@@ -71,8 +63,11 @@ and open the template in the editor.
                         var pack_so = new THREE.MeshLambertMaterial({color: 0xEBEAF4});
                         var pack_p = new THREE.MeshLambertMaterial({color: 0x2B2B2D});
                         
-                       
-                    //Plane
+                
+                //ENDE Materiale und Farben
+                
+                
+                //Start Ladenboden
                     
                         var geometry = new THREE.PlaneBufferGeometry(35.25 * V_ANT,35.09 * V_ANT );
 			var material = new THREE.MeshPhongMaterial( { color: 0x858585, side: THREE.DoubleSide } );
@@ -81,7 +76,10 @@ and open the template in the editor.
                         plane.rotation.x = -Math.PI/2;
                         plane.receiveShadow = true;
                         
+                        scene.add(plane);
                         
+                    //Start PC
+                    
                         geometry = new THREE.PlaneBufferGeometry(21.7* V_ANT, 7 * V_ANT );
                         var plane_pc = new THREE.Mesh(geometry, material);
                         plane_pc.position.x = -27.5* V_ANT;
@@ -90,7 +88,13 @@ and open the template in the editor.
                         
                         scene.add(plane_pc);
                         
-                    //Mauer rechts
+                    //PC ENDE    
+                        
+                //Ende Ladenboden 
+                
+        
+                // Start Mauer rechts
+                
                         var mauer_geo = new THREE.BoxGeometry(1* V_ANT, 3 * V_ANT,31.09 * V_ANT );
                         var mauer_r = new THREE.Mesh(mauer_geo, material_m);
                         mauer_r.position.set(18.1* V_ANT, 1.5* V_ANT, 2.12 * V_ANT);
@@ -98,16 +102,22 @@ and open the template in the editor.
                         
                         scene.add(mauer_r);
                         
-                        
-                    //Mauer oben rechts 1
+                // ENDE Mauer rechts  
+                
+        
+                // Start Mauer oben rechts 1
+                
                         mauer_geo = new THREE.BoxGeometry(5 * V_ANT, 3* V_ANT, 1 * V_ANT );
                         var mauer_obenr_1 = new THREE.Mesh(mauer_geo, material_m);
                         mauer_obenr_1.position.set(15.15* V_ANT,1.5 *V_ANT, -12.955 * V_ANT);
                         mauer_obenr_1.castShadow = true;
                         
                         scene.add(mauer_obenr_1);
-                    
-                    //Mauer oben rechts 2
+                
+                // ENDE Mauer oben rechts 1
+                
+                 
+                // Start Mauer oben rechts 2
                     
                         mauer_geo = new THREE.BoxGeometry(1* V_ANT , 5 * V_ANT   , 3 * V_ANT );
                         var mauer_obenr_2 = new THREE.Mesh(mauer_geo, material_m);
@@ -117,7 +127,10 @@ and open the template in the editor.
                         
                         scene.add(mauer_obenr_2);
                         
-                    // Mauer oben
+                // Ende Mauer oben rechts 2   
+                 
+                           
+                // // Start Mauer oben 
                     
                         mauer_geo = new THREE.BoxGeometry(31.25 * V_ANT, 4.4* V_ANT, 1  * V_ANT );
                         var mauer_oben_farb = new THREE.MeshPhongMaterial({color: 0x312467})
@@ -127,7 +140,10 @@ and open the template in the editor.
                         
                         scene.add(mauer_oben);
                     
-                    //Mauer oben links
+                // Ende Mauer oben 
+                
+        
+                // Start Mauer oben links
                     
                         mauer_geo = new THREE.BoxGeometry(1* V_ANT, 4.4* V_ANT ,16 * V_ANT  );
                         var mauer_obenl = new THREE.Mesh(mauer_geo, material_m);
@@ -135,8 +151,11 @@ and open the template in the editor.
                         mauer_obenl.castShadow = true;
                         
                         scene.add(mauer_obenl);
-                    
-                    //Mauer mitte links 1
+                
+                // ENDE Mauer oben links
+                
+                
+                // Start Mauer mitte links 1
                     
                         mauer_geo = new THREE.BoxGeometry(20.2 * V_ANT, 4.4* V_ANT, 1 * V_ANT  );
                         var mauer_mittel_1 = new THREE.Mesh(mauer_geo, material_m);
@@ -144,8 +163,11 @@ and open the template in the editor.
                         mauer_mittel_1.castShadow = true;
                         
                         scene.add(mauer_mittel_1);
-                    
-                    //Mauer mitte Verbindung
+                
+                // ENDE Mauer mitte links 1
+                
+                
+                //Start Mauer mitte Verbindung
                    
                         mauer_geo = new THREE.BoxGeometry(1* V_ANT, 4.4 * V_ANT, 7.5 * V_ANT);
                         var mauer_mittev = new THREE.Mesh(mauer_geo, material_m);
@@ -154,9 +176,10 @@ and open the template in the editor.
                         
                         scene.add(mauer_mittev);
                         
-                        
+                //ENDE Mauer mitte Verbindung            
         
-                    //Mauer mitte links 2
+        
+                // Start Mauer mitte links 2
                     
                         mauer_geo = new THREE.BoxGeometry(27.2 * V_ANT, 4.4* V_ANT, 1 * V_ANT );
                         var mauer_mittel_2 = new THREE.Mesh(mauer_geo, material_m);
@@ -164,8 +187,11 @@ and open the template in the editor.
                         mauer_mittel_2.castShadow = true;
                         
                         scene.add(mauer_mittel_2);
-                        
-                    //Mauer unten links 1
+                
+                // ENDDE Mauer mitte links 2
+                
+                
+                // Start Mauer unten links 1
                     
                         mauer_geo = new THREE.BoxGeometry(1* V_ANT, 4.4* V_ANT ,13.4 * V_ANT );
                         var mauer_untenl_1 = new THREE.Mesh(mauer_geo, material_m);
@@ -173,8 +199,11 @@ and open the template in the editor.
                         mauer_untenl_1.castShadow = true;
                         
                         scene.add(mauer_untenl_1);
-                    
-                    //Mauer unten links 2
+                 
+                // ENDE Mauer unten links 1
+                
+                
+                // Start Mauer unten links 2
                     
                         mauer_geo = new THREE.BoxGeometry(10.54 * V_ANT, 4.4* V_ANT, 1 * V_ANT  );
                         var mauer_untenl_2 = new THREE.Mesh(mauer_geo, material_m); 
@@ -182,8 +211,11 @@ and open the template in the editor.
                         mauer_untenl_2.castShadow = true;
                         
                         scene.add(mauer_untenl_2);
-                        
-                    //Mauer mitte unten
+                
+                // ENDE Mauer unten links 2
+                
+                
+                // Start Mauer mitte unten
                     
                         mauer_geo = new THREE.BoxGeometry(1* V_ANT, 3 * V_ANT,2.26 * V_ANT );
                         var mauer_mitteu = new THREE.Mesh(mauer_geo, material_m);
@@ -191,8 +223,11 @@ and open the template in the editor.
                         mauer_mitteu.castShadow = true;
                         
                         scene.add(mauer_mitteu);
-                        
-                    //Mauer unten
+                
+                // ENDE Mauer mitte unten
+                
+                
+                // Start Mauer unten
                     
                         mauer_geo = new THREE.BoxGeometry(20.55* V_ANT , 3* V_ANT, 1 * V_ANT );
                         var mauer_unten = new THREE.Mesh(mauer_geo, material_m);
@@ -200,23 +235,105 @@ and open the template in the editor.
                         mauer_unten.castShadow = true;
                         
                         scene.add(mauer_unten);
-                                
-                    // Einrichtung: Aufsteller
+                
+                // Ende Mauer unten
+                
+                
+                // Start Einrichtung: PC
                     
-                    // PC
+                //Laptoptisch
+                    
                         geometry = new THREE.CubeGeometry(5.15* V_ANT,1.1* V_ANT,1.1* V_ANT);
-                        var table_mat = new THREE.MeshLambertMaterial({color: 0x845647, side:THREE.DoubleSide});
+                        
                         var pc_lap = new THREE.Mesh(geometry, table_mat);
                         pc_lap.position.set(-11.705* V_ANT, 0.55* V_ANT, -0.8* V_ANT);
                         
                         scene.add(pc_lap);
                         
+                    //Laptop
+                    
+                        var geometry_lap = new THREE.CubeGeometry(0.325 * V_ANT, 0.02 * V_ANT, 0.27 * V_ANT);
+                        for ( var x = 0; x<2; x++){
+                            for (var y = 0; y<5; y++){
+                                var lap = new THREE.Mesh(geometry_lap, prod); 
+                                lap.position.set(-13.9* V_ANT + y * 0.42 * V_ANT + y * 0.05 * V_ANT, 1.1* V_ANT + 0.01 * V_ANT + x *0.021 * V_ANT , -0.5* V_ANT );
+                                scene.add(lap);
+                            }
+                        }
+                        geometry_lap = new THREE.CubeGeometry(0.41 * V_ANT, 0.02 * V_ANT, 0.27 * V_ANT);
+                        for ( var x = 0; x<2; x++){
+                            for (var y = 5; y<10; y++){
+                                geometry_lap.y = 0.01 * x * V_ANT;
+                                var lap = new THREE.Mesh(geometry_lap, prod);                 
+                                lap.position.set(-13.9* V_ANT + y * 0.42 * V_ANT + y * 0.065 * V_ANT, 1.1* V_ANT + 0.01 * V_ANT + x *0.021 * V_ANT , -0.5* V_ANT );
+                                scene.add(lap);
+                            }
+                        }
+                        
+                    //IMac
+                    
+                        var SUBDIVISIONS = 20;
+                        //var facecolors = new THREE.MeshBasicMaterial({color: 0x845647, vertexColors: THREE.FaceColors});
+                        var geometry = new THREE.Geometry();
+                        var curve = new THREE.QuadraticBezierCurve3();
+                        curve.v0 = new THREE.Vector3(0, 0, 0);
+                        curve.v1 = new THREE.Vector3(0.32 * V_ANT, 0.215* V_ANT, 0.05 * V_ANT);
+                        curve.v2 = new THREE.Vector3(0.675 * V_ANT, 0.48 * V_ANT, 0);
+                        
+                        for (var j = 0; j < SUBDIVISIONS; j++) 
+                        { 
+                            geometry.vertices.push( curve.getPoint(j / SUBDIVISIONS) ); 
+                        } 
+                        
+                        for ( var i = 0; i<18; i++){
+                            geometry.faces[i] = new THREE.Face3(i,i+1,i+2);
+                        }
+                        
+                        geometry.vertices[18] = new THREE.Vector3(0,0.43 * V_ANT,0);
+                        geometry.vertices[19] = new THREE.Vector3(0,0,0);
+                        geometry.vertices[20] = new THREE.Vector3(0.64 * V_ANT,0, 0);
+                        geometry.vertices[21] = new THREE.Vector3(0.64 *V_ANT,0.43 * V_ANT,0);
+                        geometry.faces = [
+                            new THREE.Face3(10,18,21),
+                            new THREE.Face3(10,21,20),
+                            new THREE.Face3(10,18,19),
+                            new THREE.Face3(10,19,20),
+                            new THREE.Face3(18,19,20),
+                            new THREE.Face3(18,20,21)
+                        ];
+                        geometry.computeFaceNormals();
+                        geometry.computeVertexNormals();
+                       
+                        var material_imac = new THREE.MeshFaceMaterial([
+                            new THREE.MeshLambertMaterial({ color: 0xF478ab, side:THREE.DoubleSide})
+                        ]);
+                        
+                        
+                        var iMac = new THREE.Mesh(geometry, prod);
+                        iMac.position.set(-11.32  *V_ANT, 1.1 * V_ANT + 0.005 * V_ANT, -1.06 * V_ANT);
+                        scene.add(iMac);
+                        
+                        geometry = new THREE.CubeGeometry(0.08 * V_ANT, 0.005 * V_ANT, 0.105 * V_ANT);
+                        var iMac_fuss = new THREE.Mesh(geometry, prod);
+                        iMac_fuss.position.set(-11 * V_ANT, 1.1 * V_ANT + 0.0025 * V_ANT, -1.035 *V_ANT);
+                        scene.add(iMac_fuss);
+                        
+                        geometry = new THREE.CubeGeometry(0.08 * V_ANT, 0.005 * V_ANT, 0.18 * V_ANT);
+                        iMac_fuss = new THREE.Mesh(geometry, prod);
+                        iMac_fuss.position.set(-11 * V_ANT, 1.16 * V_ANT + 0.0025 * V_ANT, -1.006*V_ANT);
+                        iMac_fuss.rotation.x = Math.PI/2.7;
+                        scene.add(iMac_fuss);
+                        
+                    //Tablets einzelstuecke    
+                    
                         geometry = new THREE.CubeGeometry(2.4* V_ANT, 1 * V_ANT, 0.8 * V_ANT);
                         var pc_tab_1 = new THREE.Mesh(geometry, table_mat);
                         pc_tab_1.position.set(-11.705 * V_ANT, 0.5  * V_ANT, -3.25 * V_ANT);
                       
                         scene.add(pc_tab_1);
-                        
+                    
+                    //Druckertisch
+                    
                         geometry = new THREE.CubeGeometry(3.45 * V_ANT, 1.1 * V_ANT, 0.8* V_ANT);
                         var pc_druck = new THREE.Mesh(geometry, table_mat);
                         pc_druck.position.set(-22.125 * V_ANT, 0.55 * V_ANT, -0.25 * V_ANT);
@@ -229,26 +346,51 @@ and open the template in the editor.
                         
                         scene.add(pc_druck);
                         
+                    //Drucker
+                                        
+                        geometry = new THREE.CubeGeometry(0.46 * V_ANT, 0.21 * V_ANT, 0.36 * V_ANT);
+                        for(var i = 0; i<2; i++){
+                            for(var j = 0; j<6; j++){
+                                    var drucker = new THREE.Mesh(geometry, prod);
+                                    drucker.position.set(-20.67 * V_ANT - j * 0.58 * V_ANT, 0.105 * V_ANT + 1.1 * V_ANT, -0.05 * V_ANT - i * 0.4  * V_ANT);
+                                    scene.add(drucker);
+                            }
+                        }
+                        
+                        geometry = new THREE.CubeGeometry(0.58 * V_ANT, 0.32 * V_ANT, 0.46 * V_ANT);
+                        for(var i = 0; i<2; i++){
+                            for(var j = 0; j<5; j++){
+                                    var drucker = new THREE.Mesh(geometry, prod);
+                                    drucker.position.set(-26.1 * V_ANT - j * 0.62 * V_ANT, 0.16 * V_ANT + 1.1 * V_ANT, 0.0 * V_ANT - i * 0.5  * V_ANT);
+                                    scene.add(drucker);
+                            }
+                        }
+                    
+                    
+                    //Vitrine
+                    
                         geometry = new THREE.CubeGeometry(0.6 * V_ANT, 2.3 * V_ANT, 0.6* V_ANT);
                         var pc_vit = new THREE.Mesh(geometry, table_mat);
                         pc_vit.position.set(-31.275 * V_ANT, 1.15 * V_ANT, -0.25 * V_ANT);
                         
                         scene.add(pc_vit);
-                        
+                    
+                    //Vivancowand
+                    
                         geometry = new THREE.CubeGeometry(2.6 * V_ANT, 1.5 * V_ANT, 0.1* V_ANT);
                         var pc_viv = new THREE.Mesh(geometry, table_mat);
                         pc_viv.position.set(-32.875 * V_ANT, 0.75 * V_ANT, -0.25 * V_ANT);
                         
                         scene.add(pc_viv);
-                        
-                     //Regale Zubehör + Rechner
+                    
+                    //Computerzubehoer (Maus, Tastatur, ...) und Rechner
                      
                         geometry = new THREE.CubeGeometry(16 * V_ANT, 0.04 * V_ANT, 0.65 * V_ANT);
                         var pc_regal = new THREE.Mesh(geometry, table_mat);
                         pc_regal.position.set(-29.625 * V_ANT, 0.02 * V_ANT + 0.25 * V_ANT, -2.6 * V_ANT);
                         
                         scene.add(pc_regal);
-                        
+                    
                         var geometry_short_1 = new THREE.CubeGeometry(8 * V_ANT, 0.04 * V_ANT, 0.65 * V_ANT);
                         pc_regal = new THREE.Mesh(geometry_short_1, table_mat);
                         pc_regal.position.set(-33.625 * V_ANT,0.02 * V_ANT + 0.8 * V_ANT,-2.6 * V_ANT);
@@ -270,9 +412,21 @@ and open the template in the editor.
                         pc_regal.position.set(-29.625 * V_ANT, 0.02 * V_ANT + 1.95 * V_ANT,-2.6 * V_ANT);
                         
                         scene.add(pc_regal);
-                      //ENDE  
+                    
+                    //Rechner
+                        
+                        geometry = new THREE.CubeGeometry(0.18 * V_ANT, 0.4 * V_ANT, 0.4* V_ANT);
+                        for(var i=0; i<5;i++){
+                            var pc_rechner_1 = new THREE.Mesh(geometry, prod);
+                            pc_rechner_1.position.set(-25.25 * V_ANT + i* 0.6 * V_ANT, .2 * V_ANT + 1.19 * V_ANT,-2.5 * V_ANT);
+                            pc_rechner_1.rotation.y = Math.PI/4;
+                        
+                            scene.add(pc_rechner_1);
+                        }
+                        
+                        
+                    // Tinte Netzwerk Monitore
                       
-                      // Tinte Netzwerk Monitore
                         geometry = new THREE.CubeGeometry(5 * V_ANT, 1.85 * V_ANT , 0.65 * V_ANT);
                         var pc_tinte = new THREE.Mesh(geometry, table_mat);
                         pc_tinte.position.set(-32.25 * V_ANT, 0.9 * V_ANT, 2.1 * V_ANT);
@@ -314,102 +468,7 @@ and open the template in the editor.
                         pc_regal_net_mon_5.position.set(-24.1 * V_ANT, 0.02 * V_ANT + 1.7 * V_ANT, 2.1 * V_ANT);
                         
                         scene.add(pc_regal_net_mon_5);
-                    
-                    //Rechner
                         
-                        geometry = new THREE.CubeGeometry(0.18 * V_ANT, 0.4 * V_ANT, 0.4* V_ANT);
-                        for(var i=0; i<5;i++){
-                            var pc_rechner_1 = new THREE.Mesh(geometry, prod);
-                            pc_rechner_1.position.set(-25.25 * V_ANT + i* 0.6 * V_ANT, .2 * V_ANT + 1.19 * V_ANT,-2.5 * V_ANT);
-                            pc_rechner_1.rotation.y = Math.PI/4;
-                        
-                            scene.add(pc_rechner_1);
-                        }
-                        
-                               
-                    // Laptoptisch
-                    
-                    
-                        var geometry_lap = new THREE.CubeGeometry(0.325 * V_ANT, 0.02 * V_ANT, 0.27 * V_ANT);
-                        for ( var x = 0; x<2; x++){
-                            for (var y = 0; y<5; y++){
-                                var lap = new THREE.Mesh(geometry_lap, prod); 
-                                lap.position.set(-13.9* V_ANT + y * 0.42 * V_ANT + y * 0.05 * V_ANT, 1.1* V_ANT + 0.01 * V_ANT + x *0.021 * V_ANT , -0.5* V_ANT );
-                                scene.add(lap);
-                            }
-                        }
-                        geometry_lap = new THREE.CubeGeometry(0.41 * V_ANT, 0.02 * V_ANT, 0.27 * V_ANT);
-                        for ( var x = 0; x<2; x++){
-                            for (var y = 5; y<10; y++){
-                                geometry_lap.y = 0.01 * x * V_ANT;
-                                var lap = new THREE.Mesh(geometry_lap, prod);                 
-                                lap.position.set(-13.9* V_ANT + y * 0.42 * V_ANT + y * 0.065 * V_ANT, 1.1* V_ANT + 0.01 * V_ANT + x *0.021 * V_ANT , -0.5* V_ANT );
-                                scene.add(lap);
-                            }
-                        }
-                           
-                    
-                    
-                    
-                    //Imac vertices Push -> die Wölbung kann ich über die gepushten 
-                    // curve points machen -> garantiert steht im array über .length die Länge über die 
-                    // iteriert werden kann ->    siehe BSP: google link
-                    
-                        var SUBDIVISIONS = 20;
-                        //var facecolors = new THREE.MeshBasicMaterial({color: 0x845647, vertexColors: THREE.FaceColors});
-                        var geometry = new THREE.Geometry();
-                        var curve = new THREE.QuadraticBezierCurve3();
-                        curve.v0 = new THREE.Vector3(0, 0, 0);
-                        curve.v1 = new THREE.Vector3(0.32 * V_ANT, 0.215* V_ANT, 0.05 * V_ANT);
-                        curve.v2 = new THREE.Vector3(0.675 * V_ANT, 0.48 * V_ANT, 0);
-                        
-                        for (var j = 0; j < SUBDIVISIONS; j++) 
-                        { 
-                            geometry.vertices.push( curve.getPoint(j / SUBDIVISIONS) ); 
-                        } 
-                        
-                        for ( var i = 0; i<18; i++){
-                            geometry.faces[i] = new THREE.Face3(i,i+1,i+2);
-                        }
-                        
-                        geometry.vertices[18] = new THREE.Vector3(0,0.43 * V_ANT,0);
-                        geometry.vertices[19] = new THREE.Vector3(0,0,0);
-                        geometry.vertices[20] = new THREE.Vector3(0.64 * V_ANT,0, 0);
-                        geometry.vertices[21] = new THREE.Vector3(0.64 *V_ANT,0.43 * V_ANT,0);
-                        geometry.faces = [
-                            new THREE.Face3(10,18,21),
-                            new THREE.Face3(10,21,20),
-                            new THREE.Face3(10,18,19),
-                            new THREE.Face3(10,19,20),
-                            new THREE.Face3(18,19,20),
-                            new THREE.Face3(18,20,21)
-                        ];
-                        geometry.computeFaceNormals();
-                        geometry.computeVertexNormals();
-                        //geometry.faces[0].materialIndex = 0;
-                        //geometry.faces[1].materialIndex = 1;
-                        var material_imac = new THREE.MeshFaceMaterial([
-                            new THREE.MeshLambertMaterial({ color: 0xF478ab, side:THREE.DoubleSide})
-                        ]);
-                        
-                        
-                        var iMac = new THREE.Mesh(geometry, prod);
-                        iMac.position.set(-11.32  *V_ANT, 1.1 * V_ANT + 0.005 * V_ANT, -1.06 * V_ANT);
-                        scene.add(iMac);
-                        
-                        geometry = new THREE.CubeGeometry(0.08 * V_ANT, 0.005 * V_ANT, 0.105 * V_ANT);
-                        var iMac_fuss = new THREE.Mesh(geometry, prod);
-                        iMac_fuss.position.set(-11 * V_ANT, 1.1 * V_ANT + 0.0025 * V_ANT, -1.035 *V_ANT);
-                        scene.add(iMac_fuss);
-                        
-                        geometry = new THREE.CubeGeometry(0.08 * V_ANT, 0.005 * V_ANT, 0.18 * V_ANT);
-                        iMac_fuss = new THREE.Mesh(geometry, prod);
-                        iMac_fuss.position.set(-11 * V_ANT, 1.16 * V_ANT + 0.0025 * V_ANT, -1.006*V_ANT);
-                        iMac_fuss.rotation.x = Math.PI/2.7;
-                        scene.add(iMac_fuss);
-                    //iMac Ende
-                       
-                    //Laptoptisch  Ende
                     //Monitore
                                                       
                         geometry = new THREE.CubeGeometry(0.02 * V_ANT, 0.32 * V_ANT, 0.7 * V_ANT);
@@ -431,28 +490,13 @@ and open the template in the editor.
                             monitor.castShadow = true;
                             scene.add(monitor);
                         }
-                        
-                     //Drucker
-                                        
-                        geometry = new THREE.CubeGeometry(0.46 * V_ANT, 0.21 * V_ANT, 0.36 * V_ANT);
-                        for(var i = 0; i<2; i++){
-                            for(var j = 0; j<6; j++){
-                                    var drucker = new THREE.Mesh(geometry, prod);
-                                    drucker.position.set(-20.67 * V_ANT - j * 0.58 * V_ANT, 0.105 * V_ANT + 1.1 * V_ANT, -0.05 * V_ANT - i * 0.4  * V_ANT);
-                                    scene.add(drucker);
-                            }
-                        }
-                        
-                        geometry = new THREE.CubeGeometry(0.58 * V_ANT, 0.32 * V_ANT, 0.46 * V_ANT);
-                        for(var i = 0; i<2; i++){
-                            for(var j = 0; j<5; j++){
-                                    var drucker = new THREE.Mesh(geometry, prod);
-                                    drucker.position.set(-26.1 * V_ANT - j * 0.62 * V_ANT, 0.16 * V_ANT + 1.1 * V_ANT, 0.0 * V_ANT - i * 0.5  * V_ANT);
-                                    scene.add(drucker);
-                            }
-                        }
-                        
-                    // TV
+                   
+                    // ENDE PC Produkte -> ENDE PC_ABT
+                      
+                    // Start Einrichtung: TV
+                    
+                    // T-Stueck
+                    
                         geometry = new THREE.CubeGeometry(13 * V_ANT, 1.3 * V_ANT, 0.08* V_ANT);
                         var tv_lang_hr = new THREE.Mesh(geometry, table_mat); //Handregal Lang -> Runway
                         tv_lang_hr.position.set(0.7 * V_ANT, 0.65 * V_ANT, -5.8 * V_ANT);
@@ -487,10 +531,10 @@ and open the template in the editor.
                         
                         geometry = new THREE.CubeGeometry(0.04 * V_ANT, 0.84 * V_ANT, 1.46 * V_ANT);
                         
-                        var tv_phil_stand_tv = new THREE.Mesh(geometry, prod);
-                        tv_phil_stand_tv.position.set(-10.85 * V_ANT, 0.42 * V_ANT + 0.5 * V_ANT + 0.03 * V_ANT,-14.545 * V_ANT);
+                        var tv_phil_tv = new THREE.Mesh(geometry, prod);
+                        tv_phil_tv.position.set(-10.85 * V_ANT, 0.42 * V_ANT + 0.5 * V_ANT + 0.03 * V_ANT,-14.545 * V_ANT);
                         
-                        scene.add(tv_phil_stand_tv);
+                        scene.add(tv_phil_tv);
                         
                     // Panasonic
                     
@@ -536,9 +580,7 @@ and open the template in the editor.
                         tv_pana_stand_tv_fuß.rotation.z = -Math.PI/10;
                         
                         scene.add(tv_pana_stand_tv_fuß);
-                        
-                        
-                        
+                       
                     // Sony
                     
                         geometry = new THREE.CubeGeometry(3.84 * V_ANT, 0.65 * V_ANT, 1.1* V_ANT);
@@ -621,8 +663,9 @@ and open the template in the editor.
                         scene.add(tv_samsung_tv)
                         
                         
-                        
-                   // fernseher Ende     
+                   // ENDE Fernseher
+                   
+        
                    //Trapezstand
                    
                         var points = [
@@ -679,7 +722,7 @@ and open the template in the editor.
                 
                         
                     
-                    //Stände Ende
+                    //Ende Trapezstand 
                         
                     // 80 Zoll TV
                         
@@ -716,7 +759,7 @@ and open the template in the editor.
                         
                         scene.add(tv_gross_fuß);
                         
-                    //80 ZOLL ENDE
+                    //ENDE 80 Zoll
                     
         
                     //Ferneher wand
@@ -792,7 +835,7 @@ and open the template in the editor.
                             scene.add(tv_stap_back);
                         }
                     
-                    //TV Paket Stapel Ende
+                    //ENDE TV Paket Stapel
                     
                     //Curved aussteller
                     
@@ -814,10 +857,16 @@ and open the template in the editor.
                         tv_samsung_tv_stand.rotation.x = Math.PI/2;
                         scene.add(tv_samsung_tv_stand)
                     
+                    //ENDE Curved Austeller
+                  
+                    //ENDE TV_ABT
+                   
+                   
+                    //Start Einrichtung: HIFI
                     
-                    //HIFI
+                    // Start Kino 
                     
-                      //Teppich
+                      // Teppich
                         geometry = new THREE.CubeGeometry(2* V_ANT, 0.02* V_ANT, 3* V_ANT);   
                         var hifi_teppich = new THREE.Mesh(geometry, teppich);
                         hifi_teppich.position.set(9.5* V_ANT, 0.007* V_ANT, -13.505* V_ANT);
@@ -841,7 +890,7 @@ and open the template in the editor.
                         scene.add(tisch_bein);
                                 
                         
-                      //Sitz
+                    //Sitz
                         geometry = new THREE.CubeGeometry(1.25* V_ANT, 0.4* V_ANT, 0.53* V_ANT);   
                         var hifi_sitz = new THREE.Mesh(geometry, table_mat);
                         hifi_sitz.position.x = 9.5* V_ANT;
@@ -890,7 +939,7 @@ and open the template in the editor.
                         
                         scene.add(hifi_tv_fuß);
                         
-                     // Anlagen
+                    // Anlagen
                       
                         geometry = new THREE.CubeGeometry(0.25 * V_ANT, 0.02 * V_ANT, 0.25 * V_ANT);
                         for(var i=0; i<2;i++){
@@ -914,8 +963,10 @@ and open the template in the editor.
                             }
                         }
                         
-                     // Kino Ende
-                        
+                    // ENDE Kino
+                    
+                    // Regale lang + kurz
+                    
                         geometry = new THREE.CubeGeometry(0.8* V_ANT,1.1* V_ANT,3.6* V_ANT);   
                         
                         for(var i = 0; i<4; i++){
@@ -948,9 +999,15 @@ and open the template in the editor.
                         hifi_lang_2.position.set(2.2* V_ANT, 0.55* V_ANT, -13.2* V_ANT);
                         
                         scene.add(hifi_lang_2);
-                        
-                    //Foto 
                     
+                    //ENDE Regale
+                    
+                    //ENDE HIFI_ABT
+                  
+                   
+                    //Start Einrichtung Foto 
+                    
+                    // FOTO T-Stueck
                         geometry = new THREE.CubeGeometry(0.08 * V_ANT, 1.3 * V_ANT, 10* V_ANT);
                         var foto_lang_hr = new THREE.Mesh(geometry, table_mat);
                         foto_lang_hr.position.set(1.5 * V_ANT,0.65 * V_ANT, -0.8 * V_ANT);
@@ -963,7 +1020,10 @@ and open the template in the editor.
                         foto_kasse_hr.rotation.y = Math.PI/4;
                         
                         scene.add(foto_kasse_hr);
-                        
+                    
+                    //ENDE Foto T-Stueck
+                    
+                    // Foto Regale
                         geometry = new THREE.CubeGeometry(5* V_ANT,1.3* V_ANT,0.08* V_ANT);
                         var foto_regal_1 = new THREE.Mesh(geometry, table_mat);
                         foto_regal_1.position.set(-2.8 * V_ANT, 0.65* V_ANT, -3.05* V_ANT);
@@ -976,8 +1036,22 @@ and open the template in the editor.
                         
                         scene.add(foto_regal_2);
                        
+                    //ENDE Foto Regale
+                    //
+                    //ENDE Foto_Abt
+                    
+                    
+                    //Start Einrichtung: WW  
+                          
+                    //Mikrowellentisch
                         
-                    //Weiße Ware
+                        geometry = new THREE.CubeGeometry(3.6* V_ANT, 0.1* V_ANT, 1.6* V_ANT);
+                        var ww_regal_mikro = new THREE.Mesh(geometry, table_mat);
+                        ww_regal_mikro.position.set(13.2 * V_ANT, 1.13 * V_ANT, 6.5 * V_ANT);
+                        
+                        scene.add(ww_regal_mikro);
+                    
+                    //Mikrowellen
                     
                         geometry = new THREE.CubeGeometry(0.42 * V_ANT, 0.26 * V_ANT, 0.34*V_ANT);
                         for (var i = 0; i<2; i++){
@@ -987,12 +1061,25 @@ and open the template in the editor.
                                 scene.add(ww_mikro);
                             }
                         }
+                    
+                    //Herd + Ofentisch
+                    
+                        geometry = new THREE.CubeGeometry(3.9 * V_ANT, 0.95 * V_ANT, 1.37 * V_ANT);
+                        var ww_regal_ofen = new THREE.Mesh(geometry, table_mat);
+                        ww_regal_ofen.position.set(13.2 * V_ANT, 0.475 * V_ANT, 3.7 * V_ANT);
+                        
+                        scene.add(ww_regal_ofen);
+                        
+                    //Herd
+                    
                         geometry = new THREE.CubeGeometry(0.58 * V_ANT, 0.04 * V_ANT, 0.5 * V_ANT);
                         for (var i = 0; i<6; i++){
                             var ww_koch = new THREE.Mesh(geometry, prod);
                             ww_koch.position.set(11.6 * V_ANT + i * 0.58 *V_ANT + i* 0.06 * V_ANT,0.95 * V_ANT + 0.01 * V_ANT, 4 * V_ANT);
                             scene.add(ww_koch);
                         }
+                    
+                    // Aufsteller  
                         geometry = new THREE.CubeGeometry(0.65 * V_ANT, 0.85 * V_ANT, 0.6 * V_ANT);
                         var geometry_boden = new THREE.CubeGeometry(0.63 * V_ANT, 0.1 * V_ANT, 0.63 * V_ANT)
                         var stand_boden = new THREE.Mesh(geometry_boden, table_mat);
@@ -1004,7 +1091,11 @@ and open the template in the editor.
                             scene.add(stand_boden);
                             scene.add(ww_waschm);
                         }
-                        
+                    
+                    // ENDE Aufsteller
+                    
+                    //Trockner 
+                    
                         for (var i = 0; i<13; i++) {
                             var ww_trockner = new THREE.Mesh(geometry, prod);
                             stand_boden = new THREE.Mesh(geometry_boden, table_mat);
@@ -1013,7 +1104,9 @@ and open the template in the editor.
                             scene.add(stand_boden);
                             scene.add(ww_trockner);
                         }
-                        
+                    
+                    //Kuehlschraenke
+                    
                         geometry = new THREE.CubeGeometry(0.5 * V_ANT, 0.95 * V_ANT, 0.5 * V_ANT);
                         
                         for (var i = 0; i<13; i++) {
@@ -1024,7 +1117,9 @@ and open the template in the editor.
                             scene.add(stand_boden);
                             scene.add(ww_kuehl);
                         }
-                        
+                       
+                    //Spuehlmaschinen   
+                       
                         geometry = new THREE.CubeGeometry(0.58 * V_ANT, 0.83 * V_ANT, 0.6 * V_ANT);
                         for (var i = 0; i<7; i++) {
                             var ww_spuel = new THREE.Mesh(geometry, prod);
@@ -1034,7 +1129,9 @@ and open the template in the editor.
                             scene.add(stand_boden);
                             scene.add(ww_spuel);
                         }
-                        
+                    
+                    //Kuehl-Gedrierkombinationen
+                    
                         geometry = new THREE.CubeGeometry(0.7 * V_ANT, 1.7* V_ANT, 0.9 * V_ANT);
                         for( var i = 0; i<5; i++){
                         var ww_kuehl_gefrier_1 = new THREE.Mesh(geometry, prod);
@@ -1061,14 +1158,18 @@ and open the template in the editor.
                         ww_kuehl_gefrier_3.position.set(15.8 * V_ANT, 0.88* V_ANT, -5.50  * V_ANT - i * V_ANT * 0.8);
                         scene.add(ww_kuehl_gefrier_3);
                         } 
-                        
+                    
+                    //Kuehltruhen
+                    
                         geometry = new THREE.CubeGeometry(0.66 * V_ANT, 0.9 * V_ANT, 1.13 * V_ANT);
                         for( var i = 0; i<2; i++){
                         var ww_truhe = new THREE.Mesh(geometry, prod);
                         ww_truhe.position.set(15.8 * V_ANT, 0.45 * V_ANT, -(3.3 * V_ANT + i * 1.13 * V_ANT + i * 0.07 * V_ANT));
                         scene.add(ww_truhe);
                         } 
-                        
+                    
+                    //Regale
+                    
                         geometry = new THREE.CubeGeometry(5* V_ANT,1.3* V_ANT,0.8* V_ANT);   
                         for (var i = 0; i<7; i=i+2){
                             var ww_regal = new THREE.Mesh(geometry, table_mat);
@@ -1093,26 +1194,14 @@ and open the template in the editor.
                         ww_regal_kaffee.position.set(14* V_ANT, 0.525* V_ANT,-10.25* V_ANT);
                         
                         scene.add(ww_regal_kaffee);
-                        
-                        geometry = new THREE.CubeGeometry(3.6* V_ANT, 0.1* V_ANT, 1.6* V_ANT);
-                        var ww_regal_mikro = new THREE.Mesh(geometry, table_mat);
-                        ww_regal_mikro.position.set(13.2 * V_ANT, 1.13 * V_ANT, 6.5 * V_ANT);
-                        
-                        scene.add(ww_regal_mikro);
-                        
-                        geometry = new THREE.CubeGeometry(3.6 * V_ANT, 1.08 * V_ANT, 0.1 * V_ANT);
-                        ww_regal_mikro = new THREE.Mesh(geometry, table_mat);
-                        ww_regal_mikro.position.set(13.2 * V_ANT, 0.54 * V_ANT, 6.5 * V_ANT);
-                        
-                        scene.add(ww_regal_mikro);
-                        
-                        geometry = new THREE.CubeGeometry(3.9 * V_ANT, 0.95 * V_ANT, 1.37 * V_ANT);
-                        ww_regal_ofen = new THREE.Mesh(geometry, table_mat);
-                        ww_regal_ofen.position.set(13.2 * V_ANT, 0.475 * V_ANT, 3.7 * V_ANT);
-                        
-                        scene.add(ww_regal_ofen);
-                        
-                    // TK - Handy
+                    
+                    //ENDE Regale
+                    
+                    //ENDE WW_Abt
+                    
+                    //Start Einrichtung: TK
+                    
+                    // Start Handyaussteller
                     
                         geometry = new THREE.CubeGeometry(0.45 * V_ANT, 0.83 * V_ANT, 3 * V_ANT);
                         var tk_handy = new THREE.Mesh(geometry, table_mat);
@@ -1137,7 +1226,7 @@ and open the template in the editor.
                         tk_handy_aus.rotation.y = Math.PI + Math.PI/6;
                         scene.add(tk_handy_aus);
                     
-                    //handys
+                    //Handys
                         
                         geometry = new THREE.CubeGeometry(0.004 * V_ANT, 0.135 * V_ANT, 0.065 * V_ANT);
                         for (var i = 0; i<2 ; i++){
@@ -1149,7 +1238,11 @@ and open the template in the editor.
                                 scene.add(handy);
                             }
                       }
-                                
+                    
+                    //ENDE Handyaussteller
+                    
+                    //Theke rund
+                    
                     var pts = [
                         new THREE.Vector3(1.4 * V_ANT,0,0* V_ANT),//top left
                         new THREE.Vector3(2* V_ANT,0,0* V_ANT),//top right
@@ -1180,7 +1273,9 @@ and open the template in the editor.
                     tk_theke_rund.overdraw = false;
                   
                     scene.add(tk_theke_rund );
-
+                
+                //Vitrinen
+                
                     geometry = new THREE.CubeGeometry(0.45 * V_ANT, 2 * V_ANT, 0.45* V_ANT);
                     var tk_vit = new THREE.Mesh(geometry, table_mat);
                     tk_vit.position.set(-8.4 * V_ANT, 1.15 * V_ANT, 3.2 * V_ANT);
@@ -1192,7 +1287,7 @@ and open the template in the editor.
                     tk_vit.rotation.y = Math.PI/3;
                     scene.add(tk_vit);
                     
-                  // Element Drehung
+                // Element Drehung -> Zubehoer
                   
                     geometry = new THREE.CubeGeometry(0.6 * V_ANT, 1.65 * V_ANT, 0.6 * V_ANT);
                     var tk_zub = new THREE.Mesh(geometry, table_mat);
@@ -1233,6 +1328,7 @@ and open the template in the editor.
                     tk_dreh_2.position.set(-1  * V_ANT , 0.75 * V_ANT + 0.05 * V_ANT, 3.8 * V_ANT);
                     tk_dreh_2.castShadow = true;
                     scene.add(tk_dreh_2);
+                    
                  //Element Drehung Ende
                     
                     geometry =  new THREE.CubeGeometry(0.8 * V_ANT, 2.3 * V_ANT, 0.8*V_ANT );
@@ -1240,9 +1336,13 @@ and open the template in the editor.
                     tk_zub_viv.position.set(-1  * V_ANT , 0.825 * V_ANT, 1.7 * V_ANT);
                     tk_zub_viv.castShadow = true;
                     scene.add(tk_zub_viv);
-                    
-                    //Games
-                    
+                
+                //ENDE TK_Abt
+                
+                
+                //Start Einrichtung:Games
+                
+                //Stände PS4,XBO,Wii, ...
                         var points = [
                             new THREE.Vector3(0,0,0),
                             new THREE.Vector3(0.7 * V_ANT,0,0),
@@ -1336,11 +1436,14 @@ and open the template in the editor.
                         games_regal_8.rotation.y = Math.PI;
                         
                         scene.add(games_regal_8);
-                        
-                        
-                        
-                    //Eingangsbereich + Kasse
+                      
+        
+                    //ENDE Games_Abt    
+                       
+        
+                    //Start Einrichtung: Eingangsbereich + Kasse
                     
+                    //Kassen
                         geometry = new THREE.CubeGeometry(2 * V_ANT, 0.9 * V_ANT, 0.6 * V_ANT);
                         var kasse_1 = new THREE.Mesh(geometry, table_mat);
                         kasse_1.position.set(8.4125 * V_ANT, 0.45 * V_ANT, 13.15 * V_ANT);
@@ -1362,7 +1465,9 @@ and open the template in the editor.
                         kasse_2.position.set(7.6155 * V_ANT, 0.45 * V_ANT, 9.15 * V_ANT);
                         kasse_2.rotation.y = Math.PI/8 - Math.PI/2;
                         scene.add(kasse_2);
-                        
+                    
+                    //ML-Buero
+                    
                         var points = 
                                 [
                             new THREE.Vector3(0,0,0),
@@ -1381,7 +1486,9 @@ and open the template in the editor.
                         ml.rotation.y = Math.PI/8.18;
                         
                         scene.add(ml);
-                        
+                    
+                    //Eingang schraeg
+                    
                         var points = 
                                 [
                                 new THREE.Vector3(0 * V_ANT,0,0),
@@ -1399,7 +1506,9 @@ and open the template in the editor.
                         eingang.position.set(11.35 * V_ANT, 0, 14 * V_ANT);
                         eingang.rotation.y = Math.PI/2;
                         scene.add(eingang); 
-                        
+                    
+                    //Eingang Einfuehrung rechts
+                    
                         geometry = new THREE.CubeGeometry(1.8 * V_ANT, 1 * V_ANT, 0.1 * V_ANT);
                         var eingang_rechts = new THREE.Mesh(geometry, table_mat);
                         eingang_rechts.position.set(12.175 * V_ANT, 0.5 * V_ANT, 8.425 * V_ANT);
@@ -1430,7 +1539,6 @@ and open the template in the editor.
                         schranke.position.set(10.725 * V_ANT, 0.1 * V_ANT + 0.7 * V_ANT, 8.425 * V_ANT);
                         
                         scene.add(schranke);
-                    // Schranke Ende
                     
                     //Ausgang 
                     
@@ -1464,8 +1572,12 @@ and open the template in the editor.
                             }
                         }
                     // Ausgang Ende
-                       
-                    //Lights
+                    
+                    //ENDE Kasse_Abt
+                    //
+                    //
+                    //
+                    //Licht
        
                         var spotLight = new THREE.DirectionalLight( 0xFFFFFF);
                         spotLight.position.set( -20* V_ANT, 30* V_ANT, 0 );
@@ -1505,7 +1617,7 @@ and open the template in the editor.
                       //  renderer.shadowMapType = THREE.PCFSoftShadowMap;
                     
                             
-
+                    // ENDE Licht
 
                     //First Person Camera
                     
@@ -1523,14 +1635,12 @@ and open the template in the editor.
                         camera.updateProjectionMatrix();
                         control.handleResize();
                        
-               
-                    //Rendering 
-            
-                        
+                    // ENDE Kamera 
+                     
+                     
+                    // Rendering -> Drehungen, Aktionen, ...
+             
                         scene.add(camera);
-			scene.add( plane );
-                       
-                        
                         var clock = new THREE.Clock();
                         var step = 0;
                         var render = function () {
