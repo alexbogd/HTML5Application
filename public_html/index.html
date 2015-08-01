@@ -59,6 +59,10 @@ and open the template in the editor.
                         var materials = [
 					new THREE.MeshLambertMaterial( { color: 0x845647 } )
 				];
+                        var materials_prod = [
+                            new THREE.MeshLambertMaterial({color: 0x39444F, side: THREE.DoubleSide})
+                        ];
+                        
                         var pack_s = new THREE.MeshLambertMaterial({color: 0x1036F2});
                         var pack_so = new THREE.MeshLambertMaterial({color: 0xEBEAF4});
                         var pack_p = new THREE.MeshLambertMaterial({color: 0x2B2B2D});
@@ -1045,11 +1049,11 @@ and open the template in the editor.
                         for(var i = 0; i<4; i++){
                             var hifi_regal = new THREE.Mesh(geometry, table_mat);
                             hifi_regal.position.set(5.875* V_ANT - 1.7 * i * V_ANT, 0.55* V_ANT, -9.5* V_ANT);
+                            //hifi_regal.rotation.y = Math.PI/4;
+                            //hifi_regal.rotation.x = Math.PI/4;
                             scene.add(hifi_regal);
                         }
-                       
-                        
-                        
+                  
                         geometry = new THREE.CubeGeometry(0.08 * V_ANT, 1.3 * V_ANT, 3* V_ANT);
                         var hifi_mp3_1 = new THREE.Mesh(geometry, table_mat); //Handregal Lang -> Runway
                         hifi_mp3_1.position.set(-2.275 * V_ANT, 0.65* V_ANT, -9.5 * V_ANT);
@@ -1072,7 +1076,70 @@ and open the template in the editor.
                         hifi_lang_2.position.set(2.2* V_ANT, 0.55* V_ANT, -13.2* V_ANT);
                         
                         scene.add(hifi_lang_2);
+                        
+                    // 5.1 Anlagen
                     
+                        var pts = [
+                          new THREE.Vector3(0,0,0),
+                          new THREE.Vector3(0.09 * V_ANT, 0, 0),
+                          new THREE.Vector3(0,0.115 * V_ANT, 0),
+                          new THREE.Vector3(0.01 * V_ANT,0, 0.1 * V_ANT),
+                          new THREE.Vector3(0.01 * V_ANT, 0.115 * V_ANT, 0.1 * V_ANT),
+                          new THREE.Vector3(0.08 * V_ANT, 0, 0.1 * V_ANT), 
+                          new THREE.Vector3(0.09 * V_ANT, 0.115 * V_ANT, 0),
+                          new THREE.Vector3(0.08 * V_ANT, 0.115 * V_ANT, 0.1 * V_ANT)
+                        ];
+                        for ( var i = 0; i<12; i++){
+                           for ( var j = 0; j<2; j++){ 
+                                var sat_klein = new THREE.SceneUtils.createMultiMaterialObject(new THREE.ConvexGeometry(pts), materials_prod);
+                                sat_klein.position.set(-1.95 * V_ANT + j * 0.12 * V_ANT + i * 0.7365 * V_ANT,1.1 * V_ANT , -13.5 * V_ANT);
+                        
+                                scene.add(sat_klein);
+                            }
+                        }
+                        
+                        pts = [
+                            new THREE.Vector3(0,0,0),
+                            new THREE.Vector3(0.21 * V_ANT, 0,0),
+                            new THREE.Vector3(0, 0.115 * V_ANT,0),
+                            new THREE.Vector3(0.0125 * V_ANT, 0.115 * V_ANT, 0.1 * V_ANT),
+                            new THREE.Vector3(0.0125 * V_ANT, 0, 0.1 * V_ANT),
+                            new THREE.Vector3(0.21 * V_ANT, 0.115 * V_ANT, 0 * V_ANT),
+                            new THREE.Vector3(0.1975 * V_ANT, 0.115 * V_ANT, 0.1 * V_ANT),
+                            new THREE.Vector3(0.1975 * V_ANT, 0, 0.1 * V_ANT)
+                        ];
+                        
+                        for(var i=0; i<6; i++){
+                            var sat_five = new THREE.SceneUtils.createMultiMaterialObject(new THREE.ConvexGeometry(pts), materials_prod);
+                            sat_five.position.set(-1.575 * V_ANT  + i * 1.475 * V_ANT, 1.1 * V_ANT + 0.115 * V_ANT, -13.52 * V_ANT);
+                            
+                            scene.add(sat_five);
+                        }
+                        
+                        geometry = new THREE.CubeGeometry(0.425 * V_ANT, 0.15 * V_ANT, 0.27 * V_ANT);
+                        for ( var i = 0; i<6; i++){
+                            var verst = new THREE.Mesh(geometry, prod);
+                            verst.position.set(-1.475 * V_ANT  + i * 1.475 * V_ANT, 0.075 * V_ANT + 1.1 * V_ANT, -13.45 * V_ANT );
+                           
+                            scene.add(verst);
+                        }
+                        
+                        geometry = new THREE.CubeGeometry(0.425 * V_ANT, 0.15 * V_ANT, 0.27 * V_ANT);
+                        for ( var i = 0; i<6; i++){
+                            var verst = new THREE.Mesh(geometry, prod);
+                            verst.position.set(-1.475 * V_ANT  + i * 1.475 * V_ANT, 0.075 * V_ANT + 1.1 * V_ANT, -13.45 * V_ANT );
+                           
+                            scene.add(verst);
+                        }
+                        
+                        geometry = new THREE.CubeGeometry(0.47 * V_ANT, 0.31 * V_ANT, 0.038 * V_ANT);
+                        for ( var i = 0; i<6; i++){
+                            var monitor = new THREE.Mesh(geometry, prod);
+                            monitor.position.set(-1.475 * V_ANT  + i * 1.475 * V_ANT, 0.155 * V_ANT + 1.1 * V_ANT  + 0.175 * V_ANT, -13.28 * V_ANT );
+                            monitor.rotation.x = Math.PI/7.5;
+                            scene.add(monitor);
+                        }
+                        
                     //ENDE Regale
                     
                     //ENDE HIFI_ABT
