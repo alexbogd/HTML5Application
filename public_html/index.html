@@ -92,8 +92,9 @@ and open the template in the editor.
                         
                 //Ende Ladenboden 
                 
+                //Start Ladenmauern 
         
-                // Start Mauer rechts
+                //  Mauer rechts
                 
                         var mauer_geo = new THREE.BoxGeometry(1* V_ANT, 3 * V_ANT,31.09 * V_ANT );
                         var mauer_r = new THREE.Mesh(mauer_geo, material_m);
@@ -101,11 +102,8 @@ and open the template in the editor.
                         mauer_r.castShadow = true;
                         
                         scene.add(mauer_r);
-                        
-                // ENDE Mauer rechts  
-                
         
-                // Start Mauer oben rechts 1
+                // Mauer oben rechts 1
                 
                         mauer_geo = new THREE.BoxGeometry(5 * V_ANT, 3* V_ANT, 1 * V_ANT );
                         var mauer_obenr_1 = new THREE.Mesh(mauer_geo, material_m);
@@ -113,11 +111,8 @@ and open the template in the editor.
                         mauer_obenr_1.castShadow = true;
                         
                         scene.add(mauer_obenr_1);
-                
-                // ENDE Mauer oben rechts 1
-                
-                 
-                // Start Mauer oben rechts 2
+          
+                // Mauer oben rechts 2
                     
                         mauer_geo = new THREE.BoxGeometry(1* V_ANT , 5 * V_ANT   , 3 * V_ANT );
                         var mauer_obenr_2 = new THREE.Mesh(mauer_geo, material_m);
@@ -126,11 +121,8 @@ and open the template in the editor.
                         mauer_obenr_2.castShadow = true;
                         
                         scene.add(mauer_obenr_2);
-                        
-                // Ende Mauer oben rechts 2   
-                 
-                           
-                // // Start Mauer oben 
+                  
+                //  Mauer oben 
                     
                         mauer_geo = new THREE.BoxGeometry(31.25 * V_ANT, 4.4* V_ANT, 1  * V_ANT );
                         var mauer_oben_farb = new THREE.MeshPhongMaterial({color: 0x312467})
@@ -139,11 +131,9 @@ and open the template in the editor.
                         mauer_oben.castShadow = true;
                         
                         scene.add(mauer_oben);
-                    
-                // Ende Mauer oben 
-                
+            
         
-                // Start Mauer oben links
+                //  Mauer oben links
                     
                         mauer_geo = new THREE.BoxGeometry(1* V_ANT, 4.4* V_ANT ,16 * V_ANT  );
                         var mauer_obenl = new THREE.Mesh(mauer_geo, material_m);
@@ -152,10 +142,7 @@ and open the template in the editor.
                         
                         scene.add(mauer_obenl);
                 
-                // ENDE Mauer oben links
-                
-                
-                // Start Mauer mitte links 1
+                //  Mauer mitte links 1
                     
                         mauer_geo = new THREE.BoxGeometry(20.2 * V_ANT, 4.4* V_ANT, 1 * V_ANT  );
                         var mauer_mittel_1 = new THREE.Mesh(mauer_geo, material_m);
@@ -163,11 +150,8 @@ and open the template in the editor.
                         mauer_mittel_1.castShadow = true;
                         
                         scene.add(mauer_mittel_1);
-                
-                // ENDE Mauer mitte links 1
-                
-                
-                //Start Mauer mitte Verbindung
+   
+                //Mauer mitte Verbindung
                    
                         mauer_geo = new THREE.BoxGeometry(1* V_ANT, 4.4 * V_ANT, 7.5 * V_ANT);
                         var mauer_mittev = new THREE.Mesh(mauer_geo, material_m);
@@ -175,11 +159,8 @@ and open the template in the editor.
                         mauer_mittev.castShadow = true;
                         
                         scene.add(mauer_mittev);
-                        
-                //ENDE Mauer mitte Verbindung            
-        
-        
-                // Start Mauer mitte links 2
+                 
+                // Mauer mitte links 2
                     
                         mauer_geo = new THREE.BoxGeometry(27.2 * V_ANT, 4.4* V_ANT, 1 * V_ANT );
                         var mauer_mittel_2 = new THREE.Mesh(mauer_geo, material_m);
@@ -188,10 +169,7 @@ and open the template in the editor.
                         
                         scene.add(mauer_mittel_2);
                 
-                // ENDDE Mauer mitte links 2
-                
-                
-                // Start Mauer unten links 1
+                //  Mauer unten links 1
                     
                         mauer_geo = new THREE.BoxGeometry(1* V_ANT, 4.4* V_ANT ,13.4 * V_ANT );
                         var mauer_untenl_1 = new THREE.Mesh(mauer_geo, material_m);
@@ -199,11 +177,8 @@ and open the template in the editor.
                         mauer_untenl_1.castShadow = true;
                         
                         scene.add(mauer_untenl_1);
-                 
-                // ENDE Mauer unten links 1
-                
-                
-                // Start Mauer unten links 2
+      
+                //  Mauer unten links 2
                     
                         mauer_geo = new THREE.BoxGeometry(10.54 * V_ANT, 4.4* V_ANT, 1 * V_ANT  );
                         var mauer_untenl_2 = new THREE.Mesh(mauer_geo, material_m); 
@@ -212,10 +187,7 @@ and open the template in the editor.
                         
                         scene.add(mauer_untenl_2);
                 
-                // ENDE Mauer unten links 2
-                
-                
-                // Start Mauer mitte unten
+                //  Mauer mitte unten
                     
                         mauer_geo = new THREE.BoxGeometry(1* V_ANT, 3 * V_ANT,2.26 * V_ANT );
                         var mauer_mitteu = new THREE.Mesh(mauer_geo, material_m);
@@ -223,11 +195,8 @@ and open the template in the editor.
                         mauer_mitteu.castShadow = true;
                         
                         scene.add(mauer_mitteu);
-                
-                // ENDE Mauer mitte unten
-                
-                
-                // Start Mauer unten
+              
+                // Mauer unten
                     
                         mauer_geo = new THREE.BoxGeometry(20.55* V_ANT , 3* V_ANT, 1 * V_ANT );
                         var mauer_unten = new THREE.Mesh(mauer_geo, material_m);
@@ -235,12 +204,13 @@ and open the template in the editor.
                         mauer_unten.castShadow = true;
                         
                         scene.add(mauer_unten);
-                
-                // Ende Mauer unten
-                
-                
+                        
+                //ENDE Ladenmauern        
+                 
+                 
                 // Start Einrichtung: PC
-                    
+                  
+        
                 //Laptoptisch
                     
                         geometry = new THREE.CubeGeometry(5.15* V_ANT,1.1* V_ANT,1.1* V_ANT);
@@ -762,7 +732,7 @@ and open the template in the editor.
                     //ENDE 80 Zoll
                     
         
-                    //Ferneher wand
+                    //Ferneherwand
                         geometry = new THREE.CubeGeometry(0.05 * V_ANT, 0.65 * V_ANT, 0.9 * V_ANT);
                         for (var i = 0; i < 15; i++) {
                             var tv_fernseher = new THREE.Mesh(geometry, prod);
@@ -773,7 +743,7 @@ and open the template in the editor.
                         geometry = new THREE.CubeGeometry(0.9 * V_ANT, 0.65 * V_ANT, 0.05 * V_ANT);
                         for (var i = 0; i < 30; i++) {
                             var tv_fernseher = new THREE.Mesh(geometry, prod);
-                            tv_fernseher.position.set(-16.575 * V_ANT + i* 0.9 * V_ANT + i * 0.08 * V_ANT, 2.625  * V_ANT,  -17.45 * V_ANT);
+                            tv_fernseher.position.set(-16.635 * V_ANT + i* 0.9 * V_ANT + i * 0.08 * V_ANT, 2.625  * V_ANT,  -17.45 * V_ANT);
                             scene.add(tv_fernseher);
                         }
                         
@@ -784,7 +754,7 @@ and open the template in the editor.
                             scene.add(tv_fernseher);
                         }
                     
-                    // Fernseher Wand Ende
+                    // Fernseherwand Ende
                     
                     //TV Paket Stapel
                     
@@ -911,7 +881,44 @@ and open the template in the editor.
                         hifi_sitz_lehne.rotation.x = Math.PI/30;
                         
                         scene.add(hifi_sitz_lehne);
+                    
+                    //HIFI Anlage groß mit Stand + Verstaerker
                         
+                        geometry = new THREE.CubeGeometry(1.0 *V_ANT, 0.5 * V_ANT, 0.5 * V_ANT);
+                        var verst_stand = new THREE.Mesh(geometry, table_mat);
+                        verst_stand.position.set(9.5 * V_ANT, 0.25 * V_ANT, -11.75 * V_ANT);
+                        
+                        scene.add(verst_stand);
+                        
+                    //Verstaerker
+                        
+                        geometry = new THREE.CubeGeometry(0.44 * V_ANT, 0.19 * V_ANT, 0.42 * V_ANT);
+                        var verst = new THREE.Mesh(geometry, prod);
+                        verst.position.set(9.5 * V_ANT, 0.095 * V_ANT + 0.5 * V_ANT + 0.22 * V_ANT + 0.015 * V_ANT, -11.75 * V_ANT);
+                        
+                        scene.add(verst);
+                        
+                        geometry = new THREE.CubeGeometry(0.44 * V_ANT, 0.22 * V_ANT, 0.42 * V_ANT);
+                        verst = new THREE.Mesh(geometry, prod);
+                        verst.position.set(9.5 * V_ANT, 0.11 * V_ANT + 0.5 * V_ANT, -11.75 * V_ANT);
+                        
+                        scene.add(verst);
+                        
+                    // Satelliten
+                    
+                        geometry = new THREE.CubeGeometry(0.27 * V_ANT, 1.23 * V_ANT, 0.4 * V_ANT);
+                        var sat = new THREE.Mesh(geometry, prod);
+                        sat.position.set(8.7 * V_ANT, 0.615 * V_ANT, -11.75 * V_ANT);
+                        
+                        scene.add(sat);
+                        
+                        geometry = new THREE.CubeGeometry(0.27 * V_ANT, 1.23 * V_ANT, 0.4 * V_ANT);
+                        var sat = new THREE.Mesh(geometry, prod);
+                        sat.position.set(10.3 * V_ANT, 0.615 * V_ANT, -11.75 * V_ANT);
+                        
+                        scene.add(sat);
+                        
+                    
                     // Fernseher + Stand
                     
                         geometry = new THREE.CubeGeometry(1.5* V_ANT, 0.68* V_ANT, 0.5* V_ANT);   
@@ -955,7 +962,6 @@ and open the template in the editor.
                         geometry = new THREE.CubeGeometry(0.09 * V_ANT, 1.28 * V_ANT, 0.07 * V_ANT);
                         for(var i=0; i<2;i++){
                             for(var j=0; j<2;j++){
-                               
                                 var hifi_sat = new THREE.Mesh(geometry, prod);
                                 hifi_sat.position.set(8.3 * V_ANT + j*2.4 * V_ANT, 0.64 * V_ANT + 0.02 * V_ANT + 0.02 * V_ANT, -14.305 * V_ANT+ i* 2.5 * V_ANT );
                                
@@ -964,6 +970,73 @@ and open the template in the editor.
                         }
                         
                     // ENDE Kino
+                    
+                    //Regale Wand mit Anlagen
+                    
+                        geometry = new THREE.CubeGeometry(3.0 * V_ANT, 0.06 * V_ANT, 0.47 * V_ANT);
+                        for (var i = 0; i<5; i++){
+                            var regal_anlage = new THREE.Mesh(geometry, table_mat);
+                            regal_anlage.position.set(7.69 * V_ANT, 0.03 * V_ANT + 0.8 * V_ANT + i * 0.3 * V_ANT,-17.25 * V_ANT);
+                            
+                            scene.add(regal_anlage);
+                        }
+                        geometry = new THREE.CubeGeometry(3.0 * V_ANT, 0.06 * V_ANT, 0.47 * V_ANT);
+                        var regal_anlage = new THREE.Mesh(geometry, table_mat);
+                        regal_anlage.position.set(10.69 * V_ANT, 0.03 * V_ANT + 0.8 * V_ANT + 2 * 0.3 * V_ANT,-17.25 * V_ANT);
+                            
+                        scene.add(regal_anlage);
+                        
+                        geometry = new THREE.CubeGeometry(3.0 * V_ANT, 0.06 * V_ANT, 0.32 * V_ANT);
+                        regal_anlage = new THREE.Mesh(geometry, table_mat);
+                        regal_anlage.position.set(10.69 * V_ANT, 0.03 * V_ANT + 0.8 * V_ANT + 4 * 0.3 * V_ANT,-17.31* V_ANT);
+                            
+                        scene.add(regal_anlage);
+                        
+                        geometry = new THREE.CubeGeometry(0.47 * V_ANT, 0.06 * V_ANT, 3.0 * V_ANT);
+                        var regal_anlage = new THREE.Mesh(geometry, table_mat);
+                        regal_anlage.position.set(12.4 * V_ANT, 0.03 * V_ANT + 0.8 * V_ANT + 2 * 0.3 * V_ANT,-15.45 * V_ANT);
+                            
+                        scene.add(regal_anlage);
+                        
+                        geometry = new THREE.CubeGeometry(0.32 * V_ANT, 0.06 * V_ANT, 3.0 * V_ANT);
+                        regal_anlage = new THREE.Mesh(geometry, table_mat);
+                        regal_anlage.position.set(12.46 * V_ANT, 0.03 * V_ANT + 0.8 * V_ANT + 4 * 0.3 * V_ANT,-15.45 * V_ANT);
+                            
+                        scene.add(regal_anlage);
+                        
+                    //Stand für die HIFI - Satelliten  
+                    
+                        geometry = new THREE.CubeGeometry(3.0 * V_ANT, 0.15 * V_ANT, 0.47 * V_ANT);
+                        var sat_stand = new THREE.Mesh(geometry, table_mat);
+                        sat_stand.position.set(10.69 * V_ANT, 0.075 * V_ANT, -17.25 * V_ANT);
+                        
+                        scene.add(sat_stand);
+                        
+                        geometry = new THREE.CubeGeometry(0.47 * V_ANT, 0.15 * V_ANT, 3.0 * V_ANT);
+                        sat_stand = new THREE.Mesh(geometry, table_mat);
+                        sat_stand.position.set(12.4 * V_ANT, 0.075 * V_ANT, -15.45 * V_ANT);
+                        
+                        scene.add(sat_stand);
+                        
+                    //Satelliten
+                    
+                        geometry = new THREE.CubeGeometry(0.215 * V_ANT, 0.85 * V_ANT, 0.27 * V_ANT);
+                        for(var i = 0; i<10; i++){
+                            var sat = new THREE.Mesh(geometry, prod);
+                            sat.position.set(9.35 * V_ANT + i * 0.3 * V_ANT, 0.425 * V_ANT + 0.15 * V_ANT, -17.25 * V_ANT);
+                        
+                            scene.add(sat);
+                        }
+                        
+                        geometry = new THREE.CubeGeometry(0.26 * V_ANT, 1.35 * V_ANT, 0.36 * V_ANT);
+                        for(var i = 0; i<7; i++){
+                            var sat = new THREE.Mesh(geometry, prod);
+                            sat.position.set(12.4 * V_ANT, 0.425 * V_ANT + 0.15 * V_ANT, -16.7 * V_ANT + i * 0.41 * V_ANT);
+                        
+                            scene.add(sat);
+                        }
+                        
+                    //Ende Regale Wand mit Anlagen
                     
                     // Regale lang + kurz
                     
