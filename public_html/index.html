@@ -15,6 +15,12 @@ and open the template in the editor.
 
         
 		<script src="js/three.min.js"></script>
+                <script src="fonts/helvetiker_bold.typeface.js" type="text/javascript"></script>
+                <script src="js/droid_sans_bold.typeface.js" type="text/javascript"></script>
+                <script src="js/droid_serif_bold.typeface.js" type="text/javascript"></script>
+                <script src="js/gentilis_bold.typeface.js" type="text/javascript"></script>
+                <script src="js/helvetiker_regular.typeface.js" type="text/javascript"></script>
+                <script src="js/optimer_bold.typeface.js" type="text/javascript"></script>
                 <script src="js/FirstPersonControls.js"></script>
                 <script src="js/ConvexGeometry.js"></script>
                 <script src="js/RingGeometry.js"></script>
@@ -32,6 +38,8 @@ and open the template in the editor.
                 <script src="js/Curve.js" type="text/javascript"></script>
                 <script src="js/CubicBezierCurve.js" type="text/javascript"></script>
                 <script src="js/ArcCurve.js" type="text/javascript"></script>
+                <script src="js/SkinnedMesh.js" type="text/javascript"></script>
+                <script src="js/TextGeometry.js" type="text/javascript"></script>
                 <script>
                     
                     //Vergößerungsanteil 
@@ -348,7 +356,7 @@ and open the template in the editor.
                     // iteriert werden kann ->    siehe BSP: google link
                     
                         var SUBDIVISIONS = 20;
-                        
+                        //var facecolors = new THREE.MeshBasicMaterial({color: 0x845647, vertexColors: THREE.FaceColors});
                         var geometry = new THREE.Geometry();
                         var curve = new THREE.QuadraticBezierCurve3();
                         curve.v0 = new THREE.Vector3(0, 0, 0);
@@ -360,29 +368,45 @@ and open the template in the editor.
                             geometry.vertices.push( curve.getPoint(j / SUBDIVISIONS) ); 
                         } 
                         
-                       geometry.vertices = [
-                           new THREE.Vector3(0,0.43 * V_ANT,0),
-                           new THREE.Vector3(0,0,0),
-                           new THREE.Vector3(0.64 * V_ANT,0, 0),
-                           new THREE.Vector3(0.64 *V_ANT,0.43 * V_ANT,0)];
+                        for ( var i = 0; i<18; i++){
+                            geometry.faces[i] = new THREE.Face3(i,i+1,i+2);
+                        }
+                        
+                        geometry.vertices[18] = new THREE.Vector3(0,0.43 * V_ANT,0);
+                        geometry.vertices[19] = new THREE.Vector3(0,0,0);
+                        geometry.vertices[20] = new THREE.Vector3(0.64 * V_ANT,0, 0);
+                        geometry.vertices[21] = new THREE.Vector3(0.64 *V_ANT,0.43 * V_ANT,0);
                         geometry.faces = [
-                            new THREE.Face3(0,1,2),
-                            new THREE.Face3(0,2,3)
+                            new THREE.Face3(10,18,21),
+                            new THREE.Face3(10,21,20),
+                            new THREE.Face3(10,18,19),
+                            new THREE.Face3(10,19,20),
+                            new THREE.Face3(18,19,20),
+                            new THREE.Face3(18,20,21)
                         ];
                         geometry.computeFaceNormals();
                         geometry.computeVertexNormals();
-                        geometry.faces[0].materialIndex = 0;
-                        geometry.faces[1].materialIndex = 1;
+                        //geometry.faces[0].materialIndex = 0;
+                        //geometry.faces[1].materialIndex = 1;
                         var material_imac = new THREE.MeshFaceMaterial([
                             new THREE.MeshLambertMaterial({ color: 0xF478ab, side:THREE.DoubleSide})
                         ]);
                         
                         
-                        var line = new THREE.Mesh(geometry, table_mat);
-                        line.position.set(0, 10 * V_ANT, 0);
-                        //scene.add(line);
+                        var iMac = new THREE.Mesh(geometry, prod);
+                        iMac.position.set(-11.32  *V_ANT, 1.1 * V_ANT + 0.005 * V_ANT, -1.06 * V_ANT);
+                        scene.add(iMac);
                         
+                        geometry = new THREE.CubeGeometry(0.08 * V_ANT, 0.005 * V_ANT, 0.105 * V_ANT);
+                        var iMac_fuss = new THREE.Mesh(geometry, prod);
+                        iMac_fuss.position.set(-11 * V_ANT, 1.1 * V_ANT + 0.0025 * V_ANT, -1.035 *V_ANT);
+                        scene.add(iMac_fuss);
                         
+                        geometry = new THREE.CubeGeometry(0.08 * V_ANT, 0.005 * V_ANT, 0.18 * V_ANT);
+                        iMac_fuss = new THREE.Mesh(geometry, prod);
+                        iMac_fuss.position.set(-11 * V_ANT, 1.16 * V_ANT + 0.0025 * V_ANT, -1.006*V_ANT);
+                        iMac_fuss.rotation.x = Math.PI/2.7;
+                        scene.add(iMac_fuss);
                     //iMac Ende
                        
                     //Laptoptisch  Ende
@@ -794,9 +818,9 @@ and open the template in the editor.
                     //HIFI
                     
                       //Teppich
-                        geometry = new THREE.CubeGeometry(2* V_ANT, 0.05* V_ANT, 3* V_ANT);   
+                        geometry = new THREE.CubeGeometry(2* V_ANT, 0.02* V_ANT, 3* V_ANT);   
                         var hifi_teppich = new THREE.Mesh(geometry, teppich);
-                        hifi_teppich.position.set(9.5* V_ANT, 0.02* V_ANT, -13.505* V_ANT);
+                        hifi_teppich.position.set(9.5* V_ANT, 0.007* V_ANT, -13.505* V_ANT);
                         
                         scene.add(hifi_teppich);
                         
@@ -808,13 +832,12 @@ and open the template in the editor.
                         
                         scene.add(tisch_rund);
                         
-                        //torusknot einbauen
-                        geometry = new THREE.CubeGeometry(0.05 * V_ANT, 0.57 * V_ANT, 0.05 * V_ANT);
-                        var tisch_bein = new THREE.Mesh(geometry, prod);
-                        tisch_bein.position.x = 9.5 * V_ANT;
-                        tisch_bein.position.y = 0.285 * V_ANT + 0.02 * V_ANT;
-                        tisch_bein.position.z = -13.505 * V_ANT;
-                        
+                      
+                        geometry = new THREE.TextGeometry( "Z", {size:1.43, height:1, curveSegment:25, font:"helvetiker",
+                         extrudeMaterial: 1.5});
+                        var tisch_bein = new THREE.Mesh(geometry, table_mat);
+                        tisch_bein.position.set(9.65 * V_ANT ,0.08 * V_ANT,-13.355 * V_ANT);
+                        tisch_bein.rotation.y = Math.PI;
                         scene.add(tisch_bein);
                                 
                         
@@ -873,7 +896,8 @@ and open the template in the editor.
                         for(var i=0; i<2;i++){
                             for(var j=0; j<2;j++){
                                 var hifi_satfuß = new THREE.Mesh(geometry, prod);
-                                hifi_satfuß.position.set(8.3 * V_ANT + j*2.4 * V_ANT, 0.01 * V_ANT + 0.02 * V_ANT, -14.305 * V_ANT+ i* 2.5 * V_ANT);
+                                hifi_satfuß.position.set(8.3 * V_ANT + j*2.4 * V_ANT, 0.01 * V_ANT, -14.305 * V_ANT+ i* 2.5 * V_ANT);
+                               // hifi_satfuß.position.y = Math.PI/4 * i;
                                 scene.add(hifi_satfuß);
                             }
                         }
@@ -885,6 +909,7 @@ and open the template in the editor.
                                
                                 var hifi_sat = new THREE.Mesh(geometry, prod);
                                 hifi_sat.position.set(8.3 * V_ANT + j*2.4 * V_ANT, 0.64 * V_ANT + 0.02 * V_ANT + 0.02 * V_ANT, -14.305 * V_ANT+ i* 2.5 * V_ANT );
+                               
                                 scene.add(hifi_sat);
                             }
                         }
