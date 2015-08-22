@@ -694,6 +694,58 @@ and open the template in the editor.
                         
                    // ENDE Fernseher
                    
+                   // Fernsehergrößen 100"-32"
+                   
+                        geometry = new THREE.CubeGeometry(0.05 * V_ANT, 1.245 * V_ANT , 2.214 * V_ANT);
+                        var tv_100 = new THREE.Mesh(geometry, prod);
+                        tv_100.position.set(-17.575 * V_ANT, 0.6225 * V_ANT, -6.5 * V_ANT);
+                        scene.add(tv_100);
+                        
+                        geometry = new THREE.CubeGeometry(0.05 * V_ANT, 1.1205 * V_ANT , 1.9926 * V_ANT);
+                        var tv_90 = new THREE.Mesh(geometry, prod);
+                        tv_90.position.set(-17.575 * V_ANT, 0.6225 * V_ANT, -8.8 * V_ANT);
+                        scene.add(tv_90);
+                        
+                        geometry = new THREE.CubeGeometry(0.05 * V_ANT, 0.996 * V_ANT , 1.7712 * V_ANT);
+                        var tv_80 = new THREE.Mesh(geometry, prod);
+                        tv_80.position.set(-17.575 * V_ANT, 0.498 * V_ANT, -10.8 * V_ANT);
+                        scene.add(tv_80);
+                        
+                        geometry = new THREE.CubeGeometry(0.05 * V_ANT, 0.93375 * V_ANT , 1.6605 * V_ANT);
+                        var tv_75 = new THREE.Mesh(geometry, prod);
+                        tv_75.position.set(-17.575 * V_ANT, 0.466 * V_ANT, -12.6 * V_ANT);
+                        scene.add(tv_75);
+                        
+                        geometry = new THREE.CubeGeometry(0.05 * V_ANT, 0.8715 * V_ANT , 1.5498 * V_ANT);
+                        var tv_70 = new THREE.Mesh(geometry, prod);
+                        tv_70.position.set(-17.575 * V_ANT, 0.43075 * V_ANT, -14.3 * V_ANT);
+                        scene.add(tv_70);
+                        
+                        geometry = new THREE.CubeGeometry(0.05 * V_ANT, 0.7891 * V_ANT , 1.4391 * V_ANT);
+                        var tv_65 = new THREE.Mesh(geometry, prod);
+                        tv_65.position.set(-17.575 * V_ANT, 0.39455 * V_ANT, -15.9 * V_ANT);
+                        scene.add(tv_65);
+                        
+                        geometry = new THREE.CubeGeometry(1.3284 * V_ANT, 0.7284 * V_ANT , 0.05 * V_ANT);
+                        var tv_60 = new THREE.Mesh(geometry, prod);
+                        tv_60.position.set(-16.35 * V_ANT, 0.3642 * V_ANT, -17.45 * V_ANT);
+                        scene.add(tv_60);
+                        
+                        geometry = new THREE.CubeGeometry(1.28412 * V_ANT, 0.70412 * V_ANT , 0.05 * V_ANT);
+                        var tv_58 = new THREE.Mesh(geometry, prod);
+                        tv_58.position.set(-15 * V_ANT, 0.35206 * V_ANT, -17.45 * V_ANT);
+                        scene.add(tv_58);
+                        
+                        geometry = new THREE.CubeGeometry(1.2177 * V_ANT, 0.6677 * V_ANT , 0.05 * V_ANT);
+                        var tv_55 = new THREE.Mesh(geometry, prod);
+                        tv_55.position.set(-13.5 * V_ANT, 0.334 * V_ANT, -17.45 * V_ANT);
+                        scene.add(tv_55);
+                        
+                        geometry = new THREE.CubeGeometry(1.15128 * V_ANT, 0.63128 * V_ANT , 0.05 * V_ANT);
+                        var tv_52 = new THREE.Mesh(geometry, prod);
+                        tv_52.position.set(-12 * V_ANT, 0.316 * V_ANT, -17.45 * V_ANT);
+                        scene.add(tv_52);
+                        
         
                    //Trapezstand
                    
@@ -897,7 +949,7 @@ and open the template in the editor.
                     //Curved aussteller
                     
                         tv_samsung_tv = new THREE.Mesh( new THREE.LatheGeometry( pts_curv, 20, -Math.PI/1.1 ,Math.PI/3 ), prod);
-                        tv_samsung_tv.position.set(-3.8 * V_ANT, 1.02 * V_ANT + 0.05 * V_ANT , -12 * V_ANT);
+                        tv_samsung_tv.position.set(-3.8 * V_ANT, 0.75 * V_ANT , -12 * V_ANT);
                         tv_samsung_tv.rotation.x = Math.PI/2;
                         scene.add(tv_samsung_tv);
                         
@@ -910,7 +962,7 @@ and open the template in the editor.
                         ];
                         
                         var tv_samsung_tv_stand = new THREE.Mesh( new THREE.LatheGeometry( pts_curv, 20, -Math.PI/1.1 ,Math.PI/3 ), table_mat);
-                        tv_samsung_tv_stand.position.set(-3.38 * V_ANT, 0.345 * V_ANT  , -11.58 * V_ANT);
+                        tv_samsung_tv_stand.position.set(-3.38 * V_ANT, 0.02 * V_ANT  , -11.58 * V_ANT);
                         tv_samsung_tv_stand.rotation.x = Math.PI/2;
                         scene.add(tv_samsung_tv_stand)
                     
@@ -1016,7 +1068,7 @@ and open the template in the editor.
                         
                         geometry = new THREE.CubeGeometry(1.77 * V_ANT, 1 * V_ANT, 0.05 * V_ANT);  
                         var hifi_tv = new THREE.Mesh(geometry, prod);
-                        hifi_tv.position.set(9.5 * V_ANT, 0.5 * V_ANT + 0.68 * V_ANT, -14.505 * V_ANT);
+                        hifi_tv.position.set(9.5 * V_ANT, 0.5 * V_ANT + 0.68 * V_ANT + 0.05 * V_ANT, -14.505 * V_ANT);
                         
                         scene.add( hifi_tv);
                         
