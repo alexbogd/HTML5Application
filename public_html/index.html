@@ -43,9 +43,10 @@ and open the template in the editor.
                         var h = window.innerHeight;
 			var renderer = new THREE.WebGLRenderer({canvas:canv});
 			renderer.setSize( w,h );
-                        
+                        var objects = [];
                         renderer.setClearColor(new THREE.Color(0xeeeeee), 1 );
-                        var camera = new THREE.PerspectiveCamera( 15, w/h*2, 0.1, 1000 );
+                        var camera = new THREE.PerspectiveCamera( 30, w/h*2, 0.1, 1000 );
+                       // var camera = new THREE.OrtographicCamera(w/-2,w/2,h/2,h/-2,1,1000);
 			document.body.appendChild( renderer.domElement );
 
 
@@ -700,101 +701,122 @@ and open the template in the editor.
                         var tv_100 = new THREE.Mesh(geometry, prod);
                         tv_100.position.set(-17.575 * V_ANT, 0.6225 * V_ANT, -6.5 * V_ANT);
                         scene.add(tv_100);
+                        objects.push(tv_100);
                         
                         geometry = new THREE.CubeGeometry(0.05 * V_ANT, 1.1205 * V_ANT , 1.9926 * V_ANT);
                         var tv_90 = new THREE.Mesh(geometry, prod);
                         tv_90.position.set(-17.575 * V_ANT, 0.6225 * V_ANT, -8.8 * V_ANT);
                         scene.add(tv_90);
+                        objects.push(tv_90);
                         
                         geometry = new THREE.CubeGeometry(0.05 * V_ANT, 0.996 * V_ANT , 1.7712 * V_ANT);
                         var tv_80 = new THREE.Mesh(geometry, prod);
                         tv_80.position.set(-17.575 * V_ANT, 0.498 * V_ANT, -10.8 * V_ANT);
                         scene.add(tv_80);
+                        objects.push(tv_80);
                         
                         geometry = new THREE.CubeGeometry(0.05 * V_ANT, 0.93375 * V_ANT , 1.6605 * V_ANT);
                         var tv_75 = new THREE.Mesh(geometry, prod);
                         tv_75.position.set(-17.575 * V_ANT, 0.466 * V_ANT, -12.6 * V_ANT);
                         scene.add(tv_75);
+                        objects.push(tv_75);
                         
                         geometry = new THREE.CubeGeometry(0.05 * V_ANT, 0.8715 * V_ANT , 1.5498 * V_ANT);
                         var tv_70 = new THREE.Mesh(geometry, prod);
                         tv_70.position.set(-17.575 * V_ANT, 0.43075 * V_ANT, -14.3 * V_ANT);
                         scene.add(tv_70);
+                        objects.push(tv_70);
                         
                         geometry = new THREE.CubeGeometry(0.05 * V_ANT, 0.7891 * V_ANT , 1.4391 * V_ANT);
                         var tv_65 = new THREE.Mesh(geometry, prod);
                         tv_65.position.set(-17.575 * V_ANT, 0.39455 * V_ANT, -15.9 * V_ANT);
                         scene.add(tv_65);
+                        objects.push(tv_65);
                         
                         geometry = new THREE.CubeGeometry(1.3284 * V_ANT, 0.7284 * V_ANT , 0.05 * V_ANT);
                         var tv_60 = new THREE.Mesh(geometry, prod);
                         tv_60.position.set(-16.35 * V_ANT, 0.3642 * V_ANT, -17.45 * V_ANT);
                         scene.add(tv_60);
+                        objects.push(tv_60);
                         
                         geometry = new THREE.CubeGeometry(1.28412 * V_ANT, 0.70412 * V_ANT , 0.05 * V_ANT);
                         var tv_58 = new THREE.Mesh(geometry, prod);
                         tv_58.position.set(-14.9 * V_ANT, 0.35206 * V_ANT, -17.45 * V_ANT);
                         scene.add(tv_58);
+                        objects.push(tv_58);
                         
                         geometry = new THREE.CubeGeometry(1.2177 * V_ANT, 0.6677 * V_ANT , 0.05 * V_ANT);
                         var tv_55 = new THREE.Mesh(geometry, prod);
                         tv_55.position.set(-13.45 * V_ANT, 0.334 * V_ANT, -17.45 * V_ANT);
                         scene.add(tv_55);
+                        objects.push(tv_55);
                         
                         geometry = new THREE.CubeGeometry(1.15128 * V_ANT, 0.63128 * V_ANT , 0.05 * V_ANT);
                         var tv_52 = new THREE.Mesh(geometry, prod);
                         tv_52.position.set(-12.10 * V_ANT, 0.316 * V_ANT, -17.45 * V_ANT);
                         scene.add(tv_52);
+                        objects.push(tv_52);
                         
                         geometry = new THREE.CubeGeometry(1.1107 * V_ANT, 0.607 * V_ANT , 0.05 * V_ANT);
                         var tv_50 = new THREE.Mesh(geometry, prod);
                         tv_50.position.set(-10.8 * V_ANT, 0.316 * V_ANT, -17.45 * V_ANT);
                         scene.add(tv_50);
+                        objects.push(tv_50);
                         
                         geometry = new THREE.CubeGeometry(1.08486 * V_ANT, 0.59486 * V_ANT , 0.05 * V_ANT);
                         var tv_49 = new THREE.Mesh(geometry, prod);
                         tv_49.position.set(-9.55 * V_ANT, 0.316 * V_ANT, -17.45 * V_ANT);
+                        tv_49.name = '49 Zoll';
                         scene.add(tv_49);
+                        objects.push(tv_49);
                         
                         geometry = new THREE.CubeGeometry(1.06272 * V_ANT, 0.58272 * V_ANT , 0.05 * V_ANT);
                         var tv_48 = new THREE.Mesh(geometry, prod);
                         tv_48.position.set(-8.2 * V_ANT, 0.316 * V_ANT, -17.45 * V_ANT);
                         scene.add(tv_48);
+                        objects.push(tv_48);
                         
                         geometry = new THREE.CubeGeometry(1.01844 * V_ANT, 0.55844 * V_ANT , 0.05 * V_ANT);
                         var tv_46 = new THREE.Mesh(geometry, prod);
                         tv_46.position.set(-7 * V_ANT, 0.316 * V_ANT, -17.45 * V_ANT);
                         scene.add(tv_46);
+                        objects.push(tv_46);
                         
                         geometry = new THREE.CubeGeometry(0.95202 * V_ANT, 0.52202 * V_ANT , 0.05 * V_ANT);
                         var tv_43 = new THREE.Mesh(geometry, prod);
                         tv_43.position.set(-5.9 * V_ANT, 0.316 * V_ANT, -17.45 * V_ANT);
                         scene.add(tv_43);
+                        objects.push(tv_43);
                         
                         geometry = new THREE.CubeGeometry(0.92988 * V_ANT, 0.50988 * V_ANT , 0.05 * V_ANT);
                         var tv_42 = new THREE.Mesh(geometry, prod);
                         tv_42.position.set(-4.6 * V_ANT, 0.316 * V_ANT + 1, -17.45 * V_ANT);
                         scene.add(tv_42);
+                        objects.push(tv_42);
                         
                         geometry = new THREE.CubeGeometry(0.8856 * V_ANT, 0.4856 * V_ANT , 0.05 * V_ANT);
                         var tv_40 = new THREE.Mesh(geometry, prod);
                         tv_40.position.set(-3.4 * V_ANT, 0.316 * V_ANT, -17.45 * V_ANT);
                         scene.add(tv_40);
+                        objects.push(tv_40);
                         
                         geometry = new THREE.CubeGeometry(0.86346 * V_ANT, 0.47346 * V_ANT , 0.05 * V_ANT);
                         var tv_39 = new THREE.Mesh(geometry, prod);
                         tv_39.position.set(-2.2 * V_ANT, 0.316 * V_ANT, -17.45 * V_ANT);
                         scene.add(tv_39);
+                        objects.push(tv_39);
                         
                         geometry = new THREE.CubeGeometry(0.70848 * V_ANT, 0.38848 * V_ANT , 0.05 * V_ANT);
                         var tv_32 = new THREE.Mesh(geometry, prod);
                         tv_32.position.set(-1.2 * V_ANT, 0.316 * V_ANT, -17.45 * V_ANT);
                         scene.add(tv_32);
+                        objects.push(tv_32);
                         
                         geometry = new THREE.CubeGeometry(0.6642 * V_ANT, 0.3642 * V_ANT , 0.05 * V_ANT);
                         var tv_30 = new THREE.Mesh(geometry, prod);
                         tv_30.position.set(-0.35 * V_ANT, 0.316 * V_ANT, -17.45 * V_ANT);
                         scene.add(tv_30);
+                        objects.push(tv_30);
                         
         
                    //Trapezstand
@@ -2004,15 +2026,15 @@ and open the template in the editor.
                     
                         var control = new THREE.FirstPersonControls(camera);
                      
-                        control.movementSpeed = 20;
+                        control.movementSpeed = 40;
                         control.lookSpeed = 0.1;
                         control.lookVertical = true;
                         camera.aspect = w/h;
-                        //camera.position.y = 1.8 * V_ANT;
-                        //camera.rotation.y = Math.PI;
+                        camera.position.y = 1.8 * V_ANT;
+                       // camera.rotation.x = Math.PI/2;
                         camera.position.y = 200;
-                        //camera.position.x = 11 * V_ANT;
-                        //camera.position.z = 9.5 * V_ANT;
+                       // camera.position.x = 11 * V_ANT;
+                       // camera.position.z = 9.5 * V_ANT;
                         camera.updateProjectionMatrix();
                         control.handleResize();
                        
@@ -2024,19 +2046,50 @@ and open the template in the editor.
                         scene.add(camera);
                         var clock = new THREE.Clock();
                         var step = 0;
+                        
+                        //EVENT Handling
+                        
+                        var mousevector = new THREE.Vector3();
+                        var projector = new THREE.Projector();
+                        
+                        //User tut etwas
+                        
+                        window.addEventListener('mousemove', onMouseMove, false);
+                       // window.addEventListener('resize', onWindowResize, false);
+                        
+                        // Raycast machen
+                        // namen abfragen size abfragen von einem mesh
+                        //tooltip einbringen, welcher size und name ausgibt
+                        
+                        
+                        function onMouseMove(e){
+                            
+                            mousevector.x = 2*(e.clientX/w) -1;
+                            mousevector.y = 1-2*(e.clientY/h);
+                            var raycaster = projector.pickingRay(mouseVector.clone(), camera),
+                                    intersects = raycaster.intersectObjects(objects.children);
+                        
+                            objects.children.forEach(function(object){
+                                object.name;
+                            });
+                                    
+                        }
+                        
                         var render = function () {
                      
                         control.update(clock.getDelta());
                         renderer.render(scene, camera);
                         requestAnimationFrame( render );
-                        // if (camera.position.y != 1.8 * V_ANT)
-                          //  camera.position.y = 1.8 * V_ANT;
+                        //if (camera.position.y != 1.8 * V_ANT)
+                         //  camera.position.y = 1.8 * V_ANT;
                           
                           
                           //tk Drehung
                           tk_dreh.rotation.y += 0.001;
                           tk_dreh_2.rotation.y -= 0.001;
                           tk_zub.rotation.y += 0.001;
+                          
+                          
                           //schranke
                           
                             if(camera.position.x>=30 && camera.position.x <=36 && camera.position.z >= 30 && camera.position.z <=36){
@@ -2051,11 +2104,14 @@ and open the template in the editor.
                                  
                               
                          }
-                         // Wenn geklickt wird wird der Abstand zu dem Objekt tv_100 - tv_32 angezeigt
+                         // Wenn geklickt wird, wird der Abstand zu dem Objekt tv_100 - tv_32 angezeigt
                          // implementierung für alle Objekte möglich, ohne alle einzeln abzufragen?
                          // Datenausgabe: Breite und Höhe
                       
-                    }
+                    };
+                    
+                    // RENDER ENDE
+                    
                         requestAnimationFrame(render);
                         render();
                 }
