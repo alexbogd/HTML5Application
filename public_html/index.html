@@ -49,7 +49,7 @@ and open the template in the editor.
 			renderer.setSize( w,h );
                         var objects = [];
                         renderer.setClearColor(new THREE.Color(0xeeeeee), 1 );
-                        var camera = new THREE.PerspectiveCamera( 30, w/h, 0.1, 1000 );
+                        var camera = new THREE.PerspectiveCamera( 60, w/h, 0.1, 1000 );
                        // var camera = new THREE.OrtographicCamera(w/-2,w/2,h/2,h/-2,1,1000);
 			document.body.appendChild( renderer.domElement );
 
@@ -2057,13 +2057,19 @@ and open the template in the editor.
                         
                         //EVENT Handling
                        
-                       var raycaster = new THREE.Raycaster();
-                       var mouse = new THREE.Vector2();
+                        var raycaster = new THREE.Raycaster();
+                        var mouse = new THREE.Vector2();
                         
                         function onMouseMove(e){
                             
-                            mouse.x = (e.clientX/w) * 2-1;
-                            mouse.y = -(e.clientY/h) * 2+1;
+                            e.preventDefault();
+                            raycaster.setFromCamera(mouse, camera);
+                         
+                            var intersects = raycaster.intersectObjects(objects, true);
+                         
+                            for( var i = 0; i<intersects.length; i++){
+                                console.log(intersects[i].object.name);
+                            }
                            
                         }
                         
@@ -2098,15 +2104,9 @@ and open the template in the editor.
                          // implementierung für alle Objekte möglich, ohne alle einzeln abzufragen?
                          // Datenausgabe: Breite und Höhe
                          
-                         raycaster.setFromCamera(mouse, camera);
                          
-                         var intersects = raycaster.intersectObjects(scene.children);
-                         
-                         
+                         // mir fehlt das auswerten der einzelnen Objekte in der Szene
 			 
-			
-			
-                         
                       
                         control.update(clock.getDelta());
                         renderer.render(scene, camera);
