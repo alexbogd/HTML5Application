@@ -25,7 +25,11 @@ and open the template in the editor.
                 <script src="js/ConvexGeometry.js"></script>
                 <script src="js/QuadraticBezierCurve3.js" type="text/javascript"></script>
                 <script src="js/TextGeometry.js" type="text/javascript"></script>
-               
+                <script src="js/Detector.js" type="text/javascript"></script>
+                <script src="js/SpriteMaterial.js" type="text/javascript"></script>
+                <script src="js/Projector.js" type="text/javascript"></script>
+                <script src="js/stats.min.js" type="text/javascript"></script>
+       
                 <script>
                     
                 //Vergößerungsanteil 
@@ -45,7 +49,7 @@ and open the template in the editor.
 			renderer.setSize( w,h );
                         var objects = [];
                         renderer.setClearColor(new THREE.Color(0xeeeeee), 1 );
-                        var camera = new THREE.PerspectiveCamera( 30, w/h*2, 0.1, 1000 );
+                        var camera = new THREE.PerspectiveCamera( 30, w/h, 0.1, 1000 );
                        // var camera = new THREE.OrtographicCamera(w/-2,w/2,h/2,h/-2,1,1000);
 			document.body.appendChild( renderer.domElement );
 
@@ -766,31 +770,35 @@ and open the template in the editor.
                         geometry = new THREE.CubeGeometry(1.08486 * V_ANT, 0.59486 * V_ANT , 0.05 * V_ANT);
                         var tv_49 = new THREE.Mesh(geometry, prod);
                         tv_49.position.set(-9.55 * V_ANT, 0.316 * V_ANT, -17.45 * V_ANT);
-                        tv_49.name = '49 Zoll';
+                        tv_49.name = "49 Zoll";
                         scene.add(tv_49);
                         objects.push(tv_49);
                         
                         geometry = new THREE.CubeGeometry(1.06272 * V_ANT, 0.58272 * V_ANT , 0.05 * V_ANT);
                         var tv_48 = new THREE.Mesh(geometry, prod);
                         tv_48.position.set(-8.2 * V_ANT, 0.316 * V_ANT, -17.45 * V_ANT);
+                        tv_48.name = "48 Zoll";
                         scene.add(tv_48);
                         objects.push(tv_48);
                         
                         geometry = new THREE.CubeGeometry(1.01844 * V_ANT, 0.55844 * V_ANT , 0.05 * V_ANT);
                         var tv_46 = new THREE.Mesh(geometry, prod);
                         tv_46.position.set(-7 * V_ANT, 0.316 * V_ANT, -17.45 * V_ANT);
+                        tv_46.name = "46 Zoll";
                         scene.add(tv_46);
                         objects.push(tv_46);
                         
                         geometry = new THREE.CubeGeometry(0.95202 * V_ANT, 0.52202 * V_ANT , 0.05 * V_ANT);
                         var tv_43 = new THREE.Mesh(geometry, prod);
                         tv_43.position.set(-5.9 * V_ANT, 0.316 * V_ANT, -17.45 * V_ANT);
+                        tv_43.name = "43 Zoll";
                         scene.add(tv_43);
                         objects.push(tv_43);
                         
                         geometry = new THREE.CubeGeometry(0.92988 * V_ANT, 0.50988 * V_ANT , 0.05 * V_ANT);
                         var tv_42 = new THREE.Mesh(geometry, prod);
                         tv_42.position.set(-4.6 * V_ANT, 0.316 * V_ANT + 1, -17.45 * V_ANT);
+                        tv_42.name = "42 Zoll";
                         scene.add(tv_42);
                         objects.push(tv_42);
                         
@@ -2032,7 +2040,7 @@ and open the template in the editor.
                         camera.aspect = w/h;
                         camera.position.y = 1.8 * V_ANT;
                        // camera.rotation.x = Math.PI/2;
-                        camera.position.y = 200;
+                        camera.position.y = 5;
                        // camera.position.x = 11 * V_ANT;
                        // camera.position.z = 9.5 * V_ANT;
                         camera.updateProjectionMatrix();
@@ -2048,38 +2056,20 @@ and open the template in the editor.
                         var step = 0;
                         
                         //EVENT Handling
-                        
-                        var mousevector = new THREE.Vector3();
-                        var projector = new THREE.Projector();
-                        
-                        //User tut etwas
-                        
-                        window.addEventListener('mousemove', onMouseMove, false);
-                       // window.addEventListener('resize', onWindowResize, false);
-                        
-                        // Raycast machen
-                        // namen abfragen size abfragen von einem mesh
-                        //tooltip einbringen, welcher size und name ausgibt
-                        
+                       
+                       var raycaster = new THREE.Raycaster();
+                       var mouse = new THREE.Vector2();
                         
                         function onMouseMove(e){
                             
-                            mousevector.x = 2*(e.clientX/w) -1;
-                            mousevector.y = 1-2*(e.clientY/h);
-                            var raycaster = projector.pickingRay(mouseVector.clone(), camera),
-                                    intersects = raycaster.intersectObjects(objects.children);
-                        
-                            objects.children.forEach(function(object){
-                                object.name;
-                            });
-                                    
+                            mouse.x = (e.clientX/w) * 2-1;
+                            mouse.y = -(e.clientY/h) * 2+1;
+                           
                         }
                         
                         var render = function () {
                      
-                        control.update(clock.getDelta());
-                        renderer.render(scene, camera);
-                        requestAnimationFrame( render );
+                        
                         //if (camera.position.y != 1.8 * V_ANT)
                          //  camera.position.y = 1.8 * V_ANT;
                           
@@ -2107,15 +2097,29 @@ and open the template in the editor.
                          // Wenn geklickt wird, wird der Abstand zu dem Objekt tv_100 - tv_32 angezeigt
                          // implementierung für alle Objekte möglich, ohne alle einzeln abzufragen?
                          // Datenausgabe: Breite und Höhe
+                         
+                         raycaster.setFromCamera(mouse, camera);
+                         
+                         var intersects = raycaster.intersectObjects(scene.children);
+                         
+                         
+			 
+			
+			
+                         
                       
+                        control.update(clock.getDelta());
+                        renderer.render(scene, camera);
+                        requestAnimationFrame( render );
                     };
                     
+                  
                     // RENDER ENDE
                     
-                        requestAnimationFrame(render);
-                        render();
+                    window.addEventListener('mousemove', onMouseMove, false);
+                    window.requestAnimationFrame(render);
                 }
-                
+                    
                     window.onload = init;
                     window.onresize = init;
 		</script>
