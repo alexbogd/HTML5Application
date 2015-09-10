@@ -49,7 +49,7 @@ and open the template in the editor.
 			renderer.setSize( w,h );
                         var objects = [];
                         renderer.setClearColor(new THREE.Color(0xeeeeee), 1 );
-                        var camera = new THREE.PerspectiveCamera( 30, w/h, 0.1, 1000 );
+                        var camera = new THREE.PerspectiveCamera( 60, w/h, 0.1, 1000 );
                        // var camera = new THREE.OrtographicCamera(w/-2,w/2,h/2,h/-2,1,1000);
 			document.body.appendChild( renderer.domElement );
 
@@ -2068,19 +2068,9 @@ and open the template in the editor.
                             var intersects = raycaster.intersectObjects(objects, true);
                          
                             for( var i = 0; i<intersects.length; i++){
-                                var map = intersects[i].object.name;
-                                var material = new THREE.SpriteMaterial({map: map, color: 0xffffff, fog: true)};
-                                var sprite = new THREE.Sprite(material);
-                                scene.add(sprite);
-                        }
-                           /* for( var i = 0; i<intersects.length; i++){
                                 console.log(intersects[i].object.name);
                             }
-                           */
-                        }
-                        
-                        function onMouseClick(){
-                            
+                           
                         }
                         
                         var render = function () {
