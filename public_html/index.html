@@ -2064,7 +2064,7 @@ and open the template in the editor.
                         var raycaster = new THREE.Raycaster();
                         var mouse = new THREE.Vector2();
                         
-                        function onMouseClick(e){
+                        /*function onMouseClick(e){
                           e.preventDefault();
                           raycaster.setFromCamera(mouse, camera);
                           
@@ -2073,18 +2073,21 @@ and open the template in the editor.
                               intersects[i].object.rotation.x = Math.PI/2;
                           }
                           
-                        }
+                        }*/
                         
                         function onMouseOver(e){
                             
                             e.preventDefault();
                             raycaster.setFromCamera(mouse, camera);
-                         
-                            var intersects = raycaster.intersectObjects(objects, true);
+                            var vector = new THREE.Vector3((e.clientX/w) * 2 - 1, -(e.clientY/h) * 2+1, 0.5);
+                            var ray = new THREE.Ray(camera.position, vector.subSelf(camera.position).normalize());
+                            
+                            var intersects = ray.intersectObjects(objects, true);
                          
                             for( var i = 0; i<intersects.length; i++){
                                 console.log(intersects[i].object.name);
                             }
+                            
                            
                         }
                         
@@ -2135,7 +2138,7 @@ and open the template in the editor.
                     
                     window.addEventListener('onmouseover', onMouseOver, false);
                     window.requestAnimationFrame(render);
-                    window.addEventListener('onclick', onMouseClick, true);
+                    //window.addEventListener('onclick', onMouseClick, true);
                 }
                     
                     window.onload = init;
