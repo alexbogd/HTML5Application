@@ -10,7 +10,7 @@ and open the template in the editor.
 		<title>My first Three.js app</title>
 		<style>
 			body { margin: 0; }
-			canvas { width: 100%; height: 100% }
+			canvas { width: 75%; height: 75% }
 		</style>
 
         
@@ -50,7 +50,7 @@ and open the template in the editor.
                         var objects = [];
                         var objects_lap = []; 
                         renderer.setClearColor(new THREE.Color(0xeeeeee), 1 );
-                        var camera = new THREE.PerspectiveCamera( 60, w/h, 0.1, 1000 );
+                        var camera = new THREE.PerspectiveCamera( 45, w/h, 0.1, 1000 );
                        // var camera = new THREE.OrtographicCamera(w/-2,w/2,h/2,h/-2,1,1000);
 			document.body.appendChild( renderer.domElement );
 
@@ -2072,7 +2072,7 @@ and open the template in the editor.
                         var raycaster = new THREE.Raycaster();
                         var mouse = new THREE.Vector2();
                         
-                        function onMouseClick(e){
+                        function onMouseClick(e, id, cursorstyle){
                           e.preventDefault();
                           raycaster.setFromCamera(mouse, camera);
                           
@@ -2084,19 +2084,25 @@ and open the template in the editor.
                               
                           }
                           
+                          
                         }
                         
-                        function onMouseOver(e){
+                        function onMouseMove(e){
                             
                             e.preventDefault();
                             raycaster.setFromCamera(mouse, camera);
-                            var vector = new THREE.Vector3((e.clientX/w) * 2 - 1, -(e.clientY/h) * 2+1, 0.5);
-                            var ray = new THREE.Ray(camera.position, vector.subSelf(camera.position).normalize());
-                            
-                            var intersects = ray.intersectObjects(objects, true);
+                         
+                            var intersects = raycaster.intersectObjects(objects, true);
                          
                             for( var i = 0; i<intersects.length; i++){
-                                console.log(intersects[i].object.name);
+                               /* canv = $(this).find('canvas')[0];
+                                var context = canv.getContext('2d');
+                               // context.clearRect(,25,canv.width, canv.height);
+                                context.font = '18pt Calibri';
+                                context.fillStyle = 'black';
+                                context.fillText( intersects[i].object.name,10,25);
+                               */
+                              console.log(intersects[i].object.name);d
                             }
                             
                            
@@ -2147,7 +2153,7 @@ and open the template in the editor.
                   
                     // RENDER ENDE
                     
-                    window.addEventListener('onmouseover', onMouseOver, false);
+                    window.addEventListener('mousemove', onMouseMove, false);
                     window.requestAnimationFrame(render);
                     window.addEventListener('click', onMouseClick, true);
                 }
