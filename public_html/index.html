@@ -233,25 +233,33 @@ and open the template in the editor.
                     //Laptop
                     
                         var geometry_lap = new THREE.CubeGeometry(0.325 * V_ANT, 0.02 * V_ANT, 0.27 * V_ANT);
-                        for ( var x = 0; x<2; x++){
+                        
                             for (var y = 0; y<5; y++){
                                 var lap = new THREE.Mesh(geometry_lap, prod); 
-                                lap.position.set(-13.9* V_ANT + y * 0.42 * V_ANT + y * 0.05 * V_ANT, 1.1* V_ANT + 0.01 * V_ANT + x *0.021 * V_ANT , -0.5* V_ANT );
+                                lap.position.set(-13.9* V_ANT + y * 0.42 * V_ANT + y * 0.05 * V_ANT, 1.1* V_ANT + 0.01 * V_ANT, -0.5* V_ANT );
                                 
                                 scene.add(lap);
                                 
                             }
-                        }
+                        
                         geometry_lap = new THREE.CubeGeometry(0.41 * V_ANT, 0.02 * V_ANT, 0.27 * V_ANT);
-                        for ( var x = 0; x<2; x++){
-                            for (var y = 5; y<10; y++){
-                                geometry_lap.y = 0.01 * x * V_ANT;
+                        
+                        for (var y = 5; y<10; y++){
+                                
                                 var lap = new THREE.Mesh(geometry_lap, prod);                 
-                                lap.position.set(-13.9* V_ANT + y * 0.42 * V_ANT + y * 0.065 * V_ANT, 1.1* V_ANT + 0.01 * V_ANT + x *0.021 * V_ANT , -0.5* V_ANT );
+                                lap.position.set(-13.9* V_ANT + y * 0.42 * V_ANT + y * 0.065 * V_ANT, 1.1* V_ANT + 0.01 * V_ANT , -0.5* V_ANT );
+                               
+                                scene.add(lap);
+                            }
+                            
+                            for (var y = 5; y<10; y++){
+                                geometry_lap.y = 0.01 *V_ANT;
+                                var lap = new THREE.Mesh(geometry_lap, prod);                 
+                                lap.position.set(-13.9* V_ANT + y * 0.42 * V_ANT + y * 0.065 * V_ANT, 1.1* V_ANT + 0.01 * V_ANT + 0.021 * V_ANT , -0.5 * V_ANT );
                                 objects_lap.push(lap);
                                 scene.add(lap);
                             }
-                        }
+                            
                         
                     //IMac 27 Zoll
                     
@@ -2064,16 +2072,19 @@ and open the template in the editor.
                         var raycaster = new THREE.Raycaster();
                         var mouse = new THREE.Vector2();
                         
-                        /*function onMouseClick(e){
+                        function onMouseClick(e){
                           e.preventDefault();
                           raycaster.setFromCamera(mouse, camera);
                           
                           var intersects = raycaster.intersectObjects(objects_lap, true);
                           for( var i = 0; i<intersects.length; i++){
-                              intersects[i].object.rotation.x = Math.PI/2;
+                              intersects[i].object.rotation.x = Math.PI/3;
+                              intersects[i].object.position.y += 0.03 * V_ANT;
+                              intersects[i].object.position.z -= 0.1 * V_ANT;
+                              
                           }
                           
-                        }*/
+                        }
                         
                         function onMouseOver(e){
                             
@@ -2138,7 +2149,7 @@ and open the template in the editor.
                     
                     window.addEventListener('onmouseover', onMouseOver, false);
                     window.requestAnimationFrame(render);
-                    //window.addEventListener('onclick', onMouseClick, true);
+                    window.addEventListener('click', onMouseClick, true);
                 }
                     
                     window.onload = init;
