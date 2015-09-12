@@ -48,8 +48,9 @@ and open the template in the editor.
 			var renderer = new THREE.WebGLRenderer({canvas:canv});
 			renderer.setSize( w,h );
                         var objects = [];
+                        var objects_lap = []; 
                         renderer.setClearColor(new THREE.Color(0xeeeeee), 1 );
-                        var camera = new THREE.PerspectiveCamera( 30, w/h, 0.1, 1000 );
+                        var camera = new THREE.PerspectiveCamera( 60, w/h, 0.1, 1000 );
                        // var camera = new THREE.OrtographicCamera(w/-2,w/2,h/2,h/-2,1,1000);
 			document.body.appendChild( renderer.domElement );
 
@@ -236,7 +237,9 @@ and open the template in the editor.
                             for (var y = 0; y<5; y++){
                                 var lap = new THREE.Mesh(geometry_lap, prod); 
                                 lap.position.set(-13.9* V_ANT + y * 0.42 * V_ANT + y * 0.05 * V_ANT, 1.1* V_ANT + 0.01 * V_ANT + x *0.021 * V_ANT , -0.5* V_ANT );
+                                
                                 scene.add(lap);
+                                
                             }
                         }
                         geometry_lap = new THREE.CubeGeometry(0.41 * V_ANT, 0.02 * V_ANT, 0.27 * V_ANT);
@@ -245,6 +248,7 @@ and open the template in the editor.
                                 geometry_lap.y = 0.01 * x * V_ANT;
                                 var lap = new THREE.Mesh(geometry_lap, prod);                 
                                 lap.position.set(-13.9* V_ANT + y * 0.42 * V_ANT + y * 0.065 * V_ANT, 1.1* V_ANT + 0.01 * V_ANT + x *0.021 * V_ANT , -0.5* V_ANT );
+                                objects_lap.push(lap);
                                 scene.add(lap);
                             }
                         }
@@ -2060,28 +2064,34 @@ and open the template in the editor.
                         var raycaster = new THREE.Raycaster();
                         var mouse = new THREE.Vector2();
                         
-                        function onMouseMove(e){
+                        /*function onMouseClick(e){
+                          e.preventDefault();
+                          raycaster.setFromCamera(mouse, camera);
+                          
+                          var intersects = raycaster.intersectObjects(objects_lap, true);
+                          for( var i = 0; i<intersects.length; i++){
+                              intersects[i].object.rotation.x = Math.PI/2;
+                          }
+                          
+                        }*/
+                        
+                        function onMouseOver(e){
                             
                             e.preventDefault();
                             raycaster.setFromCamera(mouse, camera);
-                         
-                            var intersects = raycaster.intersectObjects(objects, true);
+                            var vector = new THREE.Vector3((e.clientX/w) * 2 - 1, -(e.clientY/h) * 2+1, 0.5);
+                            var ray = new THREE.Ray(camera.position, vector.subSelf(camera.position).normalize());
+                            
+                            var intersects = ray.intersectObjects(objects, true);
                          
                             for( var i = 0; i<intersects.length; i++){
-                                var map = intersects[i].object.name;
-                                var material = new THREE.SpriteMaterial({map: map, color: 0xffffff, fog: true)};
-                                var sprite = new THREE.Sprite(material);
-                                scene.add(sprite);
-                        }
-                           /* for( var i = 0; i<intersects.length; i++){
                                 console.log(intersects[i].object.name);
                             }
-                           */
+                            
+                           
                         }
                         
-                        function onMouseClick(){
-                            
-                        }
+                      
                         
                         var render = function () {
                      
@@ -2126,8 +2136,9 @@ and open the template in the editor.
                   
                     // RENDER ENDE
                     
-                    window.addEventListener('mousemove', onMouseMove, false);
+                    window.addEventListener('onmouseover', onMouseOver, false);
                     window.requestAnimationFrame(render);
+                    //window.addEventListener('onclick', onMouseClick, true);
                 }
                     
                     window.onload = init;
