@@ -50,7 +50,7 @@ and open the template in the editor.
                         var objects = [];
                         var objects_lap = []; 
                         renderer.setClearColor(new THREE.Color(0xeeeeee), 1 );
-                        var camera = new THREE.PerspectiveCamera( 45, w/h, 0.1, 1000 );
+                        var camera = new THREE.PerspectiveCamera( 50, w/h, 0.01, 1000 );
                        // var camera = new THREE.OrtographicCamera(w/-2,w/2,h/2,h/-2,1,1000);
 			document.body.appendChild( renderer.domElement );
 
@@ -2042,17 +2042,21 @@ and open the template in the editor.
                             
                     // ENDE Licht
 
-                    //First Person Camera
-                    
+                    //First Person Camera + Wahrnemung
+                        geometry = new THREE.CubeGeometry(0.02 * V_ANT, 1.8 * V_ANT, 0.02 * V_ANT);
+                        var masstab_color = new THREE.MeshLambertMaterial({color: 0x228B22});
+                        var mass = new THREE.Mesh(geometry, masstab_color);
+                        mass.position.set(0.5 * V_ANT, 0.9 * V_ANT, 0.15 * V_ANT);
+                        scene.add(mass);
                         var control = new THREE.FirstPersonControls(camera);
                      
-                        control.movementSpeed = 40;
+                        control.movementSpeed = 20;
                         control.lookSpeed = 0.1;
                         control.lookVertical = true;
                         camera.aspect = w/h;
                         camera.position.y = 1.8 * V_ANT;
                        // camera.rotation.x = Math.PI/2;
-                        camera.position.y = 5;
+                       
                        // camera.position.x = 11 * V_ANT;
                        // camera.position.z = 9.5 * V_ANT;
                         camera.updateProjectionMatrix();
@@ -2113,10 +2117,13 @@ and open the template in the editor.
                         var render = function () {
                      
                         
-                        //if (camera.position.y != 1.8 * V_ANT)
-                         //  camera.position.y = 1.8 * V_ANT;
+                        if (camera.position.y != 1.8 * V_ANT)
+                           camera.position.y = 1.8 * V_ANT;
                           
-                          
+                         if (camera.rotation.y === -Math.PI/4 && camera.rotation.y === -(Math.PI/4) * 3){
+                              mass.position.set(camera.position.x + 0.5 *V_ANT, 0.9 * V_ANT, camera.position.z + 0.15 * V_ANT);
+                          }
+                          mass.position.set(camera.position.x + 0.5 *V_ANT, 0.9 * V_ANT, camera.position.z + 0.15*V_ANT);
                           //tk Drehung
                           tk_dreh.rotation.y += 0.001;
                           tk_dreh_2.rotation.y -= 0.001;
