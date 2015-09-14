@@ -2135,16 +2135,14 @@ and open the template in the editor.
                        //if (camera.position.y != 1.8 * V_ANT)
                        //    camera.position.y = 1.8 * V_ANT;
                           
-                        // if (camera.rotation.y === -Math.PI/4 && camera.rotation.y === -(Math.PI/4) * 3){
-                        //      mass.position.set(camera.position.x + 0.5 *V_ANT, 0.9 * V_ANT, camera.position.z + 0.15 * V_ANT);
-                        //  }
-                        //  mass.position.set(camera.position.x + 0.5 *V_ANT, 0.9 * V_ANT, camera.position.z + 0.15*V_ANT);
+                          
+                          //mass.position.set(camera.position.x + 0.5 *V_ANT, 0.9 * V_ANT, camera.position.z + 0.15*V_ANT);
                           //tk Drehung
                           tk_dreh.rotation.y += 0.001;
                           tk_dreh_2.rotation.y -= 0.001;
                           tk_zub.rotation.y += 0.001;
                           
-                          
+                          console.log(mass.matrix.xAxis);
                           //schranke
                           
                             if(camera.position.x>=30 && camera.position.x <=36 && camera.position.z >= 30 && camera.position.z <=36){
